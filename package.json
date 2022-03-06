@@ -11,13 +11,16 @@
     "postinstall": "turbo postinstall"
   },
   "dependencies": {
+    "dotenv": "^16.0.0",
+    "express": "^4.17.1",
+    "mysql2": "^2.3.3",
     "turbo360": "^1.8.69",
-    "vertex360": "^0.30.39",
-    "express": "^4.17.1"
+    "vertex360": "^0.30.39"
   },
   "devDependencies": {
     "nodemon": "^2.0.2",
-    "rimraf": "^2.6.2"
+    "rimraf": "^2.6.2",
+    "turbo": "^1.1.4"
   },
   "format": "vertex"
 }
