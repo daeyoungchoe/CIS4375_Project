@@ -15,5 +15,12 @@ router.get('/service', (req, res, next) => {
 
 })
 
+router.get('/login-register', (req, res, next) => {
+    // const data = req.context
+
+    res.render('login-register', req.context)
+
+})
+
 
 module.exports = router
