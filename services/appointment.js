@@ -1,4 +1,3 @@
-const { app } = require('vertex360/dist/vertex/local');
 const db = require('./db');
 
 async function create(appointment){

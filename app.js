@@ -1,3 +1,4 @@
+const vertex = require('vertex360')({ site_id: process.env.TURBO_APP_ID })
 const express = require("express");
 const app = express();
 const port = 3000;
@@ -7,6 +8,17 @@ const loginsRouter = require("./routes/logins");
 const trainersRouter = require("./routes/trainers");
 const appointmentRouter = require("./routes/appointment");
 const feedbackRouter = require("./routes/feedback");
+const config = {
+  views: 'views', // Set views directory
+  static: 'public', // Set static assets directory
+  logging: true,
+
+}
+
+vertex.configureApp(app, config)
+
+const main = require('./routes/main')
+app.use('/', main)
 
 app.use(express.json());
 
@@ -15,10 +27,6 @@ app.use(
     extended: true,
   })
 );
-
-app.get("/", (req, res) => {
-  res.json({ message: "ok" });
-});
 
 app.use("/clients", clientsRouter);
 
@@ -43,3 +51,6 @@ app.use((err, req, res, next) => {
 app.listen(port, () => {
   console.log(`phezeke app listening at http://localhost:${port}`);
 });
+
+
+module.exports = app
