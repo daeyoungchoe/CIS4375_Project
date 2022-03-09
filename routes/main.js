@@ -15,5 +15,26 @@ router.get('/service', (req, res, next) => {
 
 })
 
+router.get('/register', (req, res, next) => {
+    // const data = req.context
+
+    res.render('register', req.context)
+
+})
+
+router.get('/login', (req, res, next) => {
+    // const data = req.context
+
+    res.render('login', req.context)
+
+})
+
+router.get('/management/client', (req, res, next) => {
+    // const data = req.context
+
+    res.render('client', req.context)
+
+})
+
 
 module.exports = router
