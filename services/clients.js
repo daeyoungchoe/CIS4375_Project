@@ -20,9 +20,9 @@ async function getMultiple(page = 1){
 async function create(client){
   const result = await db.query(
     `INSERT INTO client 
-    (UserID, ClientFirstName, ClientLastName, ClientPhone, ClientEmail, EmergencyContactFirstName, EmergencyContactLastName, EmergencyContactPhone, RegistrationDate, Weight, Height, ClientStatusID, ClientAddress) 
+    (UserID, ClientFirstName, ClientLastName, ClientPhone, ClientEmail, ClientAddress, EmergencyContactFirstName, EmergencyContactLastName, EmergencyContactPhone, RegistrationDate, Weight, Height, ClientStatusID, ClientZIP) 
     VALUES 
-    (${client.UserID}, ${client.ClientFirstName}, ${client.ClientLastName}, ${client.ClientPhone}, ${client.ClientEmail}, ${client.EmergencyContactFirstName}, ${client.EmergencyContactLastName}, ${client.EmergencyContactPhone}, ${client.RegistrationDate}, ${client.Weight}, ${client.Height}, ${client.ClientStatusID}, ${client.ClientAddress})`
+    (${client.UserID}, ${client.ClientFirstName}, ${client.ClientLastName}, ${client.ClientPhone}, ${client.ClientEmail}, ${client.ClientAddress}, ${client.EmergencyContactFirstName}, ${client.EmergencyContactLastName}, ${client.EmergencyContactPhone}, ${client.RegistrationDate}, ${client.Weight}, ${client.Height}, ${client.ClientStatusID}, ${client.ClientZIP})`
   );
 
   let message = 'Error in creating Client';
