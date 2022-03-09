@@ -4,6 +4,7 @@ const clients = require('../services/clients');
 const activeClients = require('../services/activeClients');
 const inactiveClients = require('../services/inactiveClients');
 const clientPerformance = require('../services/clientPerformance');
+const clientsZip = require('../services/clientsZip');
 
 //get code for clients
 router.get('/', async function(req, res, next) {
@@ -39,6 +40,16 @@ router.get('/inactive', async function(req, res, next) {
 router.get('/performance', async function(req, res, next) {
   try {
     res.json(await clientPerformance.getMultiple(req.query.page));
+  } catch (err) {
+    console.error(`Error while getting client performance `, err.message);
+    next(err);
+  }
+});
+
+//get code for clients by Zip Code
+router.get('/zipcode', async function(req, res, next) {
+  try {
+    res.json(await clientsZip.getMultiple(req.query.page));
   } catch (err) {
     console.error(`Error while getting client performance `, err.message);
     next(err);
