@@ -24,12 +24,22 @@ router.get('/trainer/:id', async function(req, res, next) {
   }
 });
 
-//post new user
+//post new appointment
 router.post('/', async function(req, res, next) {
     try {
       res.json(await appointment.create(req.body));
     } catch (err) {
       console.error(`Error while creating new appointment`, err.message);
+      next(err);
+    }
+  });
+
+  //put (update) appointment
+  router.put('/notes/:id', async function(req, res, next) {
+    try {
+      res.json(await appointment.update(req.params.id, req.body));
+    } catch (err) {
+      console.error(`Error while updating appointment`, err.message);
       next(err);
     }
   });

@@ -66,4 +66,15 @@ router.post('/', async function(req, res, next) {
   }
 });
 
+//put (update) client
+router.put('/update/:id', async function(req, res, next) {
+  try {
+    res.json(await clients.update(req.params.id, req.body));
+  } catch (err) {
+    console.error(`Error while updating appointment`, err.message);
+    next(err);
+  }
+});
+
+
 module.exports = router;

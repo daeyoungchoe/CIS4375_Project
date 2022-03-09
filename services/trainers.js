@@ -17,6 +17,25 @@ async function create(trainer){
     return {message};
   }
 
+  async function update(id, trainer){
+    const result = await db.query(
+      `UPDATE client
+    SET TrainerFirstName = "${trainer.TrainerFirstName}", TrainerLastName = "${trainer.TrainerLastName}" , TrainerPhone = "${trainer.TrainerPhone}", TrainerEmail = "${trainer.TrainerEmail}", 
+    TrainerAddress = "${trainer.TrainerAddress}", EmergencyContactFirstName = "${trainer.EmergencyContactFirstName}", EmergencyContactLastName = "${trainer.EmergencyContactLastName}", 
+    EmergencyContactPhone = "${trainer.EmergencyContactPhone}", Weight = "${trainer.Weight}", Height = "${trainer.Height}", TrainerStatusID = "${trainer.TrainerStatusID}""
+    WHERE TrainerID=${id}`  
+    );
+  
+    let message = 'Error in updating trainer';
+  
+    if (result.affectedRows) {
+      message = 'Trainer updated successfully';
+    }
+  
+    return {message};
+  }
+
 module.exports = {
-  create
+  create,
+  update
 }
