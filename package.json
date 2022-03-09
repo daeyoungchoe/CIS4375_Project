@@ -11,9 +11,12 @@
     "postinstall": "turbo postinstall"
   },
   "dependencies": {
+    "dotenv": "^16.0.0",
+    "express": "^4.17.1",
+    "mysql2": "^2.3.3",
+    "turbo-cli": "^0.39.6",
     "turbo360": "^1.8.69",
-    "vertex360": "^0.30.39",
-    "express": "^4.17.1"
+    "vertex360": "^0.30.39"
   },
   "devDependencies": {
     "nodemon": "^2.0.2",

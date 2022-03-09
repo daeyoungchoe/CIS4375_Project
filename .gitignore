@@ -1,5 +1,2 @@
-/node_modules/
-.env
-.DS_Store
-package-lock.json
-.turbo-deploy
+# Ignore node_modules folder
+node_modules

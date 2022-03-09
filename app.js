@@ -1,36 +1,56 @@
-// Full Documentation - https://docs.turbo360.co
 const vertex = require('vertex360')({ site_id: process.env.TURBO_APP_ID })
-const express = require('express')
-
-const app = express() // initialize app
-
-/*  Apps are configured with settings as shown in the conig object below.
-    Options include setting views directory, static assets directory,
-    and database settings. Default config settings can be seen here:
-    https://docs.turbo360.co */
-
+const express = require("express");
+const app = express();
+const port = 3000;
+const clientsRouter = require("./routes/clients");
+const usersRouter = require("./routes/users");
+const loginsRouter = require("./routes/logins");
+const trainersRouter = require("./routes/trainers");
+const appointmentRouter = require("./routes/appointment");
+const feedbackRouter = require("./routes/feedback");
 const config = {
   views: 'views', // Set views directory
   static: 'public', // Set static assets directory
   logging: true,
 
-  /*  To use the Turbo 360 CMS, from the terminal run
-      $ turbo extend cms
-      then uncomment line 21 below: */
-
-  // db: vertex.nedb()
 }
 
 vertex.configureApp(app, config)
 
 const main = require('./routes/main')
 app.use('/', main)
-// import routes
-//const index = require('./routes/index')
-//const api = require('./routes/api') // sample API Routes
 
-// set routes
-//app.use('/', index)
-//app.use('/api', api) // sample API Routes
+app.use(express.json());
+
+app.use(
+  express.urlencoded({
+    extended: true,
+  })
+);
+
+app.use("/clients", clientsRouter);
+
+app.use("/users", usersRouter);
+
+app.use("/logins", loginsRouter);
+
+app.use("/trainers", trainersRouter);
+
+app.use("/appointment", appointmentRouter);
+
+app.use("/feedback", feedbackRouter);
+
+/* Error handler middleware */
+app.use((err, req, res, next) => {
+  const statusCode = err.statusCode || 500;
+  console.error(err.message, err.stack);
+  res.status(statusCode).json({ message: err.message });
+  return;
+});
+
+app.listen(port, () => {
+  console.log(`phezeke app listening at http://localhost:${port}`);
+});
+
 
 module.exports = app
