@@ -29,12 +29,18 @@ router.get('/login', (req, res, next) => {
 
 })
 
-router.get('/management/client', (req, res, next) => {
+router.get('/client', (req, res, next) => {
     // const data = req.context
 
     res.render('client', req.context)
 
 })
+
+router.get("/client-booking", (req, res, next) => {
+  // const data = req.context
+
+  res.render("client-booking", req.context);
+});
 
 
 module.exports = router
