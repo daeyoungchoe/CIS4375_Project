@@ -36,5 +36,11 @@ router.get('/client', (req, res, next) => {
 
 })
 
+router.get("/client-booking", (req, res, next) => {
+  // const data = req.context
+
+  res.render("client-booking", req.context);
+});
+
 
 module.exports = router
