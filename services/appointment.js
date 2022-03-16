@@ -17,6 +17,23 @@ async function create(appointment){
     return {message};
   }
 
+  async function update(id, appointment){
+    const result = await db.query(
+      `UPDATE appointment
+      SET Notes = "${appointment.Notes}"
+      WHERE AppointmentID = ${id}` 
+    );
+  
+    let message = 'Error in updating appointment';
+  
+    if (result.affectedRows) {
+      message = 'Appointment updated successfully';
+    }
+  
+    return {message};
+  }
+
 module.exports = {
-  create
+  create,
+  update
 }

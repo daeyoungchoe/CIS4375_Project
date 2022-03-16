@@ -34,8 +34,27 @@ async function create(client){
   return {message};
 }
 
+async function update(id, client){
+  const result = await db.query(
+    `UPDATE client
+    SET ClientFirstName = "${client.ClientFirstName}", ClientLastName = "${client.ClientLastName}" , ClientPhone = "${client.ClientPhone}", ClientEmail = "${client.ClientEmail}", 
+    ClientAddress = "${client.ClientAddress}", EmergencyContactFirstName = "${client.EmergencyContactFirstName}", EmergencyContactLastName = "${client.EmergencyContactLastName}", 
+    EmergencyContactPhone = "${client.EmergencyContactPhone}", Weight = "${client.Weight}", Height = "${client.Height}", ClientStatusID = "${client.ClientStatusID}", ClientZIP = "${client.ClientZIP}"
+    WHERE ClientID=${id}` 
+  );
+
+  let message = 'Error in updating client';
+
+  if (result.affectedRows) {
+    message = 'Client updated successfully';
+  }
+
+  return {message};
+}
+
 module.exports = {
   getMultiple,
-  create
+  create,
+  update
 }
 

@@ -4,6 +4,7 @@ const clients = require('../services/clients');
 const activeClients = require('../services/activeClients');
 const inactiveClients = require('../services/inactiveClients');
 const clientPerformance = require('../services/clientPerformance');
+const clientsZip = require('../services/clientsZip');
 
 //get code for clients
 router.get('/', async function(req, res, next) {
@@ -45,6 +46,16 @@ router.get('/performance', async function(req, res, next) {
   }
 });
 
+//get code for clients by Zip Code
+router.get('/zipcode', async function(req, res, next) {
+  try {
+    res.json(await clientsZip.getMultiple(req.query.page));
+  } catch (err) {
+    console.error(`Error while getting client performance `, err.message);
+    next(err);
+  }
+});
+
 //Post code for new client
 router.post('/', async function(req, res, next) {
   try {
@@ -54,5 +65,16 @@ router.post('/', async function(req, res, next) {
     next(err);
   }
 });
+
+//put (update) client
+router.put('/update/:id', async function(req, res, next) {
+  try {
+    res.json(await clients.update(req.params.id, req.body));
+  } catch (err) {
+    console.error(`Error while updating appointment`, err.message);
+    next(err);
+  }
+});
+
 
 module.exports = router;
