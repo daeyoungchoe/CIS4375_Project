@@ -42,5 +42,16 @@ router.get("/client-booking", (req, res, next) => {
   res.render("client-booking", req.context);
 });
 
+router.get("/admin", (req, res, next) => {
+  // const data = req.context
+
+  res.render("admin", req.context);
+});
+
+router.get("/add-client", (req, res, next) => {
+  // const data = req.context
+
+  res.render("add-client", req.context);
+});
 
 module.exports = router
