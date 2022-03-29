@@ -24,7 +24,7 @@
       </div>
 
             <div class="form-group">
-        <label for="trainerEmail">Last Name</label>
+        <label for="trainerEmail">Email</label>
         <input
           class="form-control"
           id="trainerEmail"
@@ -35,7 +35,7 @@
       </div>
 
             <div class="form-group">
-        <label for="trainerPhone">Last Name</label>
+        <label for="trainerPhone">Phone</label>
         <input
           class="form-control"
           id="trainerPhone"
@@ -46,7 +46,7 @@
       </div>
 
             <div class="form-group">
-        <label for="trainerAddress">Last Name</label>
+        <label for="trainerAddress">Address</label>
         <input
           class="form-control"
           id="trainerAddress"

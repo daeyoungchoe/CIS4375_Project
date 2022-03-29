@@ -2,17 +2,17 @@ import { createWebHistory, createRouter } from "vue-router";
 const routes =  [
   {
     path: "/",
-    alias: "/trainers",
+    alias: "/trainerlist",
     name: "get trainer",
     component: () => import("./components/TrainerList")
   },
   {
-    path: "/trainers/:id",
+    path: "/edittrainers/:id",
     name: "update trainer",
     component: () => import("./components/EditTrainer")
   },
   {
-    path: "/trainer",
+    path: "/addtrainer",
     name: "add trainer",
     component: () => import("./components/AddTrainer")
   }

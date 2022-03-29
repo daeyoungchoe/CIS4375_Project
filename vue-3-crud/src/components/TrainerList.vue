@@ -32,7 +32,7 @@
         <div>
           <label><strong>Address:</strong></label> {{ currentTrainer.trainerAddress }}
         </div>
-        <router-link :to="'/trainers/' + currentTrainer.id" class="badge badge-warning">Edit</router-link>
+        <router-link :to="'/edittrainers/' + currentTrainer.id" class="badge badge-warning">Edit</router-link>
       </div>
       <div v-else>
         <br />
