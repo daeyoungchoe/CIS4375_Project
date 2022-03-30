@@ -15,6 +15,11 @@ const routes =  [
     path: "/addtrainer",
     name: "add trainer",
     component: () => import("./components/AddTrainer")
+  },
+  {
+    path: "/addUser",
+    name: "Add User",
+    component: () => import('./components/addUser')
   }
 ];
 const router = createRouter({
