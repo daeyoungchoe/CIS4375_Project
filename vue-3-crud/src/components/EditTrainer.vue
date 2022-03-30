@@ -3,33 +3,33 @@
     <h4>Trainer</h4>
     <form>
       <div class="form-group">
-        <label for="TrainerFirstName">First Name</label>
-        <input type="text" class="form-control" id="TrainerFirstName"
-          v-model="currentTrainer.TrainerFirstName"
+        <label for="trainerFirstName">First Name</label>
+        <input type="text" class="form-control" id="trainerFirstName"
+          v-model="currentTrainer.trainerFirstName"
         />
       </div>
       <div class="form-group">
-        <label for="TrainerLastName">Last Name</label>
-        <input type="text" class="form-control" id="TrainerLastName"
+        <label for="trainerLastName">Last Name</label>
+        <input type="text" class="form-control" id="trainerLastName"
           v-model="currentTrainer.TrainerLastName"
         />
       </div>
       <div class="form-group">
         <label for="trainerEmail">Email</label>
         <input type="text" class="form-control" id="Email"
-          v-model="currentTrainer.TrainerEmail"
+          v-model="currentTrainer.trainerEmail"
         />
         </div>
               <div class="form-group">
-        <label for="TrainerEmail">Phone</label>
+        <label for="trainerEmail">Phone</label>
         <input type="text" class="form-control" id="Phone"
-          v-model="currentTrainer.TrainerPhone"
+          v-model="currentTrainer.trainerPhone"
         />
         </div>
               <div class="form-group">
-        <label for="TrainerAddress">Address</label>
+        <label for="trainerAddress">Address</label>
         <input type="text" class="form-control" id="Address"
-          v-model="currentTrainer.TrainerAddress"
+          v-model="currentTrainer.trainerAddress"
         />
         </div>
     </form>
