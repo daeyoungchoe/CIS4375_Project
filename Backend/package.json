@@ -1,19 +1,16 @@
 {
-  "name": "backend",
+  "name": "phyzekebackend",
   "version": "1.0.0",
-  "description": "",
-  "type": "module",
-  "main": "index.js",
+  "description": "MEVN Full stack",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "author": "CIS 4375 Group 3",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.19.2",
     "cors": "^2.8.5",
     "express": "^4.17.3",
-    "mysql2": "^2.3.3"
+    "mysql": "^2.18.1"
   }
 }
