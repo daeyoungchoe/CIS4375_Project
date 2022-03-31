@@ -1,17 +1,12 @@
 module.exports = app => {
-    const trainers = require("../controllers/trainer.controller.js");
+    const trainer = require("../controllers/trainer.controller.js");
     var router = require("express").Router();
-    // Create a new Trainer
-    router.post("/", trainers.create);
-    // Retrieve all Trainers
-    router.get("/", trainers.findAll);
-    // Retrieve a single Trainer with id
-    router.get("/:id", trainers.findOne);
-    // Update a Trainer with id
-    router.put("/:id", trainers.update);
-    // Delete a Trainer with id
-    router.delete("/:id", trainers.delete);
-    // Delete all Trainers
-    router.delete("/", trainers.deleteAll);
-    app.use('/api/trainers', router);
+    // Create a new trainer
+    router.post("/", trainer.create);
+    // Retrieve all trainer
+    router.get("/", trainer.findAll);
+    // Update a trainer with id
+    router.put("/:id", trainer.update);
+
+    app.use('/api/trainer', router);
   };
