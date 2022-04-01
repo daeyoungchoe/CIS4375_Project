@@ -12,6 +12,7 @@
           <li class="nav-item">
           <router-link to="/addClient" class="nav-link">Add Client</router-link>
         </li>
+        
       </div>
     </nav>
     <div class="container mt-3">

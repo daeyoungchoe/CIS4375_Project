@@ -30,7 +30,7 @@ exports.findAll = (req, res) => {
     .catch((err) => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while retrieving Trainers.",
+          err.message || "Some error occurred while retrieving Logins.",
       });
     });
 };
@@ -50,7 +50,7 @@ exports.findOne = (req, res) => {
       })
       .catch((err) => {
         res.status(500).send({
-          message: "Error retrieving Login with id=" + LoginID,
+          message: "Error retrieving Login with id=" + LoginID
         });
       });
   };
@@ -60,7 +60,7 @@ exports.update = (req, res) => {
   exports.update = (req, res) => {
     const LoginID = req.params.LoginID;
     Login.update(req.body, {
-      where: { LoginID: LoginID },
+      where: { LoginID: LoginID }
     })
       .then((num) => {
         if (num == 1) {
@@ -75,7 +75,7 @@ exports.update = (req, res) => {
       })
       .catch((err) => {
         res.status(500).send({
-          message: "Error updating Login with id=" + LoginID,
+          message: "Error updating Login with id=" + LoginID
         });
       });
   };
@@ -90,17 +90,17 @@ exports.delete = (req, res) => {
       .then((num) => {
         if (num == 1) {
           res.send({
-            message: "Login was deleted successfully!",
+            message: "Login was deleted successfully!"
           });
         } else {
           res.send({
-            message: `Cannot delete Login with id=${LoginID}. Maybe Login was not found!`,
+            message: `Cannot delete Login with id=${LoginID}. Maybe Login was not found!`
           });
         }
       })
       .catch((err) => {
         res.status(500).send({
-          message: "Could not delete Login with id=" + LoginID,
+          message: "Could not delete Login with id=" + LoginID
         });
       });
   };
@@ -117,7 +117,7 @@ exports.deleteAll = (req, res) => {
     .catch((err) => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while removing all trainers.",
+          err.message || "Some error occurred while removing all trainers."
       });
     });
 };
