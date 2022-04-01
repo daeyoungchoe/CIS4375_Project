@@ -116,7 +116,7 @@ exports.delete = (req, res) => {
 };
 // Delete all Clients from the database.
 exports.deleteAll = (req, res) => {
-    Tutorial.destroy({
+    Client.destroy({
         where: {},
         truncate: false
       })

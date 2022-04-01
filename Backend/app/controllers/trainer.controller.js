@@ -114,7 +114,7 @@ exports.delete = (req, res) => {
 };
 // Delete all Trainers from the database.
 exports.deleteAll = (req, res) => {
-    Tutorial.destroy({
+    Trainer.destroy({
         where: {},
         truncate: false
       })

@@ -16,6 +16,7 @@ db.sequelize.sync();
 
 require("./app/routes/trainer.routes")(app);
 require("./app/routes/client.routes")(app);
+require("./app/routes/login.routes")(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 3000;
