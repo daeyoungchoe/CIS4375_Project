@@ -4,6 +4,9 @@
       <router-link to="/" class="navbar-brand">Phyzeke</router-link>
       <div class="navbar-nav mr-auto">
         <li class="nav-item">
+          <router-link to="/service" class="nav-link">Service</router-link>
+        </li>
+        <li class="nav-item">
           <router-link to="/trainers" class="nav-link">Trainers</router-link>
         </li>
         <li class="nav-item">
@@ -12,7 +15,12 @@
           <li class="nav-item">
           <router-link to="/addClient" class="nav-link">Add Client</router-link>
         </li>
-        
+        <li class="nav-item">
+          <router-link to="/addLogin" class="nav-link">Register</router-link>
+        </li>
+        <li class="nav-item">
+          <router-link to="/add" class="nav-link">Login</router-link>
+        </li>
       </div>
     </nav>
     <div class="container mt-3">
