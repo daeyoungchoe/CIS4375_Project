@@ -9,4 +9,5 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 db.trainer = require("./trainer.js")(sequelize, Sequelize);
+db.client = require("./client.js")(sequelize, Sequelize);
 module.exports = db;

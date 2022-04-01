@@ -91,8 +91,8 @@ export default {
     };
   },
   methods: {
-    getTrainer(id) {
-      TrainerDataService.get(id)
+    getTrainer(TrainerID) {
+      TrainerDataService.get(TrainerID)
         .then(response => {
           this.currentTrainer = response.data;
           console.log(response.data);
@@ -101,31 +101,8 @@ export default {
           console.log(e);
         });
     },
-    updatePublished(status) {
-      var data = {
-        id: this.currentTrainer.id,
-        TrainerFirstName: this.currentTrainer.TrainerFirstName,
-        TrainerLastName: this.currentTrainer.TrainerLastName,
-        TrainerPhone: this.currentTrainer.TrainerPhone,
-        TrainerEmail: this.currentTrainer.TrainerEmail,
-        TrainerAddress: this.currentTrainer.TrainerAddress,
-        EmergencyContactFirstName: this.currentTrainer.EmergencyContactFirstName,
-        EmergencyContactLastName: this.currentTrainer.EmergencyContactLastName,
-        EmergencyContactPhone: this.currentTrainer.EmergencyContactPhone,
-        published: status
-      };
-      TrainerDataService.update(this.currentTrainer.id, data)
-        .then(response => {
-          console.log(response.data);
-          this.currentTrainer.published = status;
-          this.message = 'The status was updated successfully!';
-        })
-        .catch(e => {
-          console.log(e);
-        });
-    },
     updateTrainer() {
-      TrainerDataService.update(this.currentTrainer.id, this.currentTrainer)
+      TrainerDataService.update(this.currentTrainer.TrainerID, this.currentTrainer)
         .then(response => {
           console.log(response.data);
           this.message = 'The trainer was updated successfully!';
@@ -135,7 +112,7 @@ export default {
         });
     },
     deleteTrainer() {
-      TrainerDataService.delete(this.currentTrainer.id)
+      TrainerDataService.delete(this.currentTrainer.TrainerID)
         .then(response => {
           console.log(response.data);
           this.$router.push({ name: "trainers" });
@@ -147,7 +124,7 @@ export default {
   },
   mounted() {
     this.message = '';
-    this.getTrainer(this.$route.params.id);
+    this.getTrainer(this.$route.params.TrainerID);
   }
 };
 </script>

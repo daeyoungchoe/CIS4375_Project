@@ -3,23 +3,23 @@ class TrainerDataService {
   getAll() {
     return http.get("/trainers");
   }
-  get(id) {
-    return http.get(`/trainers/${id}`);
+  get(TrainerID) {
+    return http.get(`/trainers/${TrainerID}`);
   }
   create(data) {
     return http.post("/trainers", data);
   }
-  update(id, data) {
-    return http.put(`/trainers/${id}`, data);
+  update(TrainerID, data) {
+    return http.put(`/trainers/${TrainerID}`, data);
   }
-  delete(id) {
-    return http.delete(`/trainers/${id}`);
+  delete(TrainerID) {
+    return http.delete(`/trainers/${TrainerID}`);
   }
   deleteAll() {
     return http.delete(`/trainers`);
   }
-  findByTrainerFIrstName(TrainerFirstName) {
-    return http.get(`/tutorials?TrainerFirstName=${TrainerFirstName}`);
+  findByTrainerFirstName(TrainerFirstName) {
+    return http.get(`/trainers?TrainerFirstName=${TrainerFirstName}`);
   }
 }
 export default new TrainerDataService();

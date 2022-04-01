@@ -6,11 +6,11 @@ module.exports = app => {
     // Retrieve all Trainers
     router.get("/", trainers.findAll);
     // Retrieve a single Trainer with id
-    router.get("/:id", trainers.findOne);
+    router.get("/:TrainerID", trainers.findOne);
     // Update a Trainer with id
-    router.put("/:id", trainers.update);
+    router.put("/:TrainerID", trainers.update);
     // Delete a Trainer with id
-    router.delete("/:id", trainers.delete);
+    router.delete("/:TrainerID", trainers.delete);
     // Delete all Trainers
     router.delete("/", trainers.deleteAll);
     app.use('/api/trainers', router);

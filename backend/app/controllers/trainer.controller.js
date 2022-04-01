@@ -14,6 +14,7 @@ exports.create = (req, res) => {
     EmergencyContactLastName: req.body.EmergencyContactLastName,
     EmergencyContactPhone: req.body.EmergencyContactPhone
   };
+
   // Save trainer in the database
   Trainer.create(trainer)
     .then(data => {
@@ -26,6 +27,7 @@ exports.create = (req, res) => {
       });
     });
 };
+
 // Retrieve all Trainers from the database.
 exports.findAll = (req, res) => {
     Trainer.findAll()
@@ -39,23 +41,23 @@ exports.findAll = (req, res) => {
         });
       });
 };
-// Find a single Trainers with an id
+// Find a single Trainers with an TrainerID
 exports.findOne = (req, res) => {
     exports.findOne = (req, res) => {
-        const id = req.params.id;
-        Trainer.findByPk(id)
+        const TrainerID = req.params.id;
+        Trainer.findByPk(TrainerID)
           .then(data => {
             if (data) {
               res.send(data);
             } else {
               res.status(404).send({
-                message: `Cannot find Trainer with id=${id}.`
+                message: `Cannot find Trainer with id=${TrainerID}.`
               });
             }
           })
           .catch(err => {
             res.status(500).send({
-              message: "Error retrieving Trainer with id=" + id
+              message: "Error retrieving Trainer with id=" + TrainerID
             });
           });
       };
@@ -63,9 +65,9 @@ exports.findOne = (req, res) => {
 // Update a Trainers by the id in the request
 exports.update = (req, res) => {
     exports.update = (req, res) => {
-        const id = req.params.id;
+        const TrainerID = req.params.TrainerID;
         Trainer.update(req.body, {
-          where: { id: id }
+          where: { TrainerID: TrainerID }
         })
           .then(num => {
             if (num == 1) {
@@ -74,13 +76,13 @@ exports.update = (req, res) => {
               });
             } else {
               res.send({
-                message: `Cannot update Trainer with id=${id}. Maybe Trainer was not found or req.body is empty!`
+                message: `Cannot update Trainer with id=${TrainerID}. Maybe Trainer was not found or req.body is empty!`
               });
             }
           })
           .catch(err => {
             res.status(500).send({
-              message: "Error updating Trainer with id=" + id
+              message: "Error updating Trainer with id=" + TrainerID
             });
           });
       };
@@ -88,9 +90,9 @@ exports.update = (req, res) => {
 // Delete a Trainers with the specified id in the request
 exports.delete = (req, res) => {
     exports.delete = (req, res) => {
-        const id = req.params.id;
+        const TrainerID = req.params.TrainerID;
         Trainer.destroy({
-          where: { id: id }
+          where: { TrainerID: TrainerID }
         })
           .then(num => {
             if (num == 1) {
@@ -99,13 +101,13 @@ exports.delete = (req, res) => {
               });
             } else {
               res.send({
-                message: `Cannot delete Trainer with id=${id}. Maybe Trainer was not found!`
+                message: `Cannot delete Trainer with id=${TrainerID}. Maybe Trainer was not found!`
               });
             }
           })
           .catch(err => {
             res.status(500).send({
-              message: "Could not delete Trainer with id=" + id
+              message: "Could not delete Trainer with id=" + TrainerID
             });
           });
       };
