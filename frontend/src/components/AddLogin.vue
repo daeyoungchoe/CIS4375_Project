@@ -10,7 +10,7 @@
         <input class="form-control" id="Password" required v-model="login.Password" name="Password" />
       </div>
 
-      <button @click="saveLogin" class="btn btn-success">Signup</button>
+      <button @click="saveLogin" class="btn btn-success">Submit</button>
     </div>
     <div v-else>
       <h4>You submitted successfully!</h4>

@@ -24,7 +24,7 @@ const routes = [
   },
   {
     path: "/addClient",
-    name: "addClient",
+    name: "Register",
     component: () => import("./components/AddClient"),
   },
   {
