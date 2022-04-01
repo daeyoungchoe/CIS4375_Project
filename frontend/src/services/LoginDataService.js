@@ -15,8 +15,5 @@ class LoginDataService {
   delete(LoginID) {
     return http.delete(`/logins/${LoginID}`);
   }
-  deleteAll() {
-    return http.delete(`/logins`);
-  }
 }
 export default new LoginDataService();
