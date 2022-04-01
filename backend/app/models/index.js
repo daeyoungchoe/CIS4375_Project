@@ -10,4 +10,6 @@ db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 db.trainer = require("./trainer.js")(sequelize, Sequelize);
 db.client = require("./client.js")(sequelize, Sequelize);
+db.login = require("./login.js")(sequelize, Sequelize);
+
 module.exports = db;

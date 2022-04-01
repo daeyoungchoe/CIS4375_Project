@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   const Client = sequelize.define('client', {
     ClientID: {
       autoIncrement: true,
@@ -78,36 +78,35 @@ module.exports = function(sequelize, DataTypes) {
     sequelize,
     tableName: 'client',
     timestamps: false,
-    indexes: [
-      {
+    indexes: [{
         name: "PRIMARY",
         unique: true,
         using: "BTREE",
-        fields: [
-          { name: "ClientID" },
-        ]
+        fields: [{
+          name: "ClientID"
+        }, ]
       },
       {
         name: "ClientID_UNIQUE",
         unique: true,
         using: "BTREE",
-        fields: [
-          { name: "ClientID" },
-        ]
+        fields: [{
+          name: "ClientID"
+        }, ]
       },
       {
         name: "FK_clientstatus_client_ClientStatusID",
         using: "BTREE",
-        fields: [
-          { name: "ClientStatusID" },
-        ]
+        fields: [{
+          name: "ClientStatusID"
+        }, ]
       },
       {
         name: "FK_user_client_UserID",
         using: "BTREE",
-        fields: [
-          { name: "UserID" },
-        ]
+        fields: [{
+          name: "UserID"
+        }, ]
       },
     ]
   });

@@ -1,8 +1,6 @@
 const Sequelize = require("sequelize");
 module.exports = function (sequelize, DataTypes) {
-  const Login = sequelize.define(
-    'login',
-    {
+  const Login = sequelize.define('login', {
       LoginID: {
         autoIncrement: true,
         type: DataTypes.INTEGER,
@@ -25,22 +23,24 @@ module.exports = function (sequelize, DataTypes) {
         type: DataTypes.STRING(20),
         allowNull: false,
       },
-    },
-    {
+    }, {
       sequelize,
       tableName: "login",
       timestamps: false,
-      indexes: [
-        {
+      indexes: [{
           name: "PRIMARY",
           unique: true,
           using: "BTREE",
-          fields: [{ name: "LoginID" }],
+          fields: [{
+            name: "LoginID"
+          }],
         },
         {
           name: "FK_user_login_UserID",
           using: "BTREE",
-          fields: [{ name: "UserID" }],
+          fields: [{
+            name: "UserID"
+          }],
         },
       ],
     }
