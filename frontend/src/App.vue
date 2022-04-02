@@ -12,6 +12,9 @@
         <li class="nav-item">
           <router-link to="/addTrainer" class="nav-link">Add Trainer</router-link>
         </li>
+        <li class="nav-item">
+          <router-link to="/Clients" class="nav-link">Clients</router-link>
+        </li>
           <li class="nav-item">
           <router-link to="/addClient" class="nav-link">Add Client</router-link>
         </li>

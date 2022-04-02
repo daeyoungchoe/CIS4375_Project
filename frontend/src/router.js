@@ -23,6 +23,17 @@ const routes = [
     component: () => import("./components/AddTrainer"),
   },
   {
+    path: "/clients",
+    alias: "/clients",
+    name: "clients",
+    component: () => import("./components/ClientsList"),
+  },
+  {
+    path: "/clients/:id",
+    name: "client-details",
+    component: () => import("./components/Client"),
+  },
+  {
     path: "/addClient",
     name: "Register",
     component: () => import("./components/AddClient"),
