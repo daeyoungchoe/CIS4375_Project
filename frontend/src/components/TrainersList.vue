@@ -58,6 +58,8 @@
         </div>
    
         <router-link :to="'/trainers/' + currentTrainer.id" class="badge badge-warning">Edit</router-link>
+        &nbsp;
+        <router-link :to="'/trainers/' + currentTrainer.id" class="badge badge-danger">Delete</router-link>
       </div>
       <div v-else>
         <br />
