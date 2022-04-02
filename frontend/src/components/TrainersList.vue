@@ -58,8 +58,10 @@
         </div>
    
         <router-link :to="'/trainers/' + currentTrainer.id" class="badge badge-warning">Edit</router-link>
+        <!-- Space between buttons -->
         &nbsp;
         <router-link :to="'/trainers/' + currentTrainer.id" class="badge badge-danger">Delete</router-link>
+        
       </div>
       <div v-else>
         <br />
@@ -110,8 +112,18 @@ export default {
           console.log(e);
         });
     },
+    deleteTrainer() {
+      TrainerDataService.delete()
+        .then(response => {
+          console.log(response.data);
+          this.refreshList();
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    },
     
-    searchTrainerFIrstName() {
+    searchTrainerFirstName() {
       TrainerDataService.findByTrainerFirstName(this.TrainerFirstName)
         .then(response => {
           this.trainers = response.data;
