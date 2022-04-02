@@ -22,7 +22,7 @@
           :key="index"
           @click="setActiveClient(client, index)"
         >
-          {{ Client.ClientFirstName }}
+          {{ client.ClientFirstName }}
         </li>
       </ul>
       <button class="m-3 btn btn-sm btn-danger" @click="removeAllClients">
