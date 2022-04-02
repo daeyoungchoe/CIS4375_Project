@@ -48,19 +48,19 @@
           <label><strong>Trainer Address:</strong></label> {{ currentTrainer.TrainerAddress }}
         </div>
         <div>
-          <label><strong>Emergenc yContact First Name:</strong></label> {{ currentTrainer.EmergencyContactFirstName }}
+          <label><strong>Emergency Contact First Name:</strong></label> {{ currentTrainer.EmergencyContactFirstName }}
         </div>
         <div>
           <label><strong>Emergency Contact Last Name:</strong></label> {{ currentTrainer.EmergencyContactLastName }}
         </div>
         <div>
-          <label><strong>Emergenc Contact Phone:</strong></label> {{ currentTrainer.EmergencyContactPhone }}
+          <label><strong>Emergency Contact Phone:</strong></label> {{ currentTrainer.EmergencyContactPhone }}
         </div>
    
         <router-link :to="'/trainers/' + currentTrainer.id" class="badge badge-warning">Edit</router-link>
         <!-- Space between buttons -->
         &nbsp;
-        <router-link :to="'/trainers/' + currentTrainer.id" class="badge badge-danger">Delete</router-link>
+        <button class="badge badge-danger" @click="deleteTrainer()"> Delete</button>
         
       </div>
       <div v-else>
@@ -113,16 +113,15 @@ export default {
         });
     },
     deleteTrainer() {
-      TrainerDataService.delete()
+      TrainerDataService.delete(this.currentTrainer.TrainerID)
         .then(response => {
           console.log(response.data);
-          this.refreshList();
+          this.$router.push({ name: "trainers" });
         })
         .catch(e => {
           console.log(e);
         });
-    },
-    
+    },  
     searchTrainerFirstName() {
       TrainerDataService.findByTrainerFirstName(this.TrainerFirstName)
         .then(response => {
