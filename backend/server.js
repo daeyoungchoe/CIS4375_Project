@@ -13,10 +13,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const db = require("./app/models");
 db.sequelize.sync();
 
-
+//routes
 require("./app/routes/trainer.routes")(app);
 require("./app/routes/client.routes")(app);
 require("./app/routes/login.routes")(app);
+
+require("./app/routes/auth.routes")(app);
+require("./app/routes/user.routes")(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 3000;

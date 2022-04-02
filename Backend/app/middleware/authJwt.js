@@ -1,8 +1,7 @@
 const jwt = require("jsonwebtoken");
 const config = require("../config/auth.config.js");
-const { login } = require("../models");
 const db = require("../models");
-const Login = db.login;
+const User = db.user;
 verifyToken = (req, res, next) => {
   let token = req.headers["x-access-token"];
   if (!token) {
@@ -16,15 +15,15 @@ verifyToken = (req, res, next) => {
         message: "Unauthorized!",
       });
     }
-    req.LoginID = decoded.LoginID;
+    req.userId = decoded.id;
     next();
   });
 };
 isAdmin = (req, res, next) => {
-  Login.findByPk(req.LoginID).then((login) => {
-    login.getRoles().then((roles) => {
+  User.findByPk(req.userId).then((user) => {
+    user.getRoles().then((roles) => {
       for (let i = 0; i < roles.length; i++) {
-        if (roles[i].RoleName === "admin") {
+        if (roles[i].name === "admin") {
           next();
           return;
         }

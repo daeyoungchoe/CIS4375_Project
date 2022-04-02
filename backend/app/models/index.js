@@ -13,15 +13,17 @@ db.client = require("./client.js")(sequelize, Sequelize);
 db.login = require("./login.js")(sequelize, Sequelize);
 db.role = require("./role.js")(sequelize, Sequelize);
 
-db.role.belongsToMany(db.login, {
+db.user = require("../models/user.model.js")(sequelize, Sequelize);
+db.role = require("../models/role.model.js")(sequelize, Sequelize);
+db.role.belongsToMany(db.user, {
   through: "user_roles",
-  foreignKey: "RoleID",
-  otherKey: "LoginID",
+  foreignKey: "roleId",
+  otherKey: "userId",
 });
 db.user.belongsToMany(db.role, {
   through: "user_roles",
-  foreignKey: "LoginID",
-  otherKey: "RoleID",
+  foreignKey: "userId",
+  otherKey: "roleId",
 });
 db.ROLES = ["user", "admin", "moderator"];
 
