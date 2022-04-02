@@ -56,12 +56,10 @@
         <div>
           <label><strong>Emergency Contact Phone:</strong></label> {{ currentTrainer.EmergencyContactPhone }}
         </div>
-   
-        <router-link :to="'/trainers/' + currentTrainer.id" class="badge badge-warning">Edit</router-link>
+        <router-link :to="'/trainers/' + currentTrainer.TrainerID" class="badge badge-warning">Edit</router-link>
         <!-- Space between buttons -->
         &nbsp;
         <button class="badge badge-danger" @click="deleteTrainer()"> Delete</button>
-        
       </div>
       <div v-else>
         <br />

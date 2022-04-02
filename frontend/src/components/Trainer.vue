@@ -1,5 +1,5 @@
 <template>
-  <div v-if="currentTrainer" class="edit-form">
+  <div class="edit-form">
     <h4>Trainer List</h4>
     <form>
       <div class="form-group">
@@ -64,7 +64,7 @@
       Publish
     </button>
     <button class="badge badge-danger mr-2"
-      @click="deleteTrainer"
+      @click="deleteTrainer()"
     >
       Delete
     </button>
@@ -74,10 +74,6 @@
       Update
     </button>
     <p>{{ message }}</p>
-  </div>
-  <div v-else>
-    <br />
-    <p>Please click on a Trainer...</p>
   </div>
 </template>
 <script>
