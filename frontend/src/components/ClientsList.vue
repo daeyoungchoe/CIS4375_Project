@@ -31,7 +31,7 @@
     </div>
     <div class="col-md-6">
       <div v-if="currentClient">
-        <h4>Trainer</h4>
+        <h4>Client</h4>
         <div>
           <label><strong>Client First Name:</strong></label> {{ currentClient.ClientFirstName }}
         </div>

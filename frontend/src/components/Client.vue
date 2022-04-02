@@ -91,7 +91,7 @@ export default {
     };
   },
   methods: {
-    getTrainer(ClientID) {
+    getClient(ClientID) {
       ClientDataService.get(ClientID)
         .then(response => {
           this.currentClient = response.data;
