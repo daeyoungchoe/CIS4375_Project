@@ -2,6 +2,7 @@
   <div class="container">
     <header class="jumbotron">
       <h3>{{ content }}</h3>
+      <p> TEST USER </p>
     </header>
   </div>
 </template>
