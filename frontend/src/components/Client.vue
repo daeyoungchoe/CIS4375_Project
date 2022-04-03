@@ -51,18 +51,6 @@
         />
         </div>
     </form>
-
-   <button class="badge badge-primary mr-2"
-      v-if="currentClient.published"
-      @click="updatePublished(false)"
-    >
-      UnPublish
-    </button>
-    <button v-else class="badge badge-primary mr-2"
-      @click="updatePublished(true)"
-    >
-      Publish
-    </button>
     <button class="badge badge-danger mr-2"
       @click="deleteClient"
     >

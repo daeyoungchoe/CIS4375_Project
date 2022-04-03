@@ -59,8 +59,7 @@ module.exports = function (sequelize, DataTypes) {
     },
     RegistrationDate: {
       type: DataTypes.DATEONLY,
-      allowNull: true,
-      defaultValue: Sequelize.Sequelize.fn('curdate')
+      allowNull: true
     },
     Weight: {
       type: DataTypes.STRING(45),
