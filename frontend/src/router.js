@@ -1,7 +1,5 @@
 import { createWebHistory, createRouter } from "vue-router";
 import HomePage from "./components/HomePage.vue";
-import Login from "./components/Login.vue";
-import Register from "./components/Register.vue";
 // lazy-loaded
 const Profile = () => import("./components/Profile.vue");
 const BoardAdmin = () => import("./components/BoardAdmin.vue");
@@ -40,23 +38,10 @@ const routes = [
     name: "service",
     component: () => import("./views/Service"),
   },
-  {
-    path: "/addLogin",
-    name: "addLogin",
-    component: () => import("./components/AddLogin"),
-  },
   //Test User authenticate
   {
       path: "/home",
     component: HomePage,
-  },
-  {
-    path: "/login",
-    component: Login,
-  },
-  {
-    path: "/register",
-    component: Register,
   },
   {
     path: "/profile",

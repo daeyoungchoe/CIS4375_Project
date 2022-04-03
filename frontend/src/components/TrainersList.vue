@@ -2,12 +2,9 @@
   <div class="list row">
     <div class="col-md-8">
       <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Search by Trainer First Name"
-          v-model="TrainerFirstName"/>
+        <input type="text" class="form-control" placeholder="Search by Trainer First Name" v-model="TrainerFirstName" />
         <div class="input-group-append">
-          <button class="btn btn-outline-secondary" type="button"
-            @click="searchTrainerFirstName"
-          >
+          <button class="btn btn-outline-secondary" type="button" @click="searchTrainerFirstName">
             Search
           </button>
         </div>
@@ -16,12 +13,8 @@
     <div class="col-md-6">
       <h4>Trainers List</h4>
       <ul class="list-group">
-        <li class="list-group-item"
-          :class="{ active: index == currentIndex }"
-          v-for="(trainer, index) in trainers"
-          :key="index"
-          @click="setActiveTrainer(trainer, index)"
-        >
+        <li class="list-group-item" :class="{ active: index == currentIndex }" v-for="(trainer, index) in trainers"
+          :key="index" @click="setActiveTrainer(trainer, index)">
           {{ trainer.TrainerFirstName }}
         </li>
       </ul>
@@ -41,22 +34,24 @@
         <div>
           <label><strong>Trainer Phone:</strong></label> {{ currentTrainer.TrainerPhone }}
         </div>
-                <div>
+        <div>
           <label><strong>Trainer Email:</strong></label> {{ currentTrainer.TrainerEmail }}
         </div>
-                <div>
+        <div>
           <label><strong>Trainer Address:</strong></label> {{ currentTrainer.TrainerAddress }}
         </div>
         <div>
-          <label><strong>Emergenc yContact First Name:</strong></label> {{ currentTrainer.EmergencyContactFirstName }}
+          <label><strong>Emergenc Contact First Name:</strong></label> {{ currentTrainer.EmergencyContactFirstName }}
         </div>
         <div>
           <label><strong>Emergency Contact Last Name:</strong></label> {{ currentTrainer.EmergencyContactLastName }}
         </div>
         <div>
-          <label><strong>Emergenc Contact Phone:</strong></label> {{ currentTrainer.EmergencyContactPhone }}
+          <label><strong>Emergency Contact Phone:</strong></label> {{ currentTrainer.EmergencyContactPhone }}
         </div>
-   
+        <div>
+          <label><strong>Status:</strong></label> {{ currentTrainer.active ? "Active" : "Inactive" }}
+        </div>
         <router-link :to="'/trainers/' + currentTrainer.id" class="badge badge-warning">Edit</router-link>
       </div>
       <div v-else>
@@ -67,69 +62,69 @@
   </div>
 </template>
 <script>
-import TrainerDataService from "../services/TrainerDataService";
-export default {
-  name: "trainers-list",
-  data() {
-    return {
-      trainers: [],
-      currentTrainer: null,
-      currentIndex: -1,
-      TrainerFIrstName: ""
-    };
-  },
-  methods: {
-    retrieveTrainers() {
-      TrainerDataService.getAll()
-        .then(response => {
-          this.trainers = response.data;
-          console.log(response.data);
-        })
-        .catch(e => {
-          console.log(e);
-        });
+  import TrainerDataService from "../services/TrainerDataService";
+  export default {
+    name: "trainers-list",
+    data() {
+      return {
+        trainers: [],
+        currentTrainer: null,
+        currentIndex: -1,
+        TrainerFIrstName: ""
+      };
     },
-    refreshList() {
+    methods: {
+      retrieveTrainers() {
+        TrainerDataService.getAll()
+          .then(response => {
+            this.trainers = response.data;
+            console.log(response.data);
+          })
+          .catch(e => {
+            console.log(e);
+          });
+      },
+      refreshList() {
+        this.retrieveTrainers();
+        this.currentTrainer = null;
+        this.currentIndex = -1;
+      },
+      setActiveTrainer(trainer, index) {
+        this.currentTrainer = trainer;
+        this.currentIndex = trainer ? index : -1;
+      },
+      removeAllTrainers() {
+        TrainerDataService.deleteAll()
+          .then(response => {
+            console.log(response.data);
+            this.refreshList();
+          })
+          .catch(e => {
+            console.log(e);
+          });
+      },
+
+      searchTrainerFIrstName() {
+        TrainerDataService.findByTrainerFirstName(this.TrainerFirstName)
+          .then(response => {
+            this.trainers = response.data;
+            this.setActiveTrainer(null);
+            console.log(response.data);
+          })
+          .catch(e => {
+            console.log(e);
+          });
+      }
+    },
+    mounted() {
       this.retrieveTrainers();
-      this.currentTrainer = null;
-      this.currentIndex = -1;
-    },
-    setActiveTrainer(trainer, index) {
-      this.currentTrainer = trainer;
-      this.currentIndex = trainer ? index : -1;
-    },
-    removeAllTrainers() {
-      TrainerDataService.deleteAll()
-        .then(response => {
-          console.log(response.data);
-          this.refreshList();
-        })
-        .catch(e => {
-          console.log(e);
-        });
-    },
-    
-    searchTrainerFIrstName() {
-      TrainerDataService.findByTrainerFirstName(this.TrainerFirstName)
-        .then(response => {
-          this.trainers = response.data;
-          this.setActiveTrainer(null);
-          console.log(response.data);
-        })
-        .catch(e => {
-          console.log(e);
-        });
     }
-  },
-  mounted() {
-    this.retrieveTrainers();
-  }
-};
+  };
 </script>
 <style>
-.list {
-  text-align: left;
-  max-width: 750px;
-  margin: auto;
-}
+  .list {
+    text-align: left;
+    max-width: 750px;
+    margin: auto;
+  }
 </style>

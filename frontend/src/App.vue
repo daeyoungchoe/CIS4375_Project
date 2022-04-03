@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <nav class="navbar navbar-expand navbar-dark bg-dark">
-      <router-link to="/" class="navbar-brand">Phyzeke</router-link>
+      <router-link to="/" class="navbar-brand">Home</router-link>
       <div class="navbar-nav mr-auto">
         <li class="nav-item">
           <router-link to="/service" class="nav-link">Service</router-link>
@@ -14,12 +14,6 @@
         </li>
           <li class="nav-item">
           <router-link to="/addClient" class="nav-link">Add Client</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link to="/addLogin" class="nav-link">Register</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link to="/add" class="nav-link">Login</router-link>
         </li>
 
         <!--Test User authentication -->

@@ -98,7 +98,7 @@ export default {
   data() {
     return {
       trainer: {
-        TrainerID: null,
+        id: null,
         TrainerFirstName: "",
         TrainerLastName: "",
         TrainerPhone: "",
@@ -127,7 +127,7 @@ export default {
       };
       TrainerDataService.create(data)
         .then(response => {
-          this.trainer.TrainerID = response.data.TrainerID;
+          this.trainer.id = response.data.id;
           console.log(response.data);
           this.submitted = true;
         })

@@ -3,17 +3,17 @@ class TrainerDataService {
   getAll() {
     return http.get("/trainers");
   }
-  get(TrainerID) {
-    return http.get(`/trainers/${TrainerID}`);
+  get(id) {
+    return http.get(`/trainers/${id}`);
   }
   create(data) {
     return http.post("/trainers", data);
   }
-  update(TrainerID, data) {
-    return http.put(`/trainers/${TrainerID}`, data);
+  update(id, data) {
+    return http.put(`/trainers/${id}`, data);
   }
-  delete(TrainerID) {
-    return http.delete(`/trainers/${TrainerID}`);
+  delete(id) {
+    return http.delete(`/trainers/${id}`);
   }
   deleteAll() {
     return http.delete(`/trainers`);
