@@ -18,6 +18,9 @@
           <li class="nav-item">
           <router-link to="/addClient" class="nav-link">Add Client</router-link>
         </li>
+                    <li class="nav-item">
+          <router-link to="/addAppointment" class="nav-link">Appointment</router-link>
+      </li>
       </div>
       <div class="navbar-nav mr-right">
       <li class="nav-item">
@@ -26,6 +29,7 @@
       <li class="nav-item">
           <router-link to="/addLogin" class="nav-link">Register</router-link>
       </li>
+
       </div>
     </nav>
     <div class="container mt-3">

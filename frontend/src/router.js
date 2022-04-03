@@ -48,6 +48,11 @@ const routes = [
     name: "addLogin",
     component: () => import("./components/AddLogin"),
   },
+  {
+    path: "/addAppointment",
+    name: "addAppointment",
+    component: () => import("./components/AddAppointment"),
+  }
 ];
 const router = createRouter({
   history: createWebHistory(),
