@@ -18,12 +18,14 @@
           <li class="nav-item">
           <router-link to="/addClient" class="nav-link">Add Client</router-link>
         </li>
-        <li class="nav-item">
-          <router-link to="/addLogin" class="nav-link">Register</router-link>
-        </li>
-        <li class="nav-item">
+      </div>
+      <div class="navbar-nav mr-right">
+      <li class="nav-item">
           <router-link to="/add" class="nav-link">Login</router-link>
-        </li>
+      </li>
+      <li class="nav-item">
+          <router-link to="/addLogin" class="nav-link">Register</router-link>
+      </li>
       </div>
     </nav>
     <div class="container mt-3">

@@ -1,5 +1,5 @@
 <template>
-  <div class="edit-form">
+  <div v-if="currentTrainer" class="edit-form">
     <h4>Trainer List</h4>
     <form>
       <div class="form-group">
@@ -75,6 +75,10 @@
     </button>
     <p>{{ message }}</p>
   </div>
+  <div v-else>
+    <br />
+    <p>You fail...</p>
+  </div>
 </template>
 <script>
 import TrainerDataService from "../services/TrainerDataService";
@@ -82,7 +86,7 @@ export default {
   name: "editTrainer",
   data() {
     return {
-      currentTrainer: null,
+      currentTrainer: 0,
       message: ''
     };
   },
