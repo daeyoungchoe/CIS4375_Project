@@ -11,7 +11,7 @@ module.exports = (sequelize, Sequelize) => {
     TrainerPhone: {
       type: Sequelize.STRING(15),
       allowNull: true,
-      defaultValue: "xxx-xxx-xxxx",
+      // defaultValue: "xxx-xxx-xxxx",
     },
     TrainerEmail: {
       type: Sequelize.STRING(50),
@@ -32,10 +32,11 @@ module.exports = (sequelize, Sequelize) => {
     EmergencyContactPhone: {
       type: Sequelize.STRING(15),
       allowNull: true,
-      defaultValue: "xxx-xxx-xxxx",
+      //  defaultValue: "xxx-xxx-xxxx",
     },
     active: {
       type: Sequelize.BOOLEAN,
+      allowNull: true,
     },
   });
   return Trainer;

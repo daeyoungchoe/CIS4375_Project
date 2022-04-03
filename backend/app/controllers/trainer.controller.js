@@ -30,29 +30,21 @@ exports.create = (req, res) => {
     })
     .catch((err) => {
       res.status(500).send({
-        message: err.message || "Some error occurred while creating the Trainer.",
+        message: err.message || "Some error occurred while creating the Trainer."
       });
     });
 };
 // Retrieve all Trainer from the database.
 exports.findAll = (req, res) => {
   const TrainerFirstName = req.query.TrainerFirstName;
-  var condition = TrainerFirstName ?
-    {
-      TrainerFirstName: {
-        [Op.like]: `%${TrainerFirstName}%`
-      }
-    } :
-    null;
-  Trainer.findAll({
-      where: condition
-    })
+  var condition = TrainerFirstName ? { TrainerFirstName: { [Op.like]: `%${TrainerFirstName}%`}} :null;
+  Trainer.findAll({where: condition})
     .then((data) => {
       res.send(data);
     })
     .catch((err) => {
       res.status(500).send({
-        message: err.message || "Some error occurred while retrieving Trainers.",
+        message: err.message || "Some error occurred while retrieving Trainers."
       });
     });
 };
@@ -114,8 +106,7 @@ exports.delete = (req, res) => {
         });
       } else {
         res.send({
-          message: `Cannot delete Trainer with id=${id}. Maybe Trainer was not found!`,
-        });
+          message: `Cannot delete Trainer with id=${id}. Maybe Trainer was not found!`});
       }
     })
     .catch((err) => {
@@ -136,17 +127,12 @@ exports.deleteAll = (req, res) => {
     })
     .catch((err) => {
       res.status(500).send({
-        message: err.message || "Some error occurred while removing all Trainer.",
-      });
+        message: err.message || "Some error occurred while removing all Trainer." });
     });
 };
 // Find all active Trainer
 exports.findAllActive = (req, res) => {
-  Trainer.findAll({
-      where: {
-        active: true
-      }
-    })
+  Trainer.findAll({ where: {active: true}})
     .then((data) => {
       res.send(data);
     })

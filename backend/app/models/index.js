@@ -1,5 +1,4 @@
 const config = require("../config/db.config.js");
-
 const Sequelize = require("sequelize");
 const sequelize = new Sequelize(
   config.DB,
@@ -17,7 +16,7 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
-db.trainer = require("./trainer.js")(sequelize, Sequelize);
+db.trainers = require("./trainer.model.js")(sequelize, Sequelize);
 /*
 db.client = require("./client.js")(sequelize, Sequelize);
 db.login = require("./login.js")(sequelize, Sequelize);
