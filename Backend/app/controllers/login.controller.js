@@ -36,8 +36,7 @@ exports.findAll = (req, res) => {
 };
 // Find a single Trainers with an TrainerID
 exports.findOne = (req, res) => {
-  exports.findOne = (req, res) => {
-    const LoginID = req.params.id;
+    const LoginID = req.params.LoginID;
     Login.findByPk(LoginID)
       .then((data) => {
         if (data) {
@@ -54,10 +53,8 @@ exports.findOne = (req, res) => {
         });
       });
   };
-};
 // Update a Trainers by the id in the request
 exports.update = (req, res) => {
-  exports.update = (req, res) => {
     const LoginID = req.params.LoginID;
     Login.update(req.body, {
       where: { LoginID: LoginID }
@@ -79,10 +76,8 @@ exports.update = (req, res) => {
         });
       });
   };
-};
 // Delete a Trainers with the specified id in the request
 exports.delete = (req, res) => {
-  exports.delete = (req, res) => {
     const LoginID = req.params.LoginID;
     Login.destroy({
       where: { LoginID: LoginID }
@@ -104,7 +99,6 @@ exports.delete = (req, res) => {
         });
       });
   };
-};
 // Delete all Trainers from the database.
 exports.deleteAll = (req, res) => {
   Login.destroy({

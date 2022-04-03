@@ -45,7 +45,6 @@ exports.findAll = (req, res) => {
 };
 // Find a single Clients with an ClientID
 exports.findOne = (req, res) => {
-    exports.findOne = (req, res) => {
         const ClientID = req.params.ClientID;
         Client.findByPk(ClientID)
           .then(data => {
@@ -63,10 +62,8 @@ exports.findOne = (req, res) => {
             });
           });
       };
-};
 // Update a Clients by the id in the request
 exports.update = (req, res) => {
-    exports.update = (req, res) => {
         const ClientID = req.params.ClientID;
         Client.update(req.body, {
           where: { ClientID: ClientID }
@@ -88,10 +85,8 @@ exports.update = (req, res) => {
             });
           });
       };
-};
 // Delete a Clients with the specified ClientID in the request
 exports.delete = (req, res) => {
-    exports.delete = (req, res) => {
         const ClientID = req.params.ClientID;
         Client.destroy({
           where: { ClientID: ClientID }
@@ -113,7 +108,6 @@ exports.delete = (req, res) => {
             });
           });
       };
-};
 // Delete all Clients from the database.
 exports.deleteAll = (req, res) => {
     Client.destroy({

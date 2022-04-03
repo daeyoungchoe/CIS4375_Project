@@ -5,6 +5,7 @@ const Op = db.Sequelize.Op;
 exports.create = (req, res) => {
   // Create a Trainer
   const trainer = {
+    TrainerID: req.body.TrainerID,
     TrainerFirstName: req.body.TrainerFirstName,
     TrainerLastName: req.body.TrainerLastName,
     TrainerPhone: req.body.TrainerPhone,
@@ -43,14 +44,13 @@ exports.findAll = (req, res) => {
 };
 // Find a single Trainers with an TrainerID
 exports.findOne = (req, res) => {
-    exports.findOne = (req, res) => {
-        const TrainerID = req.params.id;
-        Trainer.findByPk(TrainerID)
-          .then(data => {
-            if (data) {
-              res.send(data);
-            } else {
-              res.status(404).send({
+      const TrainerID = req.params.TrainerID;
+      Trainer.findByPk(TrainerID)
+        .then(data => {
+          if (data) {
+            res.send(data);
+          } else {
+            res.status(404).send({
                 message: `Cannot find Trainer with id=${TrainerID}.`
               });
             }
@@ -61,10 +61,8 @@ exports.findOne = (req, res) => {
             });
           });
       };
-};
 // Update a Trainers by the id in the request
 exports.update = (req, res) => {
-    exports.update = (req, res) => {
         const TrainerID = req.params.TrainerID;
         Trainer.update(req.body, {
           where: { TrainerID: TrainerID }
@@ -86,10 +84,8 @@ exports.update = (req, res) => {
             });
           });
       };
-};
 // Delete a Trainers with the specified id in the request
 exports.delete = (req, res) => {
-    exports.delete = (req, res) => {
         const TrainerID = req.params.TrainerID;
         Trainer.destroy({
           where: { TrainerID: TrainerID }
@@ -111,7 +107,6 @@ exports.delete = (req, res) => {
             });
           });
       };
-};
 // Delete all Trainers from the database.
 exports.deleteAll = (req, res) => {
     Trainer.destroy({

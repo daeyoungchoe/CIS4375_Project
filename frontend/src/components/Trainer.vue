@@ -91,7 +91,7 @@ export default {
     };
   },
   methods: {
-    getTrainer(TrainerID) {
+    get(TrainerID) {
       TrainerDataService.get(TrainerID)
         .then(response => {
           this.currentTrainer = response.data;

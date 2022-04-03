@@ -39,7 +39,6 @@ exports.findAll = (req, res) => {
 };
 // Find a single Appointment with an AppointmentID
 exports.findOne = (req, res) => {
-    exports.findOne = (req, res) => {
         const AppointmentID = req.params.AppointmentID;
         Appointment.findByPk(AppointmentID)
           .then(data => {
@@ -57,10 +56,8 @@ exports.findOne = (req, res) => {
             });
           });
       };
-};
 // Update a Appointment by the id in the request
 exports.update = (req, res) => {
-    exports.update = (req, res) => {
         const AppointmentID = req.params.AppointmentID;
         Appointment.update(req.body, {
           where: { AppointmentID: AppointmentID }
@@ -82,10 +79,8 @@ exports.update = (req, res) => {
             });
           });
       };
-};
 // Delete a Appointment with the specified AppointmentID in the request
 exports.delete = (req, res) => {
-    exports.delete = (req, res) => {
         const AppointmentID = req.params.AppointmentID;
         Appointment.destroy({
           where: { AppointmentID: AppointmentID }
@@ -107,7 +102,6 @@ exports.delete = (req, res) => {
             });
           });
       };
-};
 // Delete all Appointment from the database.
 exports.deleteAll = (req, res) => {
     Appointment.destroy({
