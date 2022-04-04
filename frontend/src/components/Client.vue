@@ -116,6 +116,8 @@
                     EmergencyContactFirstName: this.currentClient.EmergencyContactFirstName,
                     EmergencyContactLastName: this.currentClient.EmergencyContactLastName,
                     EmergencyContactPhone: this.currentClient.EmergencyContactPhone,
+                    Weight: this.currentClient.Weight,
+                    Height: this.currentClient.Height,
                     active: status
                 };
                 ClientDataService.update(this.currentClient.id, data)
