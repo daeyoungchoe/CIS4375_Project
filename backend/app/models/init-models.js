@@ -27,8 +27,7 @@ function initModels(sequelize) {
 
   appointment.belongsTo(trainer, { as: "Trainer", foreignKey: "TrainerID"});
   trainer.hasMany(appointment, { as: "appointments", foreignKey: "TrainerID"});
-  feedback.belongsTo(trainer, { as: "Trainer", foreignKey: "TrainerID"});
-  trainer.hasMany(feedback, { as: "feedbacks", foreignKey: "TrainerID"});
+
 
   appointment.belongsTo(trainingdetail, { as: "TrainingDetail", foreignKey: "TrainingDetailsID"});
   trainingdetail.hasMany(appointment, { as: "appointments", foreignKey: "TrainingDetailsID"});
