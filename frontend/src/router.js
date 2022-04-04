@@ -52,7 +52,11 @@ const routes = [
     name: "addClients",
     component: () => import("./components/AddClient"),
   },
-
+  {
+    path: "/addAppointment",
+    name: "addAppointment",
+    component: () => import("./components/AddAppointment"),
+  },
   {
     path: "/service",
     name: "service",

@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('trainingdetail', {
+  const TrainingDetail = sequelize.define('trainingdetail', {
     TrainingDetailsID: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -40,4 +40,5 @@ module.exports = function(sequelize, DataTypes) {
       },
     ]
   });
+  return TrainingDetail;
 };

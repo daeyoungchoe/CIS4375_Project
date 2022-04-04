@@ -22,6 +22,9 @@
         <li class="nav-item">
           <router-link to="/addClient" class="nav-link">Add Client</router-link>
         </li>
+        <li class="nav-item">
+          <router-link to="/addAppointment" class="nav-link">Appointment</router-link>
+      </li>
 
 
         <li class="nav-item">

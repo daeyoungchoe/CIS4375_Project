@@ -1,6 +1,7 @@
 const Sequelize = require('sequelize');
+const { trainingtype } = require('.');
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('trainingtype', {
+  const TrainingType = sequelize.define('trainingtype', {
     TrainingID: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -33,4 +34,5 @@ module.exports = function(sequelize, DataTypes) {
       },
     ]
   });
+  return TrainingType;
 };
