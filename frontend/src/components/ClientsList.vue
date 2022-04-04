@@ -2,8 +2,7 @@
     <div class="list row">
         <div class="col-md-8">
             <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Search by Client First Name"
-                    v-model="ClientFirstName" />
+                <input type="text" class="form-control" placeholder="Search by Client First Name" v-model="ClientFirstName" />
                 <div class="input-group-append">
                     <button class="btn btn-outline-secondary" type="button" @click="searchClientFirstName">
                         Search

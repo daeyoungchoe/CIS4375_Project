@@ -4,49 +4,49 @@
         <form>
             <div class="form-group">
                 <label for="ClientFirstName">Client First Name</label>
-                <input type="text" class="form-control" id="ClientFirstName" required v-model="client.ClientFirstName"
+                <input type="text" class="form-control" id="ClientFirstName" required v-model="currentClient.ClientFirstName"
                     name="ClientFirstName" />
             </div>
             <div class="form-group">
                 <label for="ClientLastName">Client Last Name</label>
-                <input class="form-control" id="ClientLastName" required v-model="client.ClientLastName"
+                <input class="form-control" id="ClientLastName" required v-model="currentClient.ClientLastName"
                     name="ClientLastName" />
             </div>
             <div class="form-group">
                 <label for="ClientrPhone">Client Phone</label>
-                <input class="form-control" id="ClientPhone" required v-model="client.ClientPhone" name="ClientPhone" />
+                <input class="form-control" id="ClientPhone" required v-model="currentClient.ClientPhone" name="ClientPhone" />
             </div>
             <div class="form-group">
                 <label for="ClientEmail">Client Email</label>
-                <input class="form-control" id="ClientEmail" required v-model="client.ClientEmail" name="ClientEmail" />
+                <input class="form-control" id="ClientEmail" required v-model="currentClient.ClientEmail" name="ClientEmail" />
             </div>
             <div class="form-group">
                 <label for="ClientAddress">Client Address</label>
-                <input class="form-control" id="ClientAddress" required v-model="client.ClientAddress"
+                <input class="form-control" id="ClientAddress" required v-model="currentClient.ClientAddress"
                     name="ClientAddress" />
             </div>
             <div class="form-group">
                 <label for="EmergencyContactFirstName">Emergency Contact First Name</label>
                 <input class="form-control" id="EmergencyContactFirstName" required
-                    v-model="client.EmergencyContactFirstName" name="EmergencyContactFirstName" />
+                    v-model="currentClient.EmergencyContactFirstName" name="EmergencyContactFirstName" />
             </div>
             <div class="form-group">
                 <label for="EmergencyContactLastName">Emergency Contact Last Name</label>
                 <input class="form-control" id="EmergencyContactLastName" required
-                    v-model="client.EmergencyContactLastName" name="EmergencyContactLastName" />
+                    v-model="currentClient.EmergencyContactLastName" name="EmergencyContactLastName" />
             </div>
             <div class="form-group">
                 <label for="EmergencyContactPhone">Emergency Contact Phone</label>
-                <input class="form-control" id="EmergencyContactPhone" required v-model="client.EmergencyContactPhone"
+                <input class="form-control" id="EmergencyContactPhone" required v-model="currentClient.EmergencyContactPhone"
                     name="EmergencyContactPhone" />
             </div>
             <div class="form-group">
                 <label for="Weight">Weight</label>
-                <input class="form-control" id="Weight" required v-model="client.Weight" name="Weight" />
-            </div>
+                <input class="form-control" id="Weight" required v-model="currentClient.Weight" name="Weight" />
+            </div>v
             <div class="form-group">
                 <label for="Height">Height</label>
-                <input class="form-control" id="Height" required v-model="client.Height" name="Height" />
+                <input class="form-control" id="Height" required v-model="currentClient.Height" name="Height" />
             </div>
             <div class="form-group">
                 <label><strong>Status:</strong></label>
