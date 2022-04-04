@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('feedback', {
+  const Feedback = sequelize.define('feedback', {
     FeedbackID: {
       autoIncrement: true,
       type: DataTypes.INTEGER,
@@ -22,14 +22,6 @@ module.exports = function(sequelize, DataTypes) {
     Feedback: {
       type: DataTypes.STRING(45),
       allowNull: true
-    },
-    TrainerID: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-      references: {
-        model: 'trainer',
-        key: 'TrainerID'
-      }
     }
   }, {
     sequelize,
@@ -59,13 +51,7 @@ module.exports = function(sequelize, DataTypes) {
           { name: "ClientID" },
         ]
       },
-      {
-        name: "FK_trainers_feedback_TrainerID",
-        using: "BTREE",
-        fields: [
-          { name: "TrainerID" },
-        ]
-      },
     ]
   });
+  return Feedback;
 };

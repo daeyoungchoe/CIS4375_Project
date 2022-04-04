@@ -1,40 +1,13 @@
-const Sequelize = require('sequelize');
-module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('role', {
+
+module.exports = (sequelize, Sequelize) => {
+  const Role = sequelize.define("roles", {
     RoleID: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true
+      type: Sequelize.INTEGER,
+      primaryKey: true,
     },
     RoleName: {
-      type: DataTypes.STRING(45),
-      allowNull: true
+      type: Sequelize.STRING,
     },
-    RoleDescription: {
-      type: DataTypes.STRING(45),
-      allowNull: true
-    }
-  }, {
-    sequelize,
-    tableName: 'role',
-    timestamps: false,
-    indexes: [
-      {
-        name: "PRIMARY",
-        unique: true,
-        using: "BTREE",
-        fields: [
-          { name: "RoleID" },
-        ]
-      },
-      {
-        name: "Role_ID_UNIQUE",
-        unique: true,
-        using: "BTREE",
-        fields: [
-          { name: "RoleID" },
-        ]
-      },
-    ]
   });
+  return Role;
 };

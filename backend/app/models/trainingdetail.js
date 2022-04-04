@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('trainingdetail', {
+  const TrainingDetail = sequelize.define('trainingdetail', {
     TrainingDetailsID: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -10,34 +10,10 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.DOUBLE,
       allowNull: true
     },
-    TrainingID: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-      references: {
-        model: 'trainingtype',
-        key: 'TrainingID'
-      }
+    TrainingDescription: {
+      type: DataTypes.STRING(45),
+      allowNull: true
     }
-  }, {
-    sequelize,
-    tableName: 'trainingdetail',
-    timestamps: false,
-    indexes: [
-      {
-        name: "PRIMARY",
-        unique: true,
-        using: "BTREE",
-        fields: [
-          { name: "TrainingDetailsID" },
-        ]
-      },
-      {
-        name: "FK_trainingtype_trainingdetails_TrainingID",
-        using: "BTREE",
-        fields: [
-          { name: "TrainingID" },
-        ]
-      },
-    ]
   });
+  return TrainingDetail;
 };

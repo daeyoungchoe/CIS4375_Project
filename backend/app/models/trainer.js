@@ -41,38 +41,14 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: true,
       defaultValue: "xxx-xxx-xxxx"
     },
-    TrainerStatusID: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-      references: {
-        model: 'trainerstatus',
-        key: 'TrainerStatusID'
-      }
-    },
     TrainerAddress: {
       type: DataTypes.STRING(45),
       allowNull: true
+    },
+    active: {
+      type: Sequelize.BOOLEAN
+      //allowNull: true,
     }
-  }, {
-    sequelize,
-    tableName: 'trainer',
-    timestamps: false,
-    indexes: [{
-        name: "PRIMARY",
-        unique: true,
-        using: "BTREE",
-        fields: [{
-          name: "TrainerID"
-        }, ]
-      },
-      {
-        name: "FK_trainerstatus_trainers_TrainerStatusID",
-        using: "BTREE",
-        fields: [{
-          name: "TrainerStatusID"
-        }, ]
-      },
-    ]
   });
   return Trainer;
 };

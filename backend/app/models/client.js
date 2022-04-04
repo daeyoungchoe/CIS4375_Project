@@ -15,14 +15,6 @@ module.exports = function (sequelize, DataTypes) {
         key: 'UserID'
       }
     },
-    ClientStatusID: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-      references: {
-        model: 'clientstatus',
-        key: 'ClientStatusID'
-      }
-    },
     ClientFirstName: {
       type: DataTypes.STRING(30),
       allowNull: true
@@ -72,6 +64,10 @@ module.exports = function (sequelize, DataTypes) {
     ClientZIP: {
       type: DataTypes.INTEGER,
       allowNull: true
+    },
+    Active: {
+      type: Sequelize.BOOLEAN
+      //allowNull: true,
     }
   }, {
     sequelize,
@@ -91,13 +87,6 @@ module.exports = function (sequelize, DataTypes) {
         using: "BTREE",
         fields: [{
           name: "ClientID"
-        }, ]
-      },
-      {
-        name: "FK_clientstatus_client_ClientStatusID",
-        using: "BTREE",
-        fields: [{
-          name: "ClientStatusID"
         }, ]
       },
       {
