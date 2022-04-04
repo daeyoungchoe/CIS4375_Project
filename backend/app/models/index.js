@@ -15,17 +15,17 @@ db.feedback = require("./feedback.js")(sequelize, Sequelize);
 db.trainingdetail = require("./trainingdetail.js")(sequelize, Sequelize);
 //db.login = require("./login.js")(sequelize, Sequelize);
 
-db.user = require("../models/user.js")(sequelize, Sequelize);
-db.role = require("../models/role.js")(sequelize, Sequelize);
+db.users = require("../models/user.js")(sequelize, Sequelize);
+db.roles = require("../models/role.js")(sequelize, Sequelize);
 
 
 //User_roles Models 
-db.role.belongsToMany(db.user, {
+db.roles.belongsToMany(db.users, {
   through: "user_roles",
   foreignKey: "roleId",
   otherKey: "userId"
 });
-db.user.belongsToMany(db.role, {
+db.users.belongsToMany(db.role, {
   through: "user_roles",
   foreignKey: "userId",
   otherKey: "roleId"
@@ -46,7 +46,10 @@ db.trainer.hasMany(db.appointment, { as: "appointments", foreignKey: "TrainerID"
 db.appointment.belongsTo(db.trainingdetail, { as: "TrainingDetail", foreignKey: "TrainingDetailsID"});
 db.trainingdetail.hasMany(db.appointment, { as: "appointments", foreignKey: "TrainingDetailsID"});
 
-db.client.belongsTo(db.user, { as: "User", foreignKey: "UserID"});
-db.user.hasMany(db.client, { as: "clients", foreignKey: "UserID"});
+db.client.belongsTo(db.users, { as: "User", foreignKey: "id"});
+db.users.hasMany(db.client, { as: "clients", foreignKey: "id"});
+
+db.trainer.belongsTo(db.users, { as: "User", foreignKey: "id"});
+db.users.hasMany(db.trainer, { as: "trainers", foreignKey: "id"});
 
 module.exports = db;

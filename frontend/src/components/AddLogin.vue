@@ -3,11 +3,11 @@
     <div v-if="!submitted">
       <div class="form-group">
         <label for="Username">User Name</label>
-        <input type="text" class="form-control" id="Username" required v-model="login.Username" name="User Name" />
+        <input type="text" class="form-control" id="Username" required v-model="login.Username" name="Username" />
       </div>
       <div class="form-group">
         <label for="Password">Password</label>
-        <input class="form-control" id="Password" required v-model="login.Password" name="Password" />
+        <input type="text" class="form-control" id="Password" required v-model="login.Password" name="Password" />
       </div>
 
       <button @click="saveLogin" class="btn btn-success">Submit</button>
@@ -53,7 +53,7 @@
 
       newLogin() {
         this.submitted = false;
-        this.login = {};
+        this.Login = {};
       }
     }
   };

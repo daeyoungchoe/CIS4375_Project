@@ -1,4 +1,14 @@
 import { createWebHistory, createRouter } from "vue-router";
+import HomePage from "./components/HomePage.vue";
+import Login from "./components/Login.vue";
+import Register from "./components/Register.vue";
+
+// lazy-loaded
+const Profile = () => import("./components/Profile.vue");
+const BoardAdmin = () => import("./components/BoardAdmin.vue");
+const BoardModerator = () => import("./components/BoardModerator.vue");
+const BoardUser = () => import("./components/BoardUser.vue");
+
 const routes = [
   {
     path: "/",
@@ -6,6 +16,8 @@ const routes = [
     name: "home",
     component: () => import("./views/Home"),
   },
+
+  //trainer path
   {
     path: "/trainers",
     alias: "/trainers",
@@ -22,6 +34,8 @@ const routes = [
     name: "addTrainer",
     component: () => import("./components/AddTrainer"),
   },
+
+  //Client path
   {
     path: "/clients",
     alias: "/clients",
@@ -35,24 +49,57 @@ const routes = [
   },
   {
     path: "/addClient",
-    name: "Register",
+    name: "addClients",
     component: () => import("./components/AddClient"),
+  },
+  
+  {
+    path: "/addAppointment",
+    name: "addAppointment",
+    component: () => import("./components/AddAppointment"),
   },
   {
     path: "/service",
     name: "service",
     component: () => import("./views/Service"),
   },
+  //Test User authenticate
   {
-    path: "/addLogin",
-    name: "addLogin",
-    component: () => import("./components/AddLogin"),
+    path: "/home",
+    component: HomePage,
   },
   {
-    path: "/addAppointment",
-    name: "addAppointment",
-    component: () => import("./components/AddAppointment"),
-  }
+    path: "/login",
+    component: Login,
+  },
+  {
+    path: "/register",
+    component: Register,
+  },
+  {
+    path: "/profile",
+    name: "profile",
+    // lazy-loaded
+    component: Profile,
+  },
+  {
+    path: "/admin",
+    name: "admin",
+    // lazy-loaded
+    component: BoardAdmin,
+  },
+  {
+    path: "/mod",
+    name: "moderator",
+    // lazy-loaded
+    component: BoardModerator,
+  },
+  {
+    path: "/user",
+    name: "user",
+    // lazy-loaded
+    component: BoardUser,
+  },
 ];
 const router = createRouter({
   history: createWebHistory(),

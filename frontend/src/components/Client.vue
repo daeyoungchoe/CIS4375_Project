@@ -1,124 +1,155 @@
 <template>
-  <div v-if="currentClient" class="edit-form">
-    <h4>Client List</h4>
-    <form>
-      <div class="form-group">
-        <label for="ClientFirstName">Client First Name</label>
-        <input type="text" class="form-control" id="ClientFirstName"
-          v-model="currentClient.ClientFirstName"
-        />
-      </div>
-      <div class="form-group">
-        <label for="ClientLastName">Client Last Name</label>
-        <input type="text" class="form-control" id="ClientLastName"
-          v-model="currentClient.ClientLastName"
-        />
-      </div>
-      <div class="form-group">
-        <label for="ClientEmail">Client Email</label>
-        <input type="text" class="form-control" id="ClientEmail"
-          v-model="currentClient.ClientEmail"
-        />
-        </div>
-              <div class="form-group">
-        <label for="ClientPhone">Client Phone</label>
-        <input type="text" class="form-control" id="ClientPhone"
-          v-model="currentClient.ClientPhone"
-        />
-        </div>
-              <div class="form-group">
-        <label for="ClientAddress">Client Address</label>
-        <input type="text" class="form-control" id="ClientAddress"
-          v-model="currentClient.ClientAddress"
-        />
-        </div>
-        <div class="form-group">
-        <label for="EmergencyContactFirstName">Emergency Contact First Name</label>
-        <input type="text" class="form-control" id="EmergencyContactFirstName"
-          v-model="currentClient.EmergencyContactFirstName"
-        />
-        </div>
-        <div class="form-group">
-        <label for="EmergencyContactLastName">Emergency Contact Last Name</label>
-        <input type="text" class="form-control" id="EmergencyContactLastName"
-          v-model="currentClient.EmergencyContactLastName"
-        />
-        </div>
-        <div class="form-group">
-        <label for="EmergencyContactPhone">Emergency Contact Phone</label>
-        <input type="text" class="form-control" id="EmergencyContactPhone"
-          v-model="currentClient.EmergencyContactPhone"
-        />
-        </div>
-    </form>
-    <button class="badge badge-danger mr-2"
-      @click="deleteClient"
-    >
-      Delete
-    </button>
-    <button type="submit" class="badge badge-success"
-      @click="updateClient"
-    >
-      Update
-    </button>
-    <p>{{ message }}</p>
-  </div>
-  <div v-else>
-    <br />
-    <p>Please click on a Client...</p>
-  </div>
+    <div v-if="currentClient" class="edit-form">
+        <h4>Client List</h4>
+        <form>
+            <div class="form-group">
+                <label for="ClientFirstName">Client First Name</label>
+                <input type="text" class="form-control" id="ClientFirstName" required v-model="client.ClientFirstName"
+                    name="ClientFirstName" />
+            </div>
+            <div class="form-group">
+                <label for="ClientLastName">Client Last Name</label>
+                <input class="form-control" id="ClientLastName" required v-model="client.ClientLastName"
+                    name="ClientLastName" />
+            </div>
+            <div class="form-group">
+                <label for="ClientrPhone">Client Phone</label>
+                <input class="form-control" id="ClientPhone" required v-model="client.ClientPhone" name="ClientPhone" />
+            </div>
+            <div class="form-group">
+                <label for="ClientEmail">Client Email</label>
+                <input class="form-control" id="ClientEmail" required v-model="client.ClientEmail" name="ClientEmail" />
+            </div>
+            <div class="form-group">
+                <label for="ClientAddress">Client Address</label>
+                <input class="form-control" id="ClientAddress" required v-model="client.ClientAddress"
+                    name="ClientAddress" />
+            </div>
+            <div class="form-group">
+                <label for="EmergencyContactFirstName">Emergency Contact First Name</label>
+                <input class="form-control" id="EmergencyContactFirstName" required
+                    v-model="client.EmergencyContactFirstName" name="EmergencyContactFirstName" />
+            </div>
+            <div class="form-group">
+                <label for="EmergencyContactLastName">Emergency Contact Last Name</label>
+                <input class="form-control" id="EmergencyContactLastName" required
+                    v-model="client.EmergencyContactLastName" name="EmergencyContactLastName" />
+            </div>
+            <div class="form-group">
+                <label for="EmergencyContactPhone">Emergency Contact Phone</label>
+                <input class="form-control" id="EmergencyContactPhone" required v-model="client.EmergencyContactPhone"
+                    name="EmergencyContactPhone" />
+            </div>
+            <div class="form-group">
+                <label for="Weight">Weight</label>
+                <input class="form-control" id="Weight" required v-model="client.Weight" name="Weight" />
+            </div>
+            <div class="form-group">
+                <label for="Height">Height</label>
+                <input class="form-control" id="Height" required v-model="client.Height" name="Height" />
+            </div>
+            <div class="form-group">
+                <label><strong>Status:</strong></label>
+                {{ currentClient.active ? "Active" : "Inactive" }}
+            </div>
+        </form>
+
+        <button class="badge badge-primary mr-2" v-if="currentClient.active" @click="updateActive(false)">
+            Inactive
+        </button>
+        <button v-else class="badge badge-primary mr-2" @click="updateActive(true)">
+            Active
+        </button>
+        <button class="badge badge-danger mr-2" @click="deleteClient">
+            Delete
+        </button>
+        <button type="submit" class="badge badge-success" @click="updateClient">
+            Update
+        </button>
+        <p>{{ message }}</p>
+    </div>
+    <div v-else>
+        <br />
+        <p>Please click on a Client...</p>
+    </div>
 </template>
 <script>
-import ClientDataService from "../services/ClientDataService";
-export default {
-  name: "editClient",
-  data() {
-    return {
-      currentClient: null,
-      message: ''
+    import ClientDataService from "../services/ClientDataService";
+    export default {
+        name: "editClient",
+        data() {
+            return {
+                currentClient: null,
+                message: ''
+            };
+        },
+        methods: {
+            getClient(id) {
+                ClientDataService.get(id)
+                    .then(response => {
+                        this.currentClient = response.data;
+                        console.log(response.data);
+                    })
+                    .catch(e => {
+                        console.log(e);
+                    });
+            },
+            updateClient() {
+                ClientDataService.update(this.currentClient.id, this.currentClient)
+                    .then(response => {
+                        console.log(response.data);
+                        this.message = 'The Client was updated successfully!';
+                    })
+                    .catch(e => {
+                        console.log(e);
+                    });
+            },
+            //Update Client status
+            updateActive(status) {
+                var data = {
+                    id: this.currentClient.id,
+                    ClientFirstName: this.currentClient.ClientFirstName,
+                    ClientLastName: this.currentClient.ClientLastName,
+                    ClientPhone: this.currentClient.ClientPhone,
+                    ClientEmail: this.currentClient.ClientEmail,
+                    ClientAddress: this.currentClient.ClientAddress,
+                    EmergencyContactFirstName: this.currentClient.EmergencyContactFirstName,
+                    EmergencyContactLastName: this.currentClient.EmergencyContactLastName,
+                    EmergencyContactPhone: this.currentClient.EmergencyContactPhone,
+                    active: status
+                };
+                ClientDataService.update(this.currentClient.id, data)
+                    .then(response => {
+                        console.log(response.data);
+                        this.currentClient.active = status;
+                        this.message = 'The status was updated successfully!';
+                    })
+                    .catch(e => {
+                        console.log(e);
+                    });
+            },
+            deleteClient() {
+                ClientDataService.delete(this.currentClient.id)
+                    .then(response => {
+                        console.log(response.data);
+                        this.$router.push({
+                            name: "clients"
+                        });
+                    })
+                    .catch(e => {
+                        console.log(e);
+                    });
+            }
+        },
+        mounted() {
+            this.message = '';
+            this.getClient(this.$route.params.id);
+        }
     };
-  },
-  methods: {
-    getClient(ClientID) {
-      ClientDataService.get(ClientID)
-        .then(response => {
-          this.currentClient = response.data;
-          console.log(response.data);
-        })
-        .catch(e => {
-          console.log(e);
-        });
-    },
-    updateClient() {
-      ClientDataService.update(this.currentClient.ClientID, this.currentClient)
-        .then(response => {
-          console.log(response.data);
-          this.message = 'The Client was updated successfully!';
-        })
-        .catch(e => {
-          console.log(e);
-        });
-    },
-    deleteClient() {
-      ClientDataService.delete(this.currentClient.ClientID)
-        .then(response => {
-          console.log(response.data);
-          this.$router.push({ name: "clients" });
-        })
-        .catch(e => {
-          console.log(e);
-        });
-    }
-  },
-  mounted() {
-    this.message = '';
-    this.getClient(this.$route.params.ClientID);
-  }
-};
 </script>
 <style>
-.edit-form {
-  max-width: 300px;
-  margin: auto;
-}
+    .edit-form {
+        max-width: 300px;
+        margin: auto;
+    }
 </style>
