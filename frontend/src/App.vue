@@ -23,7 +23,7 @@
           <router-link to="/addClient" class="nav-link">Add Client</router-link>
         </li>
 
-        
+
         <li class="nav-item">
           <router-link to="/HomePage" class="nav-link">
             <font-awesome-icon icon="home" /> Home
@@ -74,6 +74,8 @@
   </div>
 </template>
 <script>
+  import EventBus from "./common/EventBus";
+
   export default {
     computed: {
       currentUser() {
@@ -97,6 +99,14 @@
         this.$store.dispatch('auth/logout');
         this.$router.push('/login');
       }
+    },
+    mounted() {
+      EventBus.on("logout", () => {
+        this.logOut();
+      });
+    },
+    beforeUnmount() {
+      EventBus.remove("logout");
     }
   };
 </script>

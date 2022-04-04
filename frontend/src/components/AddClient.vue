@@ -24,6 +24,10 @@
         <input class="form-control" id="ClientAddress" required v-model="client.ClientAddress" name="ClientAddress" />
       </div>
       <div class="form-group">
+        <label for="Height">Zip Code</label>
+        <input class="form-control" id="ClientZip" required v-model="client.ClientZip" name="Height" />
+      </div>
+      <div class="form-group">
         <label for="EmergencyContactFirstName">Emergency Contact First Name</label>
         <input class="form-control" id="EmergencyContactFirstName" required v-model="client.EmergencyContactFirstName"
           name="EmergencyContactFirstName" />
@@ -68,6 +72,7 @@
           ClientPhone: "",
           ClientEmail: "",
           ClientAddress: "",
+          ClientZip:"",
           EmergencyContactFirstName: "",
           EmergencyContactLastName: "",
           EmergencyContactPhone: "",
@@ -86,9 +91,12 @@
           ClientPhone: this.client.ClientPhone,
           ClientEmail: this.client.ClientEmail,
           ClientAddress: this.client.ClientAddress,
+          ClientZip: this.client.ClientZip,
           EmergencyContactFirstName: this.client.EmergencyContactFirstName,
           EmergencyContactLastName: this.client.EmergencyContactLastName,
-          EmergencyContactPhone: this.client.EmergencyContactPhone
+          EmergencyContactPhone: this.client.EmergencyContactPhone,
+          Weight: this.client.Weight,
+          Height: this.client.Height
         };
         ClientDataService.create(data)
           .then(response => {

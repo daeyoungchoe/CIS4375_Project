@@ -4,8 +4,8 @@
         <form>
             <div class="form-group">
                 <label for="ClientFirstName">Client First Name</label>
-                <input type="text" class="form-control" id="ClientFirstName" required v-model="currentClient.ClientFirstName"
-                    name="ClientFirstName" />
+                <input type="text" class="form-control" id="ClientFirstName" required
+                    v-model="currentClient.ClientFirstName" name="ClientFirstName" />
             </div>
             <div class="form-group">
                 <label for="ClientLastName">Client Last Name</label>
@@ -14,16 +14,22 @@
             </div>
             <div class="form-group">
                 <label for="ClientrPhone">Client Phone</label>
-                <input class="form-control" id="ClientPhone" required v-model="currentClient.ClientPhone" name="ClientPhone" />
+                <input class="form-control" id="ClientPhone" required v-model="currentClient.ClientPhone"
+                    name="ClientPhone" />
             </div>
             <div class="form-group">
                 <label for="ClientEmail">Client Email</label>
-                <input class="form-control" id="ClientEmail" required v-model="currentClient.ClientEmail" name="ClientEmail" />
+                <input class="form-control" id="ClientEmail" required v-model="currentClient.ClientEmail"
+                    name="ClientEmail" />
             </div>
             <div class="form-group">
                 <label for="ClientAddress">Client Address</label>
                 <input class="form-control" id="ClientAddress" required v-model="currentClient.ClientAddress"
                     name="ClientAddress" />
+            </div>
+            <div class="form-group">
+                <label for="ClientZip">Zip Code</label>
+                <input class="form-control" id="ClientZip" required v-model="currentClient.ClientZip" name="Height" />
             </div>
             <div class="form-group">
                 <label for="EmergencyContactFirstName">Emergency Contact First Name</label>
@@ -37,17 +43,18 @@
             </div>
             <div class="form-group">
                 <label for="EmergencyContactPhone">Emergency Contact Phone</label>
-                <input class="form-control" id="EmergencyContactPhone" required v-model="currentClient.EmergencyContactPhone"
-                    name="EmergencyContactPhone" />
+                <input class="form-control" id="EmergencyContactPhone" required
+                    v-model="currentClient.EmergencyContactPhone" name="EmergencyContactPhone" />
             </div>
             <div class="form-group">
                 <label for="Weight">Weight</label>
                 <input class="form-control" id="Weight" required v-model="currentClient.Weight" name="Weight" />
-            </div>v
+            </div>
             <div class="form-group">
                 <label for="Height">Height</label>
                 <input class="form-control" id="Height" required v-model="currentClient.Height" name="Height" />
             </div>
+
             <div class="form-group">
                 <label><strong>Status:</strong></label>
                 {{ currentClient.active ? "Active" : "Inactive" }}
@@ -113,6 +120,7 @@
                     ClientPhone: this.currentClient.ClientPhone,
                     ClientEmail: this.currentClient.ClientEmail,
                     ClientAddress: this.currentClient.ClientAddress,
+                    ClientZip: this.currentClient.ClientZip,
                     EmergencyContactFirstName: this.currentClient.EmergencyContactFirstName,
                     EmergencyContactLastName: this.currentClient.EmergencyContactLastName,
                     EmergencyContactPhone: this.currentClient.EmergencyContactPhone,

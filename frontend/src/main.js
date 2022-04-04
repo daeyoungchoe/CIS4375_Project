@@ -7,6 +7,8 @@ import store from "./store";
 import {
     FontAwesomeIcon
 } from "./plugins/font-awesome";
+import setupInterceptors from "./services/setupInterceptors";
+setupInterceptors(store);
 createApp(App)
     .use(router)
     .use(store)

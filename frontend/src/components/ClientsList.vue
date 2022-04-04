@@ -2,7 +2,8 @@
     <div class="list row">
         <div class="col-md-8">
             <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Search by Client First Name" v-model="ClientFirstName" />
+                <input type="text" class="form-control" placeholder="Search by Client First Name"
+                    v-model="ClientFirstName" />
                 <div class="input-group-append">
                     <button class="btn btn-outline-secondary" type="button" @click="searchClientFirstName">
                         Search
@@ -41,6 +42,9 @@
                     <label><strong>Client Address:</strong></label> {{ currentClient.ClientAddress }}
                 </div>
                 <div>
+                    <label><strong>Zip Code:</strong></label> {{ currentClient.ClientZip }}
+                </div>                
+                <div>
                     <label><strong>Emergenc Contact First Name:</strong></label>
                     {{ currentClient.EmergencyContactFirstName }}
                 </div>
@@ -51,14 +55,13 @@
                 <div>
                     <label><strong>Emergency Contact Phone:</strong></label> {{ currentClient.EmergencyContactPhone }}
                 </div>
-                <div class="form-group">
-                    <label for="Weight">Weight</label>
-                    <input class="form-control" id="Weight" required v-model="client.Weight" name="Weight" />
+                <div>
+                    <label><strong>Weight:</strong></label> {{ currentClient.Weight }}
                 </div>
-                <div class="form-group">
-                    <label for="Height">Height</label>
-                    <input class="form-control" id="Height" required v-model="client.Height" name="Height" />
+                <div>
+                    <label><strong>Height:</strong></label> {{ currentClient.Height }}
                 </div>
+
                 <div>
                     <label><strong>Status:</strong></label> {{ currentClient.active ? "Active" : "Inactive" }}
                 </div>

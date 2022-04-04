@@ -21,6 +21,10 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.STRING(45),
       //allowNull: true,
     },
+    ClientZip: {
+      type: Sequelize.INTEGER(10),
+      //allowNull: true,
+    },
     EmergencyContactFirstName: {
       type: Sequelize.STRING(30),
       //allowNull: true,
@@ -34,27 +38,18 @@ module.exports = (sequelize, Sequelize) => {
       //allowNull: true,
       //defaultValue: "xxx-xxx-xxxx",
     },
-    RegistrationDate: {
-      type: Sequelize.DATEONLY,
-      //allowNull: true,
-      //defaultValue: Sequelize.Sequelize.fn("curdate"), Cannot set curdate, Error
-    },
     Weight: {
-      type: Sequelize.STRING(45),
+      type: Sequelize.INTEGER(45),
       //allowNull: true,
     },
     Height: {
       type: Sequelize.STRING(45),
       //allowNull: true,
     },
-    ClientZIP: {
-      type: Sequelize.INTEGER,
-      //allowNull: true,
-    },
     active: {
       type: Sequelize.BOOLEAN,
       //allowNull: true,
-    }
+    },
   });
   return Client;
 };

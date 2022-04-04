@@ -3,19 +3,20 @@
     <header class="jumbotron">
       <h3>{{ content }}</h3>
     </header>
+    <p>Place content for Admin in here</p>
   </div>
 </template>
 <script>
 import UserService from "../services/user.service";
 export default {
-  name: "User",
+  name: "Admin",
   data() {
     return {
       content: "",
     };
   },
   mounted() {
-    UserService.getUserBoard().then(
+    UserService.getAdminBoard().then(
       (response) => {
         this.content = response.data;
       },

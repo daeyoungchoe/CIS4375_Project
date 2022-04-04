@@ -18,12 +18,13 @@ exports.create = (req, res) => {
     ClientPhone: req.body.ClientPhone,
     ClientEmail: req.body.ClientEmail,
     ClientAddress: req.body.ClientAddress,
+    ClientZip: req.body.ClientZip,
     EmergencyContactFirstName: req.body.EmergencyContactFirstName,
     EmergencyContactLastName: req.body.EmergencyContactLastName,
     EmergencyContactPhone: req.body.EmergencyContactPhone,
     Weight: req.body.Weight,
     Height: req.body.Height,
-    active: req.body.active ? req.body.active : false
+    active: req.body.active ? req.body.active : false,
   };
 
   // Save client in the database
