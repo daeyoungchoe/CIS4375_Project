@@ -6,22 +6,31 @@
         <li class="nav-item">
           <router-link to="/service" class="nav-link">Service</router-link>
         </li>
+
+        <!--Trainer Nav-->
         <li class="nav-item">
           <router-link to="/trainers" class="nav-link">Trainers</router-link>
         </li>
         <li class="nav-item">
           <router-link to="/addTrainer" class="nav-link">Add Trainer</router-link>
         </li>
-          <li class="nav-item">
+
+        <!--Client Nav-->
+        <li class="nav-item">
+          <router-link to="/clients" class="nav-link">Clients</router-link>
+        </li>
+        <li class="nav-item">
           <router-link to="/addClient" class="nav-link">Add Client</router-link>
         </li>
 
-        <!--Test User authentication -->
+        
         <li class="nav-item">
           <router-link to="/HomePage" class="nav-link">
             <font-awesome-icon icon="home" /> Home
           </router-link>
         </li>
+
+        <!--User authentication -->
         <li v-if="showAdminBoard" class="nav-item">
           <router-link to="/admin" class="nav-link">Admin Board</router-link>
         </li>
@@ -65,29 +74,29 @@
   </div>
 </template>
 <script>
-export default {
-  computed: {
-    currentUser() {
-      return this.$store.state.auth.user;
-    },
-    showAdminBoard() {
-      if (this.currentUser && this.currentUser['roles']) {
-        return this.currentUser['roles'].includes('ROLE_ADMIN');
+  export default {
+    computed: {
+      currentUser() {
+        return this.$store.state.auth.user;
+      },
+      showAdminBoard() {
+        if (this.currentUser && this.currentUser['roles']) {
+          return this.currentUser['roles'].includes('ROLE_ADMIN');
+        }
+        return false;
+      },
+      showModeratorBoard() {
+        if (this.currentUser && this.currentUser['roles']) {
+          return this.currentUser['roles'].includes('ROLE_MODERATOR');
+        }
+        return false;
       }
-      return false;
     },
-    showModeratorBoard() {
-      if (this.currentUser && this.currentUser['roles']) {
-        return this.currentUser['roles'].includes('ROLE_MODERATOR');
+    methods: {
+      logOut() {
+        this.$store.dispatch('auth/logout');
+        this.$router.push('/login');
       }
-      return false;
     }
-  },
-  methods: {
-    logOut() {
-      this.$store.dispatch('auth/logout');
-      this.$router.push('/login');
-    }
-  }
-};
+  };
 </script>

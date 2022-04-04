@@ -3,17 +3,17 @@ class ClientDataService {
   getAll() {
     return http.get("/clients");
   }
-  get(ClientID) {
-    return http.get(`/clients/${ClientID}`);
+  get(id) {
+    return http.get(`/clients/${id}`);
   }
   create(data) {
     return http.post("/clients", data);
   }
-  update(ClientID, data) {
-    return http.put(`/clients/${ClientID}`, data);
+  update(id, data) {
+    return http.put(`/clients/${id}`, data);
   }
-  delete(ClientID) {
-    return http.delete(`/clients/${ClientID}`);
+  delete(id) {
+    return http.delete(`/clients/${id}`);
   }
   deleteAll() {
     return http.delete(`/clients`);

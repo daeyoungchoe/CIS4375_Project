@@ -16,6 +16,8 @@ const routes = [
     name: "home",
     component: () => import("./views/Home"),
   },
+
+  //trainer path
   {
     path: "/trainers",
     alias: "/trainers",
@@ -32,11 +34,25 @@ const routes = [
     name: "addTrainer",
     component: () => import("./components/AddTrainer"),
   },
+
+  //Client path
+  {
+    path: "/clients",
+    alias: "/clients",
+    name: "clients",
+    component: () => import("./components/ClientsList"),
+  },
+  {
+    path: "/clients/:id",
+    name: "client-details",
+    component: () => import("./components/Client"),
+  },
   {
     path: "/addClient",
-    name: "Register",
+    name: "addClients",
     component: () => import("./components/AddClient"),
   },
+
   {
     path: "/service",
     name: "service",

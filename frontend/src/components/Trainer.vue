@@ -44,10 +44,10 @@
     </form>
 
     <button class="badge badge-primary mr-2" v-if="currentTrainer.active" @click="updateActive(false)">
-      UnPublish
+      Inactive
     </button>
     <button v-else class="badge badge-primary mr-2" @click="updateActive(true)">
-      Publish
+      Active
     </button>
     <button class="badge badge-danger mr-2" @click="deleteTrainer">
       Delete
