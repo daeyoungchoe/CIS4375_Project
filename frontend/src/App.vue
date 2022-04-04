@@ -21,9 +21,8 @@
                     <li class="nav-item">
           <router-link to="/addAppointment" class="nav-link">Appointment</router-link>
       </li>
-
-      <!--User authentication -->
-      <li v-if="showAdminBoard" class="nav-item">
+              <!--User authentication -->
+        <li v-if="showAdminBoard" class="nav-item">
           <router-link to="/admin" class="nav-link">Admin Board</router-link>
         </li>
         <li v-if="showModeratorBoard" class="nav-item">
@@ -45,7 +44,7 @@
           </router-link>
         </li>
       </div>
-       <div v-if="currentUser" class="navbar-nav ml-auto">
+      <div v-if="currentUser" class="navbar-nav ml-auto">
         <li class="nav-item">
           <router-link to="/profile" class="nav-link">
             <font-awesome-icon icon="user" />
@@ -57,6 +56,7 @@
             <font-awesome-icon icon="sign-out-alt" /> LogOut
           </a>
         </li>
+      
       </div>
       <div class="navbar-nav mr-right">
 
