@@ -120,7 +120,7 @@ export default {
   data() {
     return {
       appointment: {
-        AppointmentID: null,
+        id: null,
         TrainerFirstName: "",
         TrainerLastName: "",
         ClientFirstName: "",

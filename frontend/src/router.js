@@ -58,6 +58,11 @@ const routes = [
     component: () => import("./components/AddAppointment"),
   },
   {
+    path: "/appointmentList",
+    name: "appointmentList",
+    component: () => import("./components/AppointmentList"),
+  },
+  {
     path: "/service",
     name: "service",
     component: () => import("./views/Service"),
