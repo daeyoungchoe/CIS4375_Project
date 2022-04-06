@@ -18,8 +18,11 @@ class ClientDataService {
   deleteAll() {
     return http.delete(`/clients`);
   }
-  findByTrainerFirstName(ClientFirstName) {
+  findByClientFirstName(ClientFirstName) {
     return http.get(`/clients?ClientFirstName=${ClientFirstName}`);
+  }
+  findByClientZip(ClientZip) {
+    return http.get(`/ClientZipcode?ClientZip=${ClientZip}`);
   }
 }
 export default new ClientDataService();

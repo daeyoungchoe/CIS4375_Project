@@ -2,10 +2,15 @@
     <div class="list row">
         <div class="col-md-8">
             <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Search by Client First Name"
-                    v-model="ClientFirstName" />
+                <input type="text" class="form-control" placeholder="Search by Client Zipcode"
+                    v-model="ClientZip"/>
+                <select v-model="selected" placeholder="Search by Client Zipcode">
+                    <option disabled value="">Client Status</option>
+                    <option>Active</option>
+                    <option>Inactive</option>
+                </select>
                 <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="button" @click="searchClientFirstName">
+                    <button class="btn btn-outline-secondary" type="button" @click="searchClientZip">
                         Search
                     </button>
                 </div>
@@ -45,7 +50,7 @@
                     <label><strong>Zip Code:</strong></label> {{ currentClient.ClientZip }}
                 </div>                
                 <div>
-                    <label><strong>Emergenc Contact First Name:</strong></label>
+                    <label><strong>Emergency Contact First Name:</strong></label>
                     {{ currentClient.EmergencyContactFirstName }}
                 </div>
                 <div>
@@ -83,7 +88,7 @@
                 clients: [],
                 currentClient: null,
                 currentIndex: -1,
-                ClientFirstName: ""
+                ClientZip: ""
             };
         },
         methods: {
@@ -117,8 +122,8 @@
                     });
             },
 
-            searchClientFirstName() {
-                ClientDataService.findByClientFirstName(this.ClientFirstName)
+            searchClientZip() {
+                ClientDataService.findByClientZip(this.ClientZip)
                     .then(response => {
                         this.clients = response.data;
                         this.setActiveClient(null);

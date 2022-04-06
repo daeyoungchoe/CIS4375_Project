@@ -25,7 +25,10 @@
         <li class="nav-item">
           <router-link to="/addAppointment" class="nav-link">Appointment</router-link>
       </li>
-
+      <!--Admin Reports Nav-->
+      <li class="nav-item">
+          <router-link to="/clientZipcode" class="nav-link">Reports</router-link>
+      </li>
 
         <li class="nav-item">
           <router-link to="/HomePage" class="nav-link">

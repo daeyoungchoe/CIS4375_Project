@@ -62,6 +62,12 @@ const routes = [
     name: "service",
     component: () => import("./views/Service"),
   },
+  //Reports
+  {
+    path: "/clientZipcode",
+    name: "clientZipcode",
+    component: () => import("./components/ClientZipcode"),
+  },
   //Test User authenticate
   {
     path: "/home",
