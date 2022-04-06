@@ -62,6 +62,12 @@ const routes = [
     name: "service",
     component: () => import("./views/Service"),
   },
+  //Feedback
+  {
+    path: "/addFeedback",
+    name: "addFeedback",
+    component: () => import("./components/AddFeedback"),
+  },
   //Test User authenticate
   {
     path: "/home",

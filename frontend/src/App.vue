@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <nav class="navbar navbar-expand navbar-dark bg-dark">
-      <router-link to="/" class="navbar-brand"><font-awesome-icon icon="home" />  Home</router-link>
+      <router-link to="/" class="navbar-brand">
+        <font-awesome-icon icon="home" /> Home</router-link>
       <div class="navbar-nav mr-auto">
         <li class="nav-item">
           <router-link to="/service" class="nav-link">Service</router-link>
@@ -24,8 +25,11 @@
         </li>
         <li class="nav-item">
           <router-link to="/addAppointment" class="nav-link">Appointment</router-link>
-      </li>
-
+        </li>
+        <!--Feedback Form-->
+        <li class="nav-item">
+          <router-link to="/addFeedback" class="nav-link">Feedback</router-link>
+        </li>
         <!--User authentication -->
         <li v-if="showAdminBoard" class="nav-item">
           <router-link to="/admin" class="nav-link">Admin Board</router-link>
