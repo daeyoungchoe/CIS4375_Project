@@ -45,6 +45,19 @@
           name="ClientLastName"
         />
       </div>
+
+            <div class="form-group">
+        <label for="TrainingType">Training Type</label>
+        <input
+          type="text"
+          class="form-control"
+          id="TrainingType"
+          required
+          v-model="appointment.TrainingType"
+          name="TrainingType"
+        />
+      </div>
+
       <div class="form-group">
         <label for="AppointmentDate">Appointment Date (YYYY-MM-DD)</label>
         <input
@@ -112,6 +125,7 @@ export default {
         TrainerLastName: "",
         ClientFirstName: "",
         ClientLastName: "",
+        TrainingType: "",
         AppointmentDate: "",
         AppointmentDuartion: "",
         AppointmentLocation: "",
@@ -127,6 +141,7 @@ export default {
         TrainerLastName: this.appointment.TrainerLastName,
         ClientFirstName: this.appointment.ClientFirstName,
         ClientLastName: this.appointment.ClientLastName,
+        TrainingType: this.appointment.TrainingType,
         AppointmentDate: this.appointment.AppointmentDate,
         AppointmentDuration: this.appointment.AppointmentDuration,
         AppointmentLocation: this.appointment.AppointmentLocation,

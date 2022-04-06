@@ -16,6 +16,7 @@ exports.create = (req, res) => {
     TrainerLastName:req.body.TrainerLastName,
     ClientFirstName:req.body.ClientFirstName,
     ClientLastName:req.body.ClientLastName,
+    TrainingType:req.body.TrainingType,
     AppointmentDate: req.body.AppointmentDate,
     AppointmentDuration: req.body.AppointmentDuration,
     AppointmentLocation: req.body.AppointmentLocation,
