@@ -24,12 +24,30 @@
                 </div>
             </div>
         </div>
+        <div class="col-md-8">
+            <label>Client Status:</label>
+        </div>
+        <div class="col-md-8">
+            <div class="input-group mb-3">
+                <!-- Search Clients by status -->
+                <select v-model="selected">
+                    <option disabled value="">Please select one</option>
+                    <option>Active</option>
+                    <option>Inactive</option>
+                </select>
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" @click="searchClientStatus">
+                        Search
+                    </button>
+                </div>
+            </div>
+        </div>
         <div class="col-md-6">
             <h4>Clients List</h4>
             <ul class="list-group">
                 <li class="list-group-item" :class="{ active: index == currentIndex }"
                     v-for="(client, index) in clients" :key="index" @click="setActiveClient(client, index)">
-                    {{ client.ClientFirstName }},
+                    {{ client.ClientFirstName }}
 
                 </li>
             </ul>
@@ -98,8 +116,8 @@
                 currentClient: null,
                 currentIndex: -1,
                 ClientFirstName: "",
-                ClientZip: ""
-
+                ClientZip: "",
+                active: ""
             };
         },
         methods: {

@@ -1,6 +1,6 @@
 <template>
     <div v-if="currentClient" class="edit-form">
-        <h4>Client List</h4>
+        <h4>Edit Client</h4>
         <form>
             <div class="form-group">
                 <label for="ClientFirstName">Client First Name</label>
