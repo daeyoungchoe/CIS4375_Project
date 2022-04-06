@@ -70,7 +70,7 @@
         trainers: [],
         currentTrainer: null,
         currentIndex: -1,
-        TrainerFIrstName: ""
+        TrainerFirstName: ""
       };
     },
     methods: {
@@ -104,7 +104,7 @@
           });
       },
 
-      searchTrainerFIrstName() {
+      searchTrainerFirstName() {
         TrainerDataService.findByTrainerFirstName(this.TrainerFirstName)
           .then(response => {
             this.trainers = response.data;
