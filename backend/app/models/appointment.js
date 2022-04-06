@@ -26,7 +26,7 @@ module.exports = function(sequelize,  Sequelize) {
       //allowNull: true
     },
     AppointmentDuration: {
-      type: Sequelize.TEXT,
+      type: Sequelize.TIME,
       //allowNull: true
     },
     AppointmentLocation: {
