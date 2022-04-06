@@ -70,7 +70,7 @@
         />
       </div>
       <div class="form-group">
-        <label for="AppointmentDuation">Appointment Duration (Minutes)</label>
+        <label for="AppointmentDuation">Appointment Time (1 Hour) (24 hour clock)</label>
         <input
         type="text"
           class="form-control"

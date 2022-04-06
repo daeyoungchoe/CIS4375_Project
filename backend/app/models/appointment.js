@@ -18,7 +18,7 @@ module.exports = function(sequelize,  Sequelize) {
       //allowNull: true
     },
     TrainingType: {
-      type: Sequelize.TEXT,
+      type: Sequelize.TEXT
       //allowNull: true
     },
     AppointmentDate: {
@@ -26,7 +26,7 @@ module.exports = function(sequelize,  Sequelize) {
       //allowNull: true
     },
     AppointmentDuration: {
-      type: Sequelize.INTEGER,
+      type: Sequelize.TEXT,
       //allowNull: true
     },
     AppointmentLocation: {
