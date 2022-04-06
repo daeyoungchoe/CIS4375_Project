@@ -25,7 +25,9 @@
         <li class="nav-item">
           <router-link to="/addAppointment" class="nav-link">Appointment</router-link>
       </li>
-
+              <li class="nav-item">
+          <router-link to="/appointments" class="nav-link">Appointment List</router-link>
+      </li>
 
         <li class="nav-item">
           <router-link to="/HomePage" class="nav-link">

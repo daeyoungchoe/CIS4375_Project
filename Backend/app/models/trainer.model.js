@@ -2,17 +2,10 @@ module.exports = (sequelize, Sequelize) => {
   const Trainer = sequelize.define("trainer", {
     TrainerID: {
       type: Sequelize.INTEGER,
-      allowNull: false,
+      //allowNull: false,
       primaryKey: true
     }, 
-    id: {
-      type: Sequelize.INTEGER,
-      allowNull: true,
-      references: {
-        model: 'users',
-        key: 'id'
-      }
-    },
+
     TrainerFirstName: {
       type: Sequelize.STRING(30),
       //allowNull: true,

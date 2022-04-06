@@ -5,7 +5,7 @@
       <div class="form-group">
         <label for="TrainerID">Trainer ID</label>
         <input
-          type="text"
+
           class="form-control"
           id="TrainerID"
           required
@@ -16,7 +16,7 @@
       <div class="form-group">
         <label for="ClientID">Client ID</label>
         <input
-          type="text"
+
           class="form-control"
           id="ClientID"
           required
@@ -27,7 +27,7 @@
             <div class="form-group">
         <label for="TrainingDetail">TrainingDetail ID</label>
         <input
-          type="text"
+
           class="form-control"
           id="ClientID"
           required
@@ -38,7 +38,7 @@
       <div class="form-group">
         <label for="AppointmentDate">Appointment Date (YYYY-MM-DD)</label>
         <input
-          type="text"
+
           class="form-control"
           id="AppointmentDate"
           required
@@ -47,8 +47,9 @@
         />
       </div>
       <div class="form-group">
-        <label for="AppointmentDuation">Appointment Duration</label>
+        <label for="AppointmentDuation">Appointment Duration (minutes)</label>
         <input
+
           class="form-control"
           id="AppointmentDuation"
           required
@@ -59,6 +60,7 @@
             <div class="form-group">
         <label for="AppointmentLocation">Appointment Location</label>
         <input
+
           class="form-control"
           id="AppointmentLocation"
           required
@@ -69,6 +71,7 @@
             <div class="form-group">
         <label for="Notes">Notes</label>
         <input
+
           class="form-control"
           id="Notes"
           required

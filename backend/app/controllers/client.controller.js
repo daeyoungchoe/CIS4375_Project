@@ -13,6 +13,8 @@ exports.create = (req, res) => {
   }
   // Create a Client
   const client = {
+    ClientID: req.body.ClientID,
+    id: req.body.id,
     ClientFirstName: req.body.ClientFirstName,
     ClientLastName: req.body.ClientLastName,
     ClientPhone: req.body.ClientPhone,

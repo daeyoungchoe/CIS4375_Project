@@ -2,16 +2,8 @@ module.exports = (sequelize, Sequelize) => {
   const Client = sequelize.define("client", {
     ClientID: {
       type: Sequelize.INTEGER,
-      allowNull: false,
+      //allowNull: false,
       primaryKey: true
-    },
-    id: {
-      type: Sequelize.INTEGER,
-      allowNull: true,
-      references: {
-        model: 'users',
-        key: 'id'
-      }
     },
     ClientFirstName: {
       type: Sequelize.STRING(30),
@@ -56,7 +48,7 @@ module.exports = (sequelize, Sequelize) => {
       //allowNull: true,
     },
     Height: {
-      type: Sequelize.STRING(45),
+      type: Sequelize.INTEGER(45),
       //allowNull: true,
     },
     active: {

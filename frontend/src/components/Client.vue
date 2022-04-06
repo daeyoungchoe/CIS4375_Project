@@ -2,7 +2,14 @@
     <div v-if="currentClient" class="edit-form">
         <h4>Client List</h4>
         <form>
+                        <div class="form-group">
+                
+                <label for="id">id</label>
+                <input type="text" class="form-control" id="id" required
+                    v-model="currentClient.id" name="id" />
+            </div>
             <div class="form-group">
+                
                 <label for="ClientFirstName">Client First Name</label>
                 <input type="text" class="form-control" id="ClientFirstName" required
                     v-model="currentClient.ClientFirstName" name="ClientFirstName" />

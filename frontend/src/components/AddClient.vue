@@ -1,6 +1,11 @@
 <template>
   <div class="submit-form">
     <div v-if="!submitted">
+              <div class="form-group">
+        <label for="id">User ID</label>
+        <input type="number" class="form-control" id="id" required v-model="client.id"
+          name="id" />
+      </div>
       <div class="form-group">
         <label for="ClientFirstName">Client First Name</label>
         <input type="text" class="form-control" id="ClientFirstName" required v-model="client.ClientFirstName"
@@ -8,47 +13,47 @@
       </div>
       <div class="form-group">
         <label for="ClientLastName">Client Last Name</label>
-        <input class="form-control" id="ClientLastName" required v-model="client.ClientLastName"
+        <input type="text" class="form-control" id="ClientLastName" required v-model="client.ClientLastName"
           name="ClientLastName" />
       </div>
       <div class="form-group">
         <label for="ClientrPhone">Client Phone</label>
-        <input class="form-control" id="ClientPhone" required v-model="client.ClientPhone" name="ClientPhone" />
+        <input type="text" class="form-control" id="ClientPhone" required v-model="client.ClientPhone" name="ClientPhone" />
       </div>
       <div class="form-group">
         <label for="ClientEmail">Client Email</label>
-        <input class="form-control" id="ClientEmail" required v-model="client.ClientEmail" name="ClientEmail" />
+        <input type="text" class="form-control" id="ClientEmail" required v-model="client.ClientEmail" name="ClientEmail" />
       </div>
       <div class="form-group">
         <label for="ClientAddress">Client Address</label>
-        <input class="form-control" id="ClientAddress" required v-model="client.ClientAddress" name="ClientAddress" />
+        <input type="text" class="form-control" id="ClientAddress" required v-model="client.ClientAddress" name="ClientAddress" />
       </div>
       <div class="form-group">
-        <label for="Height">Zip Code</label>
-        <input class="form-control" id="ClientZip" required v-model="client.ClientZip" name="Height" />
+        <label for="ClientZip">Zip Code</label>
+        <input type="text" class="form-control" id="ClientZip" required v-model="client.ClientZip" name="ClientZip" />
       </div>
       <div class="form-group">
         <label for="EmergencyContactFirstName">Emergency Contact First Name</label>
-        <input class="form-control" id="EmergencyContactFirstName" required v-model="client.EmergencyContactFirstName"
+        <input type="text" class="form-control" id="EmergencyContactFirstName" required v-model="client.EmergencyContactFirstName"
           name="EmergencyContactFirstName" />
       </div>
       <div class="form-group">
         <label for="EmergencyContactLastName">Emergency Contact Last Name</label>
-        <input class="form-control" id="EmergencyContactLastName" required v-model="client.EmergencyContactLastName"
+        <input type="text" class="form-control" id="EmergencyContactLastName" required v-model="client.EmergencyContactLastName"
           name="EmergencyContactLastName" />
       </div>
       <div class="form-group">
         <label for="EmergencyContactPhone">Emergency Contact Phone</label>
-        <input class="form-control" id="EmergencyContactPhone" required v-model="client.EmergencyContactPhone"
+        <input type="text" class="form-control" id="EmergencyContactPhone" required v-model="client.EmergencyContactPhone"
           name="EmergencyContactPhone" />
       </div>
       <div class="form-group">
         <label for="Weight">Weight</label>
-        <input class="form-control" id="Weight" required v-model="client.Weight" name="Weight" />
+        <input type="number" class="form-control" id="Weight" required v-model="client.Weight" name="Weight" />
       </div>
       <div class="form-group">
         <label for="Height">Height</label>
-        <input class="form-control" id="Height" required v-model="client.Height" name="Height" />
+        <input type="number" class="form-control" id="Height" required v-model="client.Height" name="Height" />
       </div>
 
       <button @click="saveClient" class="btn btn-success">Submit</button>
@@ -66,7 +71,8 @@
     data() {
       return {
         client: {
-          id: null,
+          ClientID: null,
+          id: "",
           ClientFirstName: "",
           ClientLastName: "",
           ClientPhone: "",
@@ -86,6 +92,7 @@
     methods: {
       saveClient() {
         var data = {
+          id: this.client.id,
           ClientFirstName: this.client.ClientFirstName,
           ClientLastName: this.client.ClientLastName,
           ClientPhone: this.client.ClientPhone,

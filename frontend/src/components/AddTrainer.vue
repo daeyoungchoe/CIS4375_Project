@@ -1,6 +1,7 @@
 <template>
   <div class="submit-form">
     <div v-if="!submitted">
+
       <div class="form-group">
         <label for="TrainerFirstName">Trainer First Name</label>
         <input type="text" class="form-control" id="TrainerFirstName" required v-model="trainer.TrainerFirstName"
@@ -55,6 +56,7 @@
     data() {
       return {
         trainer: {
+          TrainerID: null,
           TrainerFirstName: "",
           TrainerLastName: "",
           TrainerPhone: "",
