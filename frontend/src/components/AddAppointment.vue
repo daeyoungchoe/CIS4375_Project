@@ -1,6 +1,40 @@
 <template>
   <div class="submit-form">
     <div v-if="!submitted">
+      
+      <div class="form-group">
+        <label for="TrainerID">Trainer ID</label>
+        <input
+          type="text"
+          class="form-control"
+          id="TrainerID"
+          required
+          v-model="appointment.TrainerID"
+          name="TrainerID"
+        />
+      </div>
+      <div class="form-group">
+        <label for="ClientID">Client ID</label>
+        <input
+          type="text"
+          class="form-control"
+          id="ClientID"
+          required
+          v-model="appointment.ClientID"
+          name="ClientID"
+        />
+      </div>
+            <div class="form-group">
+        <label for="TrainingDetail">TrainingDetail ID</label>
+        <input
+          type="text"
+          class="form-control"
+          id="ClientID"
+          required
+          v-model="appointment.TrainingDetailsID"
+          name="TrainingDetail"
+        />
+      </div>
       <div class="form-group">
         <label for="AppointmentDate">Appointment Date</label>
         <input
@@ -61,6 +95,9 @@ export default {
     return {
       appointment: {
         AppointmentID: null,
+        ClientID: "",
+        TrainerID: "",
+        TrainingDetailsID: "",
         AppointmentDate: "",
         AppointmentDuartion: "",
         AppointmentLocation: "",
@@ -72,6 +109,9 @@ export default {
   methods: {
     saveAppointment() {
       var data = {
+        ClientID: this.appointment.ClientID,
+        TrainerID: this.appointment.TrainerID,
+        TrainingDetailsID: this.appointment.TrainingDetailsID,
         AppointmentDate: this.appointment.AppointmentDate,
         AppointmentDuration: this.appointment.AppointmentDuration,
         AppointmentLocation: this.appointment.AppointmentLocation,
