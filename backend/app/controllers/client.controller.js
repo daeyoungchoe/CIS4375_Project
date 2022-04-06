@@ -167,3 +167,15 @@ exports.findAllActive = (req, res) => {
       });
     });
 };
+// Find all inactive Client
+exports.findAllInactive = (req, res) => {
+  Client.findAll({ where: {active: false}})
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: err.message || "Some error occurred while retrieving client.",
+      });
+    });
+};

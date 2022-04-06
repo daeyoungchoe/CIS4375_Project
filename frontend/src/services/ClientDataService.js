@@ -24,5 +24,11 @@ class ClientDataService {
   findByClientZip(ClientZip) {
     return http.get(`/clients/ClientZip?ClientZip=${ClientZip}`);
   }
+  findByClientActive(){
+    return http.get(`/clients/active`);
+  }
+  findByClientInactive(){
+    return http.get('/clients/inactive')
+  }
 }
 export default new ClientDataService();

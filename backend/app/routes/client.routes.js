@@ -5,8 +5,10 @@ module.exports = app => {
   router.post("/", clients.create);
   // Retrieve all Clients
   router.get("/", clients.findAll);
-  // Retrieve all active Trainer
+  // Retrieve all active Clients
   router.get("/active", clients.findAllActive);
+  //Retrive all inactive Clients
+  router.get("/inactive", clients.findAllInactive);
   // Retrieve all Trainer by Zip code
   router.get("/ClientZip", clients.findAllZipCode);
   // Retrieve a single Client with id
