@@ -16,7 +16,7 @@ var _user = require("./user");
 
 function initModels(sequelize) {
   var appointment = _appointment(sequelize, DataTypes);
-  var appointmentreminder = _appointmentreminder(sequelize, DataTypes);
+
   var client = _client(sequelize, DataTypes);
   var clientstatus = _clientstatus(sequelize, DataTypes);
   var feedback = _feedback(sequelize, DataTypes);
@@ -30,8 +30,6 @@ function initModels(sequelize) {
   var trainingtype = _trainingtype(sequelize, DataTypes);
   var user = _user(sequelize, DataTypes);
 
-  appointmentreminder.belongsTo(appointment, { as: "Appointment", foreignKey: "AppointmentID"});
-  appointment.hasMany(appointmentreminder, { as: "appointmentreminders", foreignKey: "AppointmentID"});
   appointment.belongsTo(client, { as: "Client", foreignKey: "ClientID"});
   client.hasMany(appointment, { as: "appointments", foreignKey: "ClientID"});
   feedback.belongsTo(client, { as: "Client", foreignKey: "ClientID"});
@@ -57,16 +55,12 @@ function initModels(sequelize) {
 
   return {
     appointment,
-    appointmentreminder,
     client,
-    clientstatus,
     feedback,
     login,
-    privilege,
     role,
     sys_config,
     trainer,
-    trainerstatus,
     trainingdetail,
     trainingtype,
     user,

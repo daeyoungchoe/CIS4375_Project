@@ -1,5 +1,5 @@
 const db = require("../models");
-const Trainer = db.trainers;
+const Trainer = db.trainer;
 const Op = db.Sequelize.Op;
 
 // Create and Save a new Trainers

@@ -55,7 +55,6 @@
     data() {
       return {
         trainer: {
-          id: null,
           TrainerFirstName: "",
           TrainerLastName: "",
           TrainerPhone: "",

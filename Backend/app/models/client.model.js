@@ -1,5 +1,18 @@
 module.exports = (sequelize, Sequelize) => {
   const Client = sequelize.define("client", {
+    ClientID: {
+      type: Sequelize.INTEGER,
+      allowNull: false,
+      primaryKey: true
+    },
+    id: {
+      type: Sequelize.INTEGER,
+      allowNull: true,
+      references: {
+        model: 'users',
+        key: 'id'
+      }
+    },
     ClientFirstName: {
       type: Sequelize.STRING(30),
       //allowNull: true,
