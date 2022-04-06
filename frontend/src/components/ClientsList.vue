@@ -30,7 +30,7 @@
         <div class="col-md-8">
             <div class="input-group mb-3">
                 <!-- Search Clients by status -->
-                <select v-model="selected">
+                <select v-model="active">
                     <option disabled value="">Please select one</option>
                     <option>Active</option>
                     <option>Inactive</option>
@@ -172,6 +172,30 @@
                     .catch(e => {
                         console.log(e);
                     });
+            },
+            searchClientStatus() {
+                if (this.active == "Active") {
+                    ClientDataService.findByClientActive()
+                        .then(response => {
+                            this.clients = response.data;
+                            this.setActiveClient(null);
+                            console.log(response.data);
+                        })
+                        .catch(e => {
+                            console.log(e);
+                        });
+                    }
+                else {
+                    ClientDataService.findByClientInactive()
+                        .then(response => {
+                            this.clients = response.data;
+                            this.setActiveClient(null);
+                            console.log(response.data);
+                        })
+                        .catch(e => {
+                            console.log(e);
+                        });
+                }    
             }
         },
         mounted() {
