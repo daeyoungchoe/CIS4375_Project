@@ -36,7 +36,7 @@
         />
       </div>
       <div class="form-group">
-        <label for="AppointmentDate">Appointment Date</label>
+        <label for="AppointmentDate">Appointment Date (YYYY-MM-DD)</label>
         <input
           type="text"
           class="form-control"
