@@ -1,11 +1,24 @@
 <template>
     <div class="list row">
+         <!-- Search Client By First Name -->
         <div class="col-md-8">
             <div class="input-group mb-3">
+                
                 <input type="text" class="form-control" placeholder="Search by Client First Name"
                     v-model="ClientFirstName" />
                 <div class="input-group-append">
                     <button class="btn btn-outline-secondary" type="button" @click="searchClientFirstName">
+                        Search
+                    </button>
+                </div>
+            </div>
+        </div> 
+        <div class="col-md-8">
+            <div class="input-group mb-3">
+                <!-- Search Client By ZipCode  -->
+                <input type="text" class="form-control" placeholder="Search by Client Zip Code" v-model="ClientZip" />
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" @click="searchClientZip">
                         Search
                     </button>
                 </div>
@@ -16,7 +29,8 @@
             <ul class="list-group">
                 <li class="list-group-item" :class="{ active: index == currentIndex }"
                     v-for="(client, index) in clients" :key="index" @click="setActiveClient(client, index)">
-                    {{ client.ClientFirstName }}
+                    {{ client.ClientFirstName }},
+
                 </li>
             </ul>
             <button class="m-3 btn btn-sm btn-danger" @click="removeAllClients">
@@ -43,7 +57,7 @@
                 </div>
                 <div>
                     <label><strong>Zip Code:</strong></label> {{ currentClient.ClientZip }}
-                </div>                
+                </div>
                 <div>
                     <label><strong>Emergenc Contact First Name:</strong></label>
                     {{ currentClient.EmergencyContactFirstName }}
@@ -83,7 +97,9 @@
                 clients: [],
                 currentClient: null,
                 currentIndex: -1,
-                ClientFIrstName: ""
+                ClientFirstName: "",
+                ClientZip: ""
+
             };
         },
         methods: {
@@ -117,8 +133,19 @@
                     });
             },
 
-            searchClientFIrstName() {
+            searchClientFirstName() {
                 ClientDataService.findByClientFirstName(this.ClientFirstName)
+                    .then(response => {
+                        this.clients = response.data;
+                        this.setActiveClient(null);
+                        console.log(response.data);
+                    })
+                    .catch(e => {
+                        console.log(e);
+                    });
+            },
+            searchClientZip() {
+                ClientDataService.findByClientZip(this.ClientZip)
                     .then(response => {
                         this.clients = response.data;
                         this.setActiveClient(null);
