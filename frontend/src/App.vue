@@ -26,6 +26,9 @@
           <router-link to="/addAppointment" class="nav-link">Appointment</router-link>
       </li>
 
+        <li class="nav-item">
+          <router-link to="/appointmentList" class="nav-link">Appointment List</router-link>
+      </li>
         <!--User authentication -->
         <li v-if="showAdminBoard" class="nav-item">
           <router-link to="/admin" class="nav-link">Admin Board</router-link>
