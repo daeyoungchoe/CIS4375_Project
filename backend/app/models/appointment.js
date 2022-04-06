@@ -1,13 +1,29 @@
 
 module.exports = function(sequelize,  Sequelize) {
   const Appointment = sequelize.define('appointment', {
+    TrainerFirstName: {
+      type: Sequelize.TEXT,
+      //allowNull: true
+    },
+    TrainerLastName: {
+      type: Sequelize.TEXT,
+      //allowNull: true
+    },
+    ClientFirstName: {
+      type: Sequelize.TEXT,
+      //allowNull: true
+    },
+    ClientLastName: {
+      type: Sequelize.TEXT,
+      //allowNull: true
+    },
 
     AppointmentDate: {
       type: Sequelize.DATEONLY,
       //allowNull: true
     },
     AppointmentDuration: {
-      type: Sequelize.TIME,
+      type: Sequelize.INTEGER,
       //allowNull: true
     },
     AppointmentLocation: {

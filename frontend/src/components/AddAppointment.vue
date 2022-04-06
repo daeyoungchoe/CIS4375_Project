@@ -1,10 +1,54 @@
 <template>
   <div class="submit-form">
     <div v-if="!submitted">
-      <div class="form-group">
-        <label for="AppointmentDate">Appointment Date</label>
+            <div class="form-group">
+        <label for="TrainerFirstName">Trainer First Name</label>
         <input
           type="text"
+          class="form-control"
+          id="TrainerFirstName"
+          required
+          v-model="appointment.TrainerFirstName"
+          name="TrainerFirstName"
+        />
+      </div>
+            <div class="form-group">
+        <label for="AppointmentDate">Trainer Last Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="TrainerLastName"
+          required
+          v-model="appointment.TrainerLastName"
+          name="TrainerLastName"
+        />
+      </div>
+            <div class="form-group">
+        <label for="ClientFirstName">Client First Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="ClientFirstName"
+          required
+          v-model="appointment.ClientFirstName"
+          name="ClientFirstName"
+        />
+      </div>
+            <div class="form-group">
+        <label for="ClientLastName">Client Last Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="ClientLastName"
+          required
+          v-model="appointment.ClientLastName"
+          name="ClientLastName"
+        />
+      </div>
+      <div class="form-group">
+        <label for="AppointmentDate">Appointment Date (YYYY-MM-DD)</label>
+        <input
+          type="date"
           class="form-control"
           id="AppointmentDate"
           required
@@ -13,8 +57,9 @@
         />
       </div>
       <div class="form-group">
-        <label for="AppointmentDuation">Appointment Duration</label>
+        <label for="AppointmentDuation">Appointment Duration (Minutes)</label>
         <input
+        type="text"
           class="form-control"
           id="AppointmentDuation"
           required
@@ -25,6 +70,7 @@
             <div class="form-group">
         <label for="AppointmentLocation">Appointment Location</label>
         <input
+        type="text"
           class="form-control"
           id="AppointmentLocation"
           required
@@ -35,6 +81,7 @@
             <div class="form-group">
         <label for="Notes">Notes</label>
         <input
+        type="text"
           class="form-control"
           id="Notes"
           required
@@ -61,6 +108,10 @@ export default {
     return {
       appointment: {
         AppointmentID: null,
+        TrainerFirstName: "",
+        TrainerLastName: "",
+        ClientFirstName: "",
+        ClientLastName: "",
         AppointmentDate: "",
         AppointmentDuartion: "",
         AppointmentLocation: "",
@@ -72,6 +123,10 @@ export default {
   methods: {
     saveAppointment() {
       var data = {
+        TrainerFirstName: this.appointment.TrainerFirstName,
+        TrainerLastName: this.appointment.TrainerLastName,
+        ClientFirstName: this.appointment.ClientFirstName,
+        ClientLastName: this.appointment.ClientLastName,
         AppointmentDate: this.appointment.AppointmentDate,
         AppointmentDuration: this.appointment.AppointmentDuration,
         AppointmentLocation: this.appointment.AppointmentLocation,

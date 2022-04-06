@@ -12,6 +12,10 @@ exports.create = (req, res) => {
   }
   // Create a Appointment
   const appointment = {
+    TrainerFirstName:req.body.TrainerFirstName,
+    TrainerLastName:req.body.TrainerLastName,
+    ClientFirstName:req.body.ClientFirstName,
+    ClientLastName:req.body.ClientLastName,
     AppointmentDate: req.body.AppointmentDate,
     AppointmentDuration: req.body.AppointmentDuration,
     AppointmentLocation: req.body.AppointmentLocation,
