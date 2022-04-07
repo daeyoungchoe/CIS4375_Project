@@ -9,10 +9,12 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
+    "@fortawesome/free-regular-svg-icons": "^6.1.1",
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "@fortawesome/vue-fontawesome": "^3.0.0-5",
     "axios": "^0.26.1",
     "bootstrap": "^4.6.0",
+    "bootstrap-icons": "^1.8.1",
     "bootstrap-vue": "^2.21.2",
     "core-js": "^3.8.3",
     "jquery": "^3.6.0",
@@ -30,7 +32,8 @@
     "@vue/cli-plugin-eslint": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
     "eslint": "^7.32.0",
-    "eslint-plugin-vue": "^8.0.3"
+    "eslint-plugin-vue": "^8.0.3",
+    "sass-loader": "^12.6.0"
   },
   "eslintConfig": {
     "root": true,

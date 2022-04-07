@@ -1,57 +1,49 @@
 <template>
-    <b-container>
+<!--Modal Launch Button-->
+<button type="button" class="btn btn-info btn-lg openmodal" data-toggle="modal" data-target="#myModal">Open Modal</button>
+<!--Division for Modal-->
+<div id="myModal" class="modal fade" role="dialog">
+    <!--Modal-->
+    <div class="modal-dialog">
+        <!--Modal Content-->
+        <div class="modal-content">
+            <!-- Modal Header-->
+            <div class="modal-header">
 
-        <b-form-rating v-model="rate_1"></b-form-rating>
-        <code>Value: {{rate_1}}</code>
+      <h2> Feedback Form </h2>
+      <div class="mb-3">
+        <h6 for="exampleFormControlInput1" class="form-label">Your Name</h6>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+      </div>
+      <div class="mb-3">
+        <h6 for="exampleFormControlInput1" class="form-label">Trainer name</h6>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+      </div>
+      <div class="mb-3">
+        <h6 for="exampleFormControlInput1" class="form-label">Date</h6>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+      </div>
+      <div class="rate  ">
+        <h6 class="mb-0">Rank your levels of satisfaction related our session</h6>
+        <div class="rating"> <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label> <input
+            type="radio" name="rating" value="4" id="4"><label for="4">☆</label> <input type="radio" name="rating"
+            value="3" id="3"><label for="3">☆</label> <input type="radio" name="rating" value="2" id="2"><label
+            for="2">☆</label> <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label> </div>
 
-        <hr />
+        <h6 class="mb-0">How would you rate your overall experience so far with the trainer</h6>
+        <div class="rating"> <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label> <input
+            type="radio" name="rating" value="4" id="4"><label for="4">☆</label> <input type="radio" name="rating"
+            value="3" id="3"><label for="3">☆</label> <input type="radio" name="rating" value="2" id="2"><label
+            for="2">☆</label> <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label> </div>
+        <div class="mb-3">
+          <h6 for="exampleFormControlInput1" class="form-label">Comment</h6>
+          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+        </div>
+        <div class="buttons"> <button class="btn btn-success rating-submit">Submit</button> </div>
+      </div>
 
-        <b-form-rating v-model="rate_2" readonly></b-form-rating>
-        <code>Value: {{rate_2}}</code>
-
-        <hr />
-
-        <b-form-rating v-model="rate_3" stars="10" show-value show-value-max></b-form-rating>
-        <code>Value: {{rate_3}}</code>
-
-        <hr />
-
-        <b-form-rating v-model="rate_4" variant="warning" class="mb-2"></b-form-rating>
-        <b-form-rating v-model="rate_4" variant="success" class="mb-2"></b-form-rating>
-        <b-form-rating v-model="rate_4" color="#FF9900" class="mb-2"></b-form-rating>
-        <b-form-rating v-model="rate_4" color="pink" class="mb-2"></b-form-rating>
-
-        <code>Value: {{rate_4}}</code>
-
-        <hr />
-
-        <b-form-rating
-          icon-empty="heart"
-          icon-half="heart-half"
-          icon-full="heart-fill"
-          icon-clear="slash-circle"
-          show-clear
-          variant="danger"
-          v-model="rate_2"
-        ></b-form-rating>
-
-    </b-container>
+    </div>
+  </div>
+    </div>
+</div>
 </template>
-
-<script>
-export default {
-  name: 'Home',
-  computed: {
-  },
-  data () {
-    return {
-      rate_1: null,
-      rate_2: 2.567,
-      rate_3: null,
-      rate_4: null,
-    }
-  },
-  methods: {
-  }
-}
-</script>
