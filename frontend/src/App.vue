@@ -7,22 +7,25 @@
         <li class="nav-item">
           <router-link to="/service" class="nav-link">Service</router-link>
         </li>
-
+        
         <!--Trainer Nav-->
-        <li class="nav-item">
-          <router-link to="/trainers" class="nav-link">Trainers</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link to="/addTrainer" class="nav-link">Add Trainer</router-link>
-        </li>
-
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Trainers
+          </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="/trainers">List Trainers</a>
+        <a class="dropdown-item" href="/addTrainer">New Trainer</a>
+        </div>
+        </div>
         <!--Client Nav-->
-        <li class="nav-item">
-          <router-link to="/clients" class="nav-link">Clients</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link to="/addClient" class="nav-link">Add Client</router-link>
-        </li>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Clients
+          </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="/clients">List of Clients</a>
+        <a class="dropdown-item" href="/addClient">New Client</a>
+        </div>
+        </div>
         <li class="nav-item">
           <router-link to="/addAppointment" class="nav-link">Appointment</router-link>
         </li>
