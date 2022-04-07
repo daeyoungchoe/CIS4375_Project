@@ -1,0 +1,231 @@
+<template>
+    <div class="about">
+        <!-- Services -->
+
+        <!-- Title -->
+        <section class="ftco-section">
+            <div class="container">
+                <div class="row justify-content-center mb-5 pb-2">
+                    <div class="col-md-7 text-center heading-section ftco-animate">
+                        <br>
+                        <h2 class="mb-4">Choose Your Plan</h2>
+                    </div>
+                </div>
+                <!-- End Title -->
+
+
+                <!--Boxing -->
+                <div class="row">
+                    <div class="col-md-6 col-lg-4 menu-wrap">
+                        <div class="heading-menu text-center ftco-animate">
+                            <h3>Boxing Training</h3> <!-- Boxing Header -->
+                        </div>
+                        <div class="menus d-flex ftco-animate">
+                            <div class="text">
+                                <div class="d-flex">
+                                    <div class="one-half">
+                                        <h3>Training Camp</h3>
+                                    </div>
+                                    <div class="one-forth">
+                                        <span class="price">$80/hr </span>
+                                    </div>
+                                </div>
+                                <p>Required one-time class for all students. Learn how the proper stance, throw punches,
+                                    and more. You’ll leave ready for battle.</p>
+                                <p> INTERMEDIATE </p>
+                            </div>
+                        </div>
+                        <div class="menus d-flex ftco-animate">
+                            <div class="text">
+                                <div class="d-flex">
+                                    <div class="one-half">
+                                        <h3>Intro To Speedbox</h3>
+                                    </div>
+                                    <div class="one-forth">
+                                        <span class="price">$80/hr</span>
+                                    </div>
+                                </div>
+                                <p>The next step after Training Camp. Challenge yourself with simple yet hard-hitting
+                                    combinations that are sure to get you ready for Speedbox and start you on your
+                                    boxing and fitness journey!</p>
+                                <p> INTERMEDIATE </p>
+                            </div>
+                        </div>
+                        <div class="menus d-flex ftco-animate">
+                            <div class="text">
+                                <div class="d-flex">
+                                    <div class="one-half">
+                                        <h3>SPEEDBOX</h3>
+                                    </div>
+                                    <div class="one-forth">
+                                        <span class="price">$80/hr</span>
+                                    </div>
+                                </div>
+                                <p><span>You, a heavy bag, a world-class boxing instructor, a driving beat, and sixty
+                                        minutes. Sweat. Get strong. Look hot.</span></p>
+                                <p> INTERMEDIATE </p>
+                            </div>
+                        </div>
+                        <div class="menus d-flex ftco-animate">
+                            <div class="text">
+                                <div class="d-flex">
+                                    <div class="one-half">
+                                        <h3>Hand Pad Power Hour</h3>
+                                    </div>
+                                    <div class="one-forth">
+                                        <span class="price">$80/hr</span>
+                                    </div>
+                                </div>
+                                <p><span>Mitts are how all the great boxing champions first learned their boxing
+                                        techniques!
+                                        Develop power and speed, defensive maneuvers, footwork and counter punching
+                                        reflexes. Spots are limited.</span></p>
+                                <p>INTERMEDIATE/ADVANCE</p>
+                            </div>
+                        </div>
+                        <div class="menus d-flex ftco-animate">
+                            <div class="text">
+                                <div class="d-flex">
+                                    <div class="one-half">
+                                        <h3>Boxing & Brews</h3>
+                                    </div>
+                                    <div class="one-forth">
+                                        <span class="price">$80/hr</span>
+                                    </div>
+                                </div>
+                                <p><span>Step into the ring and test your boxing knowledge. Experience the fight with
+                                        coach supervision. Don’t forget your mouthguard or headgear. Test your skills
+                                        and experience the fight in a live sparring match. *Members ONLY. Must be USA
+                                        Boxing certified.</span></p>
+                                <p>ADVANCE</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--End Boxing-->
+
+                    <!--Soccer-->
+                    <div class="col-md-6 col-lg-4 menu-wrap">
+                        <div class="heading-menu text-center ftco-animate">
+                            <h3>Soccer Training</h3>
+                        </div>
+                        <div class="menus d-flex ftco-animate">
+                            <div class="text">
+                                <div class="d-flex">
+                                    <div class="one-half">
+                                        <h3>First Timer Training</h3>
+                                    </div>
+                                    <div class="one-forth">
+                                        <span class="price">$80/hr</span>
+                                    </div>
+                                </div>
+                                <p><span>Our First Timer Training is the perfect introduction for students of all ages.
+                                        We work hard to help students build their confidence and have fun every step of
+                                        the way. This program introduces students to the fundamentals of the game and
+                                        includes some sport-specific agility work. </span></p>
+                                <p> BEGINNER </p>
+                            </div>
+                        </div>
+                        <div class="menus d-flex ftco-animate">
+                            <div class="text">
+                                <div class="d-flex">
+                                    <div class="one-half">
+                                        <h3>Experienced Training</h3>
+                                    </div>
+                                    <div class="one-forth">
+                                        <span class="price">$80/hr</span>
+                                    </div>
+                                </div>
+                                <p><span>This program is designed to help athletes focus on specific aspects of their
+                                        skill set. We want each student to enjoy aspects of individualization that you
+                                        can't get with club team practice. Students in this program can train up to 6
+                                        days a week and take their skills to the next level in no time. </span></p>
+                                <p> INTERMEDIATE </p>
+                            </div>
+                        </div>
+                        <div class="menus d-flex ftco-animate">
+                            <div class="text">
+                                <div class="d-flex">
+                                    <div class="one-half">
+                                        <h3>Elite Training: </h3>
+                                    </div>
+                                    <div class="one-forth">
+                                        <span class="price">$80/hr</span>
+                                    </div>
+                                </div>
+                                <p><span>This program is designed to help professional-track elite players improve every
+                                        aspect of their game, including mental, physical, and emotional development. Our
+                                        Elite Training begins with a Player Performance Objective that allows us to
+                                        tailor our training to your unique goals and skill set. </span></p>
+                                <p> INTERMEDIATE </p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Personal Trainer-->
+                    <div class="col-md-6 col-lg-4 menu-wrap">
+                        <div class="heading-menu text-center ftco-animate">
+                            <h3>Personal Training Coach</h3>
+                        </div>
+                        <div class="menus d-flex ftco-animate">
+                            <div class="text">
+                                <div class="d-flex">
+                                    <div class="one-half">
+                                        <h3>Strength Training </h3>
+                                    </div>
+                                    <div class="one-forth">
+                                        <span class="price">$80/hr</span>
+                                    </div>
+                                </div>
+                                <p><span>The PhyZeke strength training programs are geared toward helping you improve
+                                        your fitness levels and overall health. One of our experienced, certified
+                                        trainers will coach and guide you through a routine created for you to help
+                                        increase your strength and energy so you can look and feel your best </span></p>
+                                <p> INTERMEDIATE/ADVANCE </p>
+                            </div>
+                        </div>
+                        <div class="menus d-flex ftco-animate">
+                            <div class="text">
+                                <div class="d-flex">
+                                    <div class="one-half">
+                                        <h3>Cardio Fitness </h3>
+                                    </div>
+                                    <div class="one-forth">
+                                        <span class="price">$80/hr</span>
+                                    </div>
+                                </div>
+                                <p><span>Whether you want to relieve stress or burn a lot of calories in a short period
+                                        of time, a PhyZeke personal trainer has the moves to help get your heart rate
+                                        going. Cardiovascular fitness is the ability of the heart and lungs to supply
+                                        oxygen-rich blood to the working muscles of your body and, in turn, the ability
+                                        of those muscles to use oxygen to produce energy for movement.</span></p>
+                                <p> INTERMEDIATE/ADVANCE </p>
+                            </div>
+                        </div>
+                        <div class="menus d-flex ftco-animate">
+                            <div class="text">
+                                <div class="d-flex">
+                                    <div class="one-half">
+                                        <h3>Weight Loss & Toning </h3>
+                                    </div>
+                                    <div class="one-forth">
+                                        <span class="price">$80/hr</span>
+                                    </div>
+                                </div>
+                                <p><span>PhyZeke personal training help clients get back into shape by developing a
+                                        customized program that tones the body, sheds fat, and trims inches.
+                                        Cardiovascular exercise, such as stair-climbing, speed-walking, walking,
+                                        swimming, and running, is one technique to improve body appearance. Increasing
+                                        body strength does as much to changing the body's appearance and aid in losing
+                                        weight as diet and cardiovascular activity.
+                                    </span></p>
+                                <p> INTERMEDIATE/ADVANCE </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--End Personal Trainer -->
+                </div>
+            </div>
+        </section>
+    </div>
+</template>
