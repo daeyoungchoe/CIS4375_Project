@@ -14,29 +14,33 @@
           </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <a class="dropdown-item" href="/trainers">List Trainers</a>
-        <a class="dropdown-item" href="/addTrainer">New Trainer</a>
+        <a class="dropdown-item" href="/addTrainer">Add Trainer</a>
         </div>
         </div>
+        &nbsp;
         <!--Client Nav-->
         <div class="dropdown">
           <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Clients
           </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="/clients">List of Clients</a>
-        <a class="dropdown-item" href="/addClient">New Client</a>
+        <a class="dropdown-item" href="/clients">Client Reports</a>
+        <a class="dropdown-item" href="/addClient">Add Client</a>
         </div>
         </div>
-        <li class="nav-item">
-          <router-link to="/addAppointment" class="nav-link">Appointment</router-link>
-        </li>
+        &nbsp;
+        <!--Appt Nav-->
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Appointments
+          </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="/appointmentList">View Appointments</a>
+          <a class="dropdown-item" href="/addAppointment">Book Appointment</a>
+        </div>
+        </div>
         <!--Feedback Form-->
         <li class="nav-item">
           <router-link to="/addFeedback" class="nav-link">Feedback</router-link>
         </li>
-
-        <li class="nav-item">
-          <router-link to="/appointmentList" class="nav-link">Appointment List</router-link>
-      </li>
         <!--User authentication -->
         <li v-if="showAdminBoard" class="nav-item">
           <router-link to="/admin" class="nav-link">Admin Board</router-link>
