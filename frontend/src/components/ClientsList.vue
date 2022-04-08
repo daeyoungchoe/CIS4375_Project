@@ -47,7 +47,8 @@
             <ul class="list-group">
                 <li class="list-group-item" :class="{ active: index == currentIndex }"
                     v-for="(client, index) in clients" :key="index" @click="setActiveClient(client, index)">
-                    {{ client.ClientFirstName }}
+                    {{ client.ClientFirstName }} {{ client.ClientLastName }}
+
 
                 </li>
             </ul>

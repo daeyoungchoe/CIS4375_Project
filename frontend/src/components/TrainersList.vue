@@ -15,7 +15,7 @@
       <ul class="list-group">
         <li class="list-group-item" :class="{ active: index == currentIndex }" v-for="(trainer, index) in trainers"
           :key="index" @click="setActiveTrainer(trainer, index)">
-          {{ trainer.TrainerFirstName }}
+          {{ trainer.TrainerFirstName }}  {{ trainer.TrainerLastName }}
         </li>
       </ul>
       <button class="m-3 btn btn-sm btn-danger" @click="removeAllTrainers">

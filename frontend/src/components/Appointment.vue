@@ -28,8 +28,7 @@
       </div>
       <div class="form-group">
         <label for="AppointmentDuration">Appointment Time</label>
-        <input type="time" class="form-control" id="AppointmentDuration"
-          v-model="currentAppointment.AppointmentDuration" />
+        <input type="time" class="form-control" id="AppointmentDuration" v-model="currentAppointment.AppointmentDuration" />
       </div>
       <div class="form-group">
         <label for="AppointmentLocation">Appointment Location</label>
