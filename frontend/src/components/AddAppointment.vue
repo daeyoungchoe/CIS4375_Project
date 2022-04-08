@@ -70,14 +70,14 @@
         />
       </div>
       <div class="form-group">
-        <label for="AppointmentDuation">Appointment Time (1 Hour)</label>
+        <label for="AppointmentDuration">Appointment Time (1 Hour)</label>
         <input
         type="time"
           class="form-control"
           id="AppointmentDuation"
           required
-          v-model="appointment.AppointmentDuation"
-          name="AppointmentDuation"
+          v-model="appointment.AppointmentDuration"
+          name="AppointmentDuration"
         />
       </div>
             <div class="form-group">
@@ -127,7 +127,7 @@ export default {
         ClientLastName: "",
         TrainingType: "",
         AppointmentDate: "",
-        AppointmentDuartion: "",
+        AppointmentDuration: "",
         AppointmentLocation: "",
         Notes: ""
       },

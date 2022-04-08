@@ -24,18 +24,21 @@
       </div>
       <div class="form-group">
         <label for="AppointmentDate">Appointment Date</label>
-        <input type="date" class="form-control" id="AppointmentDate"
-          v-model="currentAppointment.AppointmentDate" />
+        <input type="date" class="form-control" id="AppointmentDate" v-model="currentAppointment.AppointmentDate" />
       </div>
       <div class="form-group">
-        <label for="AppointmentDuation">Appointment Time</label>
-        <input type="time" class="form-control" id="AppointmentDuation"
-          v-model="currentAppointment.AppointmentDuation" />
+        <label for="AppointmentDuration">Appointment Time</label>
+        <input type="time" class="form-control" id="AppointmentDuration"
+          v-model="currentAppointment.AppointmentDuration" />
+      </div>
+      <div class="form-group">
+        <label for="AppointmentLocation">Appointment Location</label>
+        <input type="text" class="form-control" id="AppointmentLocation"
+          v-model="currentAppointment.AppointmentLocation" />
       </div>
       <div class="form-group">
         <label for="Notes">Notes</label>
-        <input type="text" class="form-control" id="Notes"
-          v-model="currentAppointment.Notes" />
+        <input type="text" class="form-control" id="Notes" v-model="currentAppointment.Notes" />
       </div>
 
     </form>

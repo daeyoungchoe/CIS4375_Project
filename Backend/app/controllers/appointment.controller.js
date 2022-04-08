@@ -38,18 +38,14 @@ exports.create = (req, res) => {
 
 // Retrieve all Appointment from the database.
 exports.findAll = (req, res) => {
-  const TrainerFirstName = req.query.TrainerFirstName;
-  var condition = TrainerFirstName
-    ? { ClientFirstName: { [Op.like]: `%${TrainerFirstName}%` } }
-    : null;
-  Client.findAll({ where: condition })
+  Appointment.findAll()
     .then((data) => {
       res.send(data);
     })
     .catch((err) => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while retrieving Clients.",
+          err.message || "Some error occurred while retrieving Appointment.",
       });
     });
 };

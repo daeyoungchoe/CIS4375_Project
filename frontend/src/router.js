@@ -52,6 +52,7 @@ const routes = [
     name: "addClients",
     component: () => import("./components/AddClient"),
   },
+  //Appointment path
   {
     path: "/addAppointment",
     name: "addAppointment",
@@ -63,6 +64,12 @@ const routes = [
     name: "appointments",
     component: () => import("./components/AppointmentList"),
   },
+  {
+    path: "/appointments/:id",
+    name: "appointment-details",
+    component: () => import("./components/Appointment"),
+  },
+  //Service
   {
     path: "/service",
     name: "service",
