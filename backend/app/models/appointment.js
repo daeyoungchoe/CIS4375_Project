@@ -4,7 +4,8 @@ module.exports = function(sequelize,  Sequelize) {
    AppointmentID: {
       type: Sequelize.INTEGER,
       //allowNull: false,
-      primaryKey: true
+      primaryKey: true,
+      autoIncrement: true
     },
 
     AppointmentDate: {

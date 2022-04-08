@@ -4,7 +4,8 @@ module.exports = function(sequelize, Sequelize) {
     TrainingDetailsID: {
       type: Sequelize.INTEGER,
       allowNull: false,
-      primaryKey: true
+      primaryKey: true,
+      autoIncrement: true
     },
     Price: {
       type: Sequelize.DOUBLE,

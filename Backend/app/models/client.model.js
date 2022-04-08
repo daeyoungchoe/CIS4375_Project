@@ -3,7 +3,8 @@ module.exports = (sequelize, Sequelize) => {
     ClientID: {
       type: Sequelize.INTEGER,
       //allowNull: false,
-      primaryKey: true
+      primaryKey: true,
+      autoIncrement: true
     },
     ClientFirstName: {
       type: Sequelize.STRING(30),

@@ -13,7 +13,8 @@ exports.create = (req, res) => {
   }
   // Create a Trainer
   const trainer = {
-    
+    TrainerID: req.body.TrainerID,
+    id: req.body.id,
     TrainerFirstName: req.body.TrainerFirstName,
     TrainerLastName: req.body.TrainerLastName,
     TrainerPhone: req.body.TrainerPhone,

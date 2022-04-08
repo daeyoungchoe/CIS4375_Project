@@ -3,7 +3,8 @@ module.exports = (sequelize, Sequelize) => {
     TrainerID: {
       type: Sequelize.INTEGER,
       //allowNull: false,
-      primaryKey: true
+      primaryKey: true,
+      autoIncrement: true
     }, 
 
     TrainerFirstName: {

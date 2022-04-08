@@ -2,6 +2,11 @@
   <div class="submit-form">
     <div v-if="!submitted">
 
+             <div class="form-group">
+        <label for="id">User ID</label>
+        <input type="number" class="form-control" id="id" required v-model="trainer.id"
+          name="id" />
+      </div>
       <div class="form-group">
         <label for="TrainerFirstName">Trainer First Name</label>
         <input type="text" class="form-control" id="TrainerFirstName" required v-model="trainer.TrainerFirstName"
@@ -57,6 +62,7 @@
       return {
         trainer: {
           TrainerID: null,
+          id:"",
           TrainerFirstName: "",
           TrainerLastName: "",
           TrainerPhone: "",
@@ -73,6 +79,7 @@
     methods: {
       saveTrainer() {
         var data = {
+          id: this.trainer.id,
           TrainerFirstName: this.trainer.TrainerFirstName,
           TrainerLastName: this.trainer.TrainerLastName,
           TrainerPhone: this.trainer.TrainerPhone,
