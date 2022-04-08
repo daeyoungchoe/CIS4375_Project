@@ -8,16 +8,20 @@
       </div>
       <div class="form-group">
         <label for="TrainerLastName"><b>Trainer Last Name</b></label>
-        <input class="form-control" id="TrainerLastName" required v-model="trainer.TrainerLastName"
+        <input type="text" class="form-control" id="TrainerLastName" required v-model="trainer.TrainerLastName"
           name="TrainerLastName" />
       </div>
       <div class="form-group">
         <label for="TrainerPhone"><b>Trainer Phone</b></label>
-        <input class="form-control" id="TrainerPhone" required v-model="trainer.TrainerPhone" name="TrainerPhone" />
+        <input type="tel" class="form-control" pattern="^\d{3}-\d{3}-\d{4}$" placeholder="XXX-XXX-XXXX" id="TrainerPhone" aria-describedby="phoneHelpBlock" required v-model="trainer.TrainerPhone" name="TrainerPhone" />
+        <!-- Help text-->
+        <small id="phoneHelpBlock" class="form-text text-muted">
+          10 digit phone number should be entered with dashes
+        </small>
       </div>
       <div class="form-group">
         <label for="TrainerEmail"><b>Trainer Email</b></label>
-        <input class="form-control" id="TrainerEmail" required v-model="trainer.TrainerEmail" name="TrainerEmail" />
+        <input class="form-control" id="TrainerEmail" type="email" required v-model="trainer.TrainerEmail" name="TrainerEmail" />
       </div>
       <div class="form-group">
         <label for="TrainerAddress"><b>Trainer Address</b></label>
@@ -43,8 +47,8 @@
       <button @click="saveTrainer" class="btn btn-success">Submit</button>
     </div>
     <div v-else>
-      <h4>You submitted successfully!</h4>
-      <button class="btn btn-success" @click="newTrainer">Add</button>
+      <h4>You have added a trainer successfully!</h4>
+      <button class="btn btn-success" @click="newTrainer">Go Back</button>
     </div>
     <br>
   </div>
