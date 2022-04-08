@@ -13,13 +13,18 @@ module.exports = function(sequelize,  Sequelize) {
       //allowNull: true
     },
     AppointmentDuration: {
-      type: Sequelize.INTEGER,
+      type: Sequelize.TIME,
       //allowNull: true
     },
     AppointmentLocation: {
       type: Sequelize.STRING(45),
       //allowNull: true
-    }
+    },
+    Notes: {
+      type: Sequelize.STRING(45),
+      //allowNull: true
+    },
+    
   });
   return Appointment;
 };

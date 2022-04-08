@@ -3,7 +3,7 @@ module.exports = function(sequelize, Sequelize) {
   const TrainingDetail = sequelize.define('trainingdetail', {
     TrainingDetailsID: {
       type: Sequelize.INTEGER,
-      allowNull: false,
+      //allowNull: false,
       primaryKey: true,
       autoIncrement: true
     },

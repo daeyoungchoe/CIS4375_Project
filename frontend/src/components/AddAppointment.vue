@@ -38,7 +38,7 @@
       <div class="form-group">
         <label for="AppointmentDate">Appointment Date (YYYY-MM-DD)</label>
         <input
-
+          type="date"
           class="form-control"
           id="AppointmentDate"
           required
@@ -47,14 +47,14 @@
         />
       </div>
       <div class="form-group">
-        <label for="AppointmentDuation">Appointment Duration (minutes)</label>
+        <label for="AppointmentDuration">Appointment Time (1 Hour session)</label>
         <input
-
+          type="time"
           class="form-control"
-          id="AppointmentDuation"
+          id="AppointmentDuration"
           required
-          v-model="appointment.AppointmentDuation"
-          name="AppointmentDuation"
+          v-model="appointment.AppointmentDuration"
+          name="AppointmentDuration"
         />
       </div>
             <div class="form-group">
@@ -102,7 +102,7 @@ export default {
         TrainerID: "",
         TrainingDetailsID: "",
         AppointmentDate: "",
-        AppointmentDuartion: "",
+        AppointmentDuration: "",
         AppointmentLocation: "",
         Notes: ""
       },
