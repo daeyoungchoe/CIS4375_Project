@@ -38,16 +38,20 @@ exports.create = (req, res) => {
 
 // Retrieve all Appointment from the database.
 exports.findAll = (req, res) => {
-    Appointment.findAll()
-      .then(data => {
-        res.send(data);
-      })
-      .catch(err => {
-        res.status(500).send({
-          message:
-            err.message || "Some error occurred while retrieving Appointment."
-        });
+  const TrainerFirstName = req.query.TrainerFirstName;
+  var condition = TrainerFirstName
+    ? { ClientFirstName: { [Op.like]: `%${TrainerFirstName}%` } }
+    : null;
+  Client.findAll({ where: condition })
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving Clients.",
       });
+    });
 };
 // Find a single Appointment with an AppointmentID
 exports.findOne = (req, res) => {

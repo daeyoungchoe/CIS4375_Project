@@ -13,8 +13,8 @@
     <div class="col-md-6">
       <h4>Appointment List</h4>
       <ul class="list-group">
-        <li class="list-group-item" :class="{ active: index == currentIndex }" v-for="(trainer, index) in trainers"
-          :key="index" @click="setActiveAppointment(appointment, index)">
+        <li class="list-group-item" :class="{ active: index == currentIndex }" 
+        v-for="(appointment, index) in appointments" :key="index" @click="setActiveAppointment(appointment, index)">
           {{ appointment.TrainerFirstName }}
         </li>
       </ul>
@@ -42,9 +42,6 @@
         </div>
         <div>
           <label><strong>Appointment Location:</strong></label> {{ currentAppointment.AppointmentLocation }}
-        </div>
-        <div>
-          <label><strong>Notes:</strong></label> {{ currentAppointment.Notes }}
         </div>
 
         <router-link :to="'/appointments/' + currentAppointment.id" class="badge badge-warning">Edit</router-link>
@@ -102,7 +99,7 @@
         AppointmentDataService.findByTrainerFirstName(this.TrainerFirstName)
           .then(response => {
             this.trainers = response.data;
-            this.setActiveTrainer(null);
+            this.setActiveAppointment(null);
             console.log(response.data);
           })
           .catch(e => {
