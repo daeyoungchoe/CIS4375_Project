@@ -13,7 +13,7 @@
     <div class="col-md-6">
       <h4>Appointment List</h4>
       <ul class="list-group">
-        <li class="list-group-item" :class="{ active: index == currentIndex }" v-for="(trainer, index) in trainers"
+        <li class="list-group-item" :class="{ active: index == currentIndex }" v-for="(appointment, index) in appointments"
           :key="index" @click="setActiveAppointment(appointment, index)">
           {{ appointment.TrainerFirstName }}
         </li>
