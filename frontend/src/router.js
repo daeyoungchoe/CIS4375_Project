@@ -58,8 +58,9 @@ const routes = [
     component: () => import("./components/AddAppointment"),
   },
   {
-    path: "/appointmentList",
-    name: "appointmentList",
+    path: "/appointments",
+    alias: "/appointments",
+    name: "appointments",
     component: () => import("./components/AppointmentList"),
   },
   {

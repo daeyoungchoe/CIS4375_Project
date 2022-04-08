@@ -35,10 +35,10 @@
           <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">Appointments
           </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="/appointmentList">View Appointments</a>
-            <a class="dropdown-item" href="/addAppointment">Book Appointment</a>
-          </div>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="/appointments">View Appointments</a>
+          <a class="dropdown-item" href="/addAppointment">Book Appointment</a>
+        </div>
         </div>
         <!--Feedback Form-->
         <li class="nav-item">
