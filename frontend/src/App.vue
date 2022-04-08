@@ -5,7 +5,7 @@
         <font-awesome-icon icon="home" /> Home</router-link>
       <div class="navbar-nav mr-auto">
         <li class="nav-item">
-          <router-link to="/service" class="nav-link">Service</router-link>
+          <router-link to="/service" class="nav-link">Services</router-link>
         </li>
 
         <!--Trainer Nav-->
