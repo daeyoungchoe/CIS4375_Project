@@ -74,6 +74,17 @@ const routes = [
     name: "addFeedback",
     component: () => import("./components/AddFeedback"),
   },
+  {
+    path: "/feedbacks",
+    alias: "/feedbacks",
+    name: "feedbacks",
+    component: () => import("./components/FeedbackList"),
+  },
+  {
+    path: "/feedbacks/:id",
+    name: "feedback-details",
+    component: () => import("./components/Feedback"),
+  },
   //Test User authenticate
   {
     path: "/home",
