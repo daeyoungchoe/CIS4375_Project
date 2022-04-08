@@ -28,7 +28,7 @@ app.get("/", (req, res) => {
 require("./app/routes/trainer.routes")(app);
 require("./app/routes/client.routes")(app);
 require("./app/routes/appointment.routes")(app);
-//require("./app/routes/login.routes")(app);
+require("./app/routes/feedback.routes")(app);
 
 require("./app/routes/auth.routes")(app);
 require("./app/routes/user.routes")(app);

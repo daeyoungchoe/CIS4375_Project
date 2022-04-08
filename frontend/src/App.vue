@@ -7,39 +7,45 @@
         <li class="nav-item">
           <router-link to="/service" class="nav-link">Service</router-link>
         </li>
-        
+
         <!--Trainer Nav-->
         <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Trainers
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">Trainers
           </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="/trainers">List Trainers</a>
-        <a class="dropdown-item" href="/addTrainer">Add Trainer</a>
-        </div>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="/trainers">List Trainers</a>
+            <a class="dropdown-item" href="/addTrainer">Add Trainer</a>
+          </div>
         </div>
         &nbsp;
         <!--Client Nav-->
         <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Clients
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">Clients
           </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="/clients">Client Reports</a>
-        <a class="dropdown-item" href="/addClient">Add Client</a>
-        </div>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="/clients">Client Reports</a>
+            <a class="dropdown-item" href="/addClient">Add Client</a>
+          </div>
         </div>
         &nbsp;
         <!--Appt Nav-->
         <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Appointments
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">Appointments
           </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="/appointmentList">View Appointments</a>
-          <a class="dropdown-item" href="/addAppointment">Book Appointment</a>
-        </div>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="/appointmentList">View Appointments</a>
+            <a class="dropdown-item" href="/addAppointment">Book Appointment</a>
+          </div>
         </div>
         <!--Feedback Form-->
         <li class="nav-item">
           <router-link to="/addFeedback" class="nav-link">Feedback</router-link>
+        </li>
+        <li class="nav-item">
+          <router-link to="/feedbacks" class="nav-link">Client Satisfaction Report</router-link>
         </li>
         <!--User authentication -->
         <li v-if="showAdminBoard" class="nav-item">
