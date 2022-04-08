@@ -2,40 +2,40 @@
   <div class="submit-form">
     <div v-if="!submitted">
       <div class="form-group">
-        <label for="TrainerFirstName">Trainer First Name</label>
+        <label for="TrainerFirstName"><b>Trainer First Name</b></label>
         <input type="text" class="form-control" id="TrainerFirstName" required v-model="trainer.TrainerFirstName"
           name="TrainerFirstName" />
       </div>
       <div class="form-group">
-        <label for="TrainerLastName">Trainer Last Name</label>
+        <label for="TrainerLastName"><b>Trainer Last Name</b></label>
         <input class="form-control" id="TrainerLastName" required v-model="trainer.TrainerLastName"
           name="TrainerLastName" />
       </div>
       <div class="form-group">
-        <label for="TrainerPhone">Trainer Phone</label>
+        <label for="TrainerPhone"><b>Trainer Phone</b></label>
         <input class="form-control" id="TrainerPhone" required v-model="trainer.TrainerPhone" name="TrainerPhone" />
       </div>
       <div class="form-group">
-        <label for="TrainerEmail">Trainer Email</label>
+        <label for="TrainerEmail"><b>Trainer Email</b></label>
         <input class="form-control" id="TrainerEmail" required v-model="trainer.TrainerEmail" name="TrainerEmail" />
       </div>
       <div class="form-group">
-        <label for="TrainerAddress">Trainer Address</label>
+        <label for="TrainerAddress"><b>Trainer Address</b></label>
         <input class="form-control" id="TrainerAddress" required v-model="trainer.TrainerAddress"
           name="TrainerAddress" />
       </div>
       <div class="form-group">
-        <label for="EmergencyContactFirstName">Emergency Contact First Name</label>
+        <label for="EmergencyContactFirstName"><b>Emergency Contact First Name</b></label>
         <input class="form-control" id="EmergencyContactFirstName" required v-model="trainer.EmergencyContactFirstName"
           name="EmergencyContactFirstName" />
       </div>
       <div class="form-group">
-        <label for="EmergencyContactLastName">Emergency Contact Last Name</label>
+        <label for="EmergencyContactLastName"><b>Emergency Contact Last Name</b></label>
         <input class="form-control" id="EmergencyContactLastName" required v-model="trainer.EmergencyContactLastName"
           name="EmergencyContactLastName" />
       </div>
       <div class="form-group">
-        <label for="EmergencyContactPhone">Emergency Contact Phone</label>
+        <label for="EmergencyContactPhone"><b>Emergency Contact Phone</b></label>
         <input class="form-control" id="EmergencyContactPhone" required v-model="trainer.EmergencyContactPhone"
           name="EmergencyContactPhone" />
       </div>
@@ -46,7 +46,9 @@
       <h4>You submitted successfully!</h4>
       <button class="btn btn-success" @click="newTrainer">Add</button>
     </div>
+    <br>
   </div>
+  
 </template>
 <script>
   import TrainerDataService from "../services/TrainerDataService";
