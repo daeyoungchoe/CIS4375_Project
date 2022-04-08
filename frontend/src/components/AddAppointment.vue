@@ -5,7 +5,7 @@
       <div class="form-group">
         <label for="TrainerID">Trainer ID</label>
         <input
-
+          type="number"
           class="form-control"
           id="TrainerID"
           required
@@ -16,7 +16,7 @@
       <div class="form-group">
         <label for="ClientID">Client ID</label>
         <input
-
+          type="number"
           class="form-control"
           id="ClientID"
           required
@@ -25,14 +25,14 @@
         />
       </div>
             <div class="form-group">
-        <label for="TrainingDetail">TrainingDetail ID</label>
+        <label for="TrainingDetailsID">Training Detail ID</label>
         <input
-
+          type="number"
           class="form-control"
           id="ClientID"
           required
           v-model="appointment.TrainingDetailsID"
-          name="TrainingDetail"
+          name="TrainingDetailsID"
         />
       </div>
       <div class="form-group">
@@ -60,7 +60,7 @@
             <div class="form-group">
         <label for="AppointmentLocation">Appointment Location</label>
         <input
-
+          type="text"
           class="form-control"
           id="AppointmentLocation"
           required
@@ -71,7 +71,7 @@
             <div class="form-group">
         <label for="Notes">Notes</label>
         <input
-
+          type="text" 
           class="form-control"
           id="Notes"
           required
