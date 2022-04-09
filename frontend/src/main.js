@@ -16,6 +16,9 @@ library.add(fas);
 /* eslint-disable no-new */
 import setupInterceptors from "./services/setupInterceptors";
 import "./assets/css/style.css";
+
+
+
 setupInterceptors(store);
 createApp(App)
     .use(router)

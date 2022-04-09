@@ -37,8 +37,14 @@ exports.create = (req, res) => {
 // Retrieve all Trainer from the database.
 exports.findAll = (req, res) => {
   const TrainerFirstName = req.query.TrainerFirstName;
-  var condition = TrainerFirstName ? { TrainerFirstName: { [Op.like]: `%${TrainerFirstName}%`}} :null;
-  Trainer.findAll({where: condition})
+  var condition = TrainerFirstName ? {
+    TrainerFirstName: {
+      [Op.like]: `%${TrainerFirstName}%`
+    }
+  } : null;
+  Trainer.findAll({
+      where: condition
+    })
     .then((data) => {
       res.send(data);
     })
@@ -71,9 +77,7 @@ exports.findOne = (req, res) => {
 exports.update = (req, res) => {
   const id = req.params.id;
   Trainer.update(req.body, {
-      where: {
-        id: id
-      }
+      where: {id: id}
     })
     .then((num) => {
       if (num == 1) {
@@ -97,8 +101,9 @@ exports.delete = (req, res) => {
   const id = req.params.id;
   Trainer.destroy({
       where: {
-        id: id}
-      })
+        id: id
+      }
+    })
     .then((num) => {
       if (num == 1) {
         res.send({
@@ -106,7 +111,8 @@ exports.delete = (req, res) => {
         });
       } else {
         res.send({
-          message: `Cannot delete Trainer with id=${id}. Maybe Trainer was not found!`});
+          message: `Cannot delete Trainer with id=${id}. Maybe Trainer was not found!`
+        });
       }
     })
     .catch((err) => {
@@ -123,16 +129,22 @@ exports.deleteAll = (req, res) => {
     })
     .then((nums) => {
       res.send({
-        message: `${nums} Trainer were deleted successfully!` });
+        message: `${nums} Trainer were deleted successfully!`
+      });
     })
     .catch((err) => {
       res.status(500).send({
-        message: err.message || "Some error occurred while removing all Trainer." });
+        message: err.message || "Some error occurred while removing all Trainer."
+      });
     });
 };
 // Find all active Trainer
 exports.findAllActive = (req, res) => {
-  Trainer.findAll({ where: {active: true}})
+  Trainer.findAll({
+      where: {
+        active: true
+      }
+    })
     .then((data) => {
       res.send(data);
     })

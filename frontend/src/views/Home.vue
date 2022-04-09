@@ -503,6 +503,4 @@
                 </div>
             </div>
     </div>
-
-
 </template>

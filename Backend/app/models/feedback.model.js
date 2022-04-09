@@ -1,10 +1,18 @@
 module.exports = (sequelize, Sequelize) => {
   const Feedback = sequelize.define("feedback", {
-    ClientName: {
+    ClientFirstName: {
       type: Sequelize.STRING,
       //allowNull: true
     },
-    TrainerName: {
+    ClientLastName: {
+      type: Sequelize.STRING,
+      //allowNull: true
+    },
+    TrainerFirstName: {
+      type: Sequelize.STRING,
+      //allowNull: true
+    },
+    TrainerLastName: {
       type: Sequelize.STRING,
       //allowNull: true
     },

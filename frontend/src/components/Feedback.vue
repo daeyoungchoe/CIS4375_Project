@@ -3,19 +3,28 @@
         <h4>Edit Feedback</h4>
         <form>
             <div class="form-group">
-                <label for="ClientName">Client Name</label>
-                <input type="text" class="form-control" id="ClientName" required
-                    v-model="currentFeedback.ClientName" name="ClientName" />
+                <label for="ClientName">Client First Name</label>
+                <input type="text" class="form-control" id="ClientFirstName" required v-model="currentFeedback.ClientFirstName"
+                    name="ClientFirstName" />
             </div>
             <div class="form-group">
-                <label for="TrainerName">Trainer Name</label>
-                <input class="form-control" id="TrainerName" required v-model="currentFeedback.TrainerName"
-                    name="TrainerName" />
+                <label for="ClientLastName">Client Last Name</label>
+                <input type="text" class="form-control" id="ClientLastName" required v-model="currentFeedback.ClientLastName"
+                    name="ClientLastName" />
+            </div>            
+            <div class="form-group">
+                <label for="TrainerFirstName">Trainer First Name</label>
+                <input class="form-control" id="TrainerFirstName" required v-model="currentFeedback.TrainerFirstName"
+                    name="TrainerFirstName" />
             </div>
+            <div class="form-group">
+                <label for="TrainerLastName">Trainer Last Name</label>
+                <input class="form-control" id="TrainerLastName" required v-model="currentFeedback.TrainerLastName"
+                    name="TrainerLastName" />
+            </div>            
             <div class="form-group">
                 <label for="Date"> Date</label>
-                <input class="form-control" id="Date" required v-model="currentFeedback.Date"
-                    name="Date" />
+                <input class="form-control" id="Date" required v-model="currentFeedback.Date" name="Date" />
             </div>
             <div class="form-group">
                 <label for="RateSession">Rate Session</label>
@@ -32,6 +41,7 @@
                 <input class="form-control" id="Comment" required v-model="currentFeedback.Comment" name="Comment" />
             </div>
         </form>
+
         <button class="badge badge-danger mr-2" @click="deleteFeedback">
             Delete
         </button>

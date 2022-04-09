@@ -6,11 +6,11 @@ module.exports = app => {
     // Retrieve all appointments
     router.get("/", appointments.findAll);
     // Retrieve a single Client with id
-    router.get("/:AppointmentID", appointments.findOne);
+    router.get("/:id", appointments.findOne);
     // Update a appointments with id
-    router.put("/:AppointmentID", appointments.update);
+    router.put("/:id", appointments.update);
     // Delete a appointments with id
-    router.delete("/:AppointmentID", appointments.delete);
+    router.delete("/:id", appointments.delete);
     // Delete all appointments
     router.delete("/", appointments.deleteAll);
     app.use('/api/appointments', router);
