@@ -9,43 +9,32 @@
         </li>
 
         <!--Trainer Nav-->
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">Trainers
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="/trainers">List Trainers</a>
-            <a class="dropdown-item" href="/addTrainer">Add Trainer</a>
-          </div>
-        </div>
-        &nbsp;
-        <!--Client Nav-->
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">Clients
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="/clients">Client Reports</a>
-            <a class="dropdown-item" href="/addClient">Add Client</a>
-          </div>
-        </div>
-        &nbsp;
-        <!--Appt Nav-->
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">Appointments
-          </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="/appointments">View Appointments</a>
-          <a class="dropdown-item" href="/addAppointment">Book Appointment</a>
-        </div>
-        </div>
-        <!--Feedback Form-->
         <li class="nav-item">
-          <router-link to="/addFeedback" class="nav-link">Feedback</router-link>
+          <router-link v-if="showAdminBoard" to="/trainers" class="nav-link">List Trainers</router-link>
         </li>
         <li class="nav-item">
-          <router-link to="/feedbacks" class="nav-link">Client Satisfaction Report</router-link>
+          <router-link v-if="showAdminBoard" to="/addTrainer" class="nav-link">Add Trainer</router-link>
+        </li>
+        <!--Client Nav-->
+        <li class="nav-item">
+          <router-link v-if="showAdminBoard" to="/clients" class="nav-link">Client Reports</router-link>
+        </li>
+        <li class="nav-item">
+          <router-link v-if="currentUser" to="/addClient" class="nav-link">Add Client</router-link>
+        </li>
+        <!--Appt Nav-->
+        <li class="nav-item">
+          <router-link v-if="showAdminBoard" to="/appointments" class="nav-link">View Appointments</router-link>
+        </li>
+        <li class="nav-item">
+          <router-link v-if="currentUser" to="/addAppointment" class="nav-link">Book Appointment</router-link>
+        </li>
+        <!--Feedback Form-->
+        <li class="nav-item">
+          <router-link v-if="currentUser" to="/addFeedback" class="nav-link">Feedback</router-link>
+        </li>
+        <li class="nav-item">
+          <router-link v-if="showAdminBoard + showModeratorBoard" to="/feedbacks" class="nav-link">Client Satisfaction Report</router-link>
         </li>
         <!--User authentication -->
         <li v-if="showAdminBoard" class="nav-item">
