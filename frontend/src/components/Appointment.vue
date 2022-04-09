@@ -4,42 +4,41 @@
     <form>
       <div class="form-group">
         <label for="TrainerFirstName">Trainer First Name</label>
-        <input type="text" class="form-control" id="TrainerFirstName" v-model="currentAppointment.TrainerFirstName" />
+        <input type="text" class="form-control" id="TrainerFirstName" v-model="currentAppointment.TrainerFirstName" name="TrainerFirstName"/>
       </div>
       <div class="form-group">
         <label for="TrainerLastName">Trainer Last Name</label>
-        <input type="text" class="form-control" id="TrainerLastName" v-model="currentAppointment.TrainerLastName" />
+        <input type="text" class="form-control" id="TrainerLastName" v-model="currentAppointment.TrainerLastName" name="TrainerLastName"/>
       </div>
       <div class="form-group">
         <label for="ClientFirstName">Client First Name</label>
-        <input type="text" class="form-control" id="ClientFirstName" v-model="currentAppointment.ClientFirstName" />
+        <input type="text" class="form-control" id="ClientFirstName" v-model="currentAppointment.ClientFirstName" name="ClientFirstName"/>
       </div>
       <div class="form-group">
         <label for="ClientLastName">Client Last Name</label>
-        <input type="text" class="form-control" id="ClientLastName" v-model="currentAppointment.ClientLastName" />
+        <input type="text" class="form-control" id="ClientLastName" v-model="currentAppointment.ClientLastName" name="ClientLastName"/>
       </div>
       <div class="form-group">
         <label for="TrainingType">Training Type</label>
-        <input type="text" class="form-control" id="TrainingType" v-model="currentAppointment.TrainingType" />
+        <input type="text" class="form-control" id="TrainingType" v-model="currentAppointment.TrainingType" name="TrainingType"/>
       </div>
       <div class="form-group">
         <label for="AppointmentDate">Appointment Date</label>
-        <input type="date" class="form-control" id="AppointmentDate" v-model="currentAppointment.AppointmentDate" />
+        <input type="date" class="form-control" id="AppointmentDate" v-model="currentAppointment.AppointmentDate" name="AppointmentDate"/>
       </div>
       <div class="form-group">
         <label for="AppointmentDuration">Appointment Time</label>
-        <input type="time" class="form-control" id="AppointmentDuration" v-model="currentAppointment.AppointmentDuration" />
+        <input type="time" class="form-control" id="AppointmentDuration" v-model="currentAppointment.AppointmentDuration" name="AppointmentDuration"/>
       </div>
       <div class="form-group">
         <label for="AppointmentLocation">Appointment Location</label>
         <input type="text" class="form-control" id="AppointmentLocation"
-          v-model="currentAppointment.AppointmentLocation" />
+          v-model="currentAppointment.AppointmentLocation" name="AppointmentLocation"/>
       </div>
       <div class="form-group">
         <label for="Notes">Notes</label>
-        <input type="text" class="form-control" id="Notes" v-model="currentAppointment.Notes" />
+        <input type="text" class="form-control" id="Notes" v-model="currentAppointment.Notes" name="Notes"/>
       </div>
-
     </form>
 
 

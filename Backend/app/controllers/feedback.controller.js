@@ -5,7 +5,7 @@ const Op = db.Sequelize.Op;
 // Create and Save a new Feedback
 exports.create = (req, res) => {
   // Validate request
-  if (!req.body.TrainerName) {
+  if (!req.body.ClientFirstName) {
     res.status(400).send({
       message: "Content can not be empty!",
     });
@@ -13,8 +13,10 @@ exports.create = (req, res) => {
   }
   // Create a feedbacks
   const feedback = {
-    ClientName: req.body.ClientName,
-    TrainerName: req.body.TrainerName,
+    ClientFirstName: req.body.ClientFirstName,
+    ClientLastName: req.body.ClientLastName,
+    TrainerFirstName: req.body.TrainerFirstName,
+    TrainerLastName: req.body.TrainerLastName,
     Date: req.body.Date,
     RateSession: req.body.RateSession,
     RateTrainer: req.body.RateTrainer,
@@ -36,9 +38,9 @@ exports.create = (req, res) => {
 
 // Retrieve all feedbacks from the database.
 exports.findAll = (req, res) => {
-  const TrainerName = req.query.TrainerName;
-  var condition = TrainerName
-    ? { TrainerName: { [Op.like]: `%${TrainerName}%` } }
+  const ClientFirstName = req.query.ClientFirstName;
+  var condition = ClientFirstName
+    ? { ClientFirstName: { [Op.like]: `%${ClientFirstName}%` } }
     : null;
   Feedback.findAll({ where: condition })
     .then((data) => {
@@ -68,10 +70,10 @@ exports.findAllDate = (req, res) => {
     });
 };
 // Retrieve all feedbacks from the database by Client  Name.
-exports.findAllClient = (req, res) => {
-  const Date = req.query.Date;
-  var condition = Date
-    ? { Date: { [Op.like]: `%${ClientName}%` } }
+exports.findAllTrainer = (req, res) => {
+  const TrainerFirstName = req.query.TrainerFirstName;
+  var condition = TrainerFirstName
+    ? { TrainerFirstName: { [Op.like]: `%${TrainerFirstName}%` } }
     : null;
   Feedback.findAll({ where: condition })
     .then((data) => {

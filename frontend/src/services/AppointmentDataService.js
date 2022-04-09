@@ -3,17 +3,17 @@ class AppointmentDataService {
   getAll() {
     return http.get("/appointments");
   }
-  get(AppointmentID) {
-    return http.get(`/appointments/${AppointmentID}`);
+  get(id) {
+    return http.get(`/appointments/${id}`);
   }
   create(data) {
     return http.post("/appointments", data);
   }
-  update(AppointmentID, data) {
-    return http.put(`/appointments/${AppointmentID}`, data);
+  update(id, data) {
+    return http.put(`/appointments/${id}`, data);
   }
-  delete(AppointmentID) {
-    return http.delete(`/appointments/${AppointmentID}`);
+  delete(id) {
+    return http.delete(`/appointments/${id}`);
   }
   deleteAll() {
     return http.delete(`/appointments`);

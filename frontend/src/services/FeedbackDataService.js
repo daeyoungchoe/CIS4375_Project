@@ -18,11 +18,11 @@ class FeedbackDataService {
   deleteAll() {
     return http.delete(`/feedbacks`);
   }
-  findByTrainerName(TrainerName) {
-    return http.get(`/feedbacks?TrainerName=${TrainerName}`);
+  findByTrainerFirstName(TrainerFirstName) {
+    return http.get(`/feedbacks?TrainerFirstName=${TrainerFirstName}`);
   }
-  findByClientName(ClientName) {
-    return http.get(`/feedbacks?ClientName=${ClientName}`);
+  findByClientFirstName(ClientFirstName) {
+    return http.get(`/feedbacks?ClientFirstName=${ClientFirstName}`);
   }
   findByDate(Date) {
     return http.get(`/feedbacks?Date=${Date}`);

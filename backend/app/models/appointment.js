@@ -1,24 +1,24 @@
 
 module.exports = function(sequelize,  Sequelize) {
-  const Appointment = sequelize.define('appointment', {
+  const Appointment = sequelize.define("appointment", {
     TrainerFirstName: {
-      type: Sequelize.TEXT,
+      type: Sequelize.STRING(30),
       //allowNull: true
     },
     TrainerLastName: {
-      type: Sequelize.TEXT,
+      type: Sequelize.STRING(30),
       //allowNull: true
     },
     ClientFirstName: {
-      type: Sequelize.TEXT,
+      type: Sequelize.STRING(30),
       //allowNull: true
     },
     ClientLastName: {
-      type: Sequelize.TEXT,
+      type: Sequelize.STRING(30),
       //allowNull: true
     },
     TrainingType: {
-      type: Sequelize.TEXT
+      type: Sequelize.STRING(30),
       //allowNull: true
     },
     AppointmentDate: {
@@ -34,9 +34,9 @@ module.exports = function(sequelize,  Sequelize) {
       //allowNull: true
     },
     Notes: {
-      type: Sequelize.TEXT,
+      type: Sequelize.STRING(60),
       //allowNull: true
-    }
+    },
   });
   return Appointment;
 };

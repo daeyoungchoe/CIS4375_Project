@@ -8,7 +8,7 @@ module.exports = (app) => {
   // Retrieve all active Feedback
   router.get("/Date", feedbacks.findAllDate);
   //Retrive all inactive Feedback
-  router.get("/ClientName", feedbacks.findAllClient);
+  router.get("/TrainerFirstName", feedbacks.findAllTrainer);
   // Retrieve all Trainer by Zip code
   // Retrieve a single Client with id
   router.get("/:id", feedbacks.findOne);

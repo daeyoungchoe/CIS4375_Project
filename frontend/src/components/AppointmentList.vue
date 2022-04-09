@@ -2,18 +2,9 @@
   <div class="list row">
     <div class="col-md-8">
       <div class="input-group mb-3">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Search by Trainer First Name"
-          v-model="TrainerFirstName"
-        />
+        <input type="text" class="form-control" placeholder="Search by Trainer First Name" v-model="TrainerFirstName" />
         <div class="input-group-append">
-          <button
-            class="btn btn-outline-secondary"
-            type="button"
-            @click="searchTrainerFirstName"
-          >
+          <button class="btn btn-outline-secondary" type="button" @click="searchTrainerFirstName">
             Search
           </button>
         </div>
@@ -22,14 +13,9 @@
     <div class="col-md-6">
       <h4>Appointment List</h4>
       <ul class="list-group">
-        <li
-          class="list-group-item"
-          :class="{ active: index == currentIndex }"
-          v-for="(appointment, index) in appointments"
-          :key="index"
-          @click="setActiveAppointment(appointment, index)"
-        >
-          {{ appointment.ClientFirstName }}  {{ appointment.ClientLastName }}
+        <li class="list-group-item" :class="{ active: index == currentIndex }"
+          v-for="(appointment, index) in appointments" :key="index" @click="setActiveAppointment(appointment, index)">
+          {{ appointment.ClientFirstName }} {{ appointment.ClientLastName }}
 
         </li>
       </ul>
@@ -75,11 +61,7 @@
         <div>
           <label><strong>Notes:</strong></label> {{ currentAppointment.Notes }}
         </div>
-        <router-link
-          :to="'/appointments/' + currentAppointment.id"
-          class="badge badge-warning"
-          >Edit</router-link
-        >
+        <router-link :to="'/appointments/' + currentAppointment.id" class="badge badge-warning">Edit</router-link>
       </div>
       <div v-else>
         <br />
@@ -89,68 +71,68 @@
   </div>
 </template>
 <script>
-import AppointmentDataService from "../services/AppointmentDataService";
-export default {
-  name: "appointments-list",
-  data() {
-    return {
-      appointments: [],
-      currentAppointment: null,
-      currentIndex: -1,
-      TrainerFirstName: "",
-    };
-  },
-  methods: {
-    retrieveAppointments() {
-      AppointmentDataService.getAll()
-        .then((response) => {
-          this.appointments = response.data;
-          console.log(response.data);
-        })
-        .catch((e) => {
-          console.log(e);
-        });
+  import AppointmentDataService from "../services/AppointmentDataService";
+  export default {
+    name: "appointments-list",
+    data() {
+      return {
+        appointments: [],
+        currentAppointment: null,
+        currentIndex: -1,
+        TrainerFirstName: "",
+      };
     },
-    refreshList() {
+    methods: {
+      retrieveAppointments() {
+        AppointmentDataService.getAll()
+          .then((response) => {
+            this.appointments = response.data;
+            console.log(response.data);
+          })
+          .catch((e) => {
+            console.log(e);
+          });
+      },
+      refreshList() {
+        this.retrieveAppointments();
+        this.currentAppointment = null;
+        this.currentIndex = -1;
+      },
+      setActiveAppointment(appointment, index) {
+        this.currentAppointment = appointment;
+        this.currentIndex = appointment ? index : -1;
+      },
+      removeAllAppointments() {
+        AppointmentDataService.deleteAll()
+          .then((response) => {
+            console.log(response.data);
+            this.refreshList();
+          })
+          .catch((e) => {
+            console.log(e);
+          });
+      },
+      searchTrainerFirstName() {
+        AppointmentDataService.findByTrainerFirstName(this.TrainerFirstName)
+          .then((response) => {
+            this.trainers = response.data;
+            this.setActiveAppointment(null);
+            console.log(response.data);
+          })
+          .catch((e) => {
+            console.log(e);
+          });
+      },
+    },
+    mounted() {
       this.retrieveAppointments();
-      this.currentAppointment = null;
-      this.currentIndex = -1;
     },
-    setActiveAppointment(appointment, index) {
-      this.currentAppointment = appointment;
-      this.currentIndex = appointment ? index : -1;
-    },
-    removeAllAppointments() {
-      AppointmentDataService.deleteAll()
-        .then((response) => {
-          console.log(response.data);
-          this.refreshList();
-        })
-        .catch((e) => {
-          console.log(e);
-        });
-    },
-    searchTrainerFirstName() {
-      AppointmentDataService.findByTrainerFirstName(this.TrainerFirstName)
-        .then((response) => {
-          this.trainers = response.data;
-          this.setActiveAppointment(null);
-          console.log(response.data);
-        })
-        .catch((e) => {
-          console.log(e);
-        });
-    },
-  },
-  mounted() {
-    this.retrieveAppointments();
-  },
-};
+  };
 </script>
 <style>
-.list {
-  text-align: left;
-  max-width: 750px;
-  margin: auto;
-}
+  .list {
+    text-align: left;
+    max-width: 750px;
+    margin: auto;
+  }
 </style>
