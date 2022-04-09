@@ -21,7 +21,6 @@ db.user = require("../models/user.model.js")(sequelize, Sequelize);
 db.role = require("../models/role.model.js")(sequelize, Sequelize);
 db.refreshToken = require("../models/refreshToken.model.js")(sequelize, Sequelize);
 db.appointments = require("./appointment.js")(sequelize, Sequelize);
-db.tutorials = require("./tutorial.model.js")(sequelize, Sequelize);
 db.feedbacks = require("./feedback.model.js")(sequelize, Sequelize);
 
 
