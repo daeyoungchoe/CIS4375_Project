@@ -9,6 +9,7 @@ import store from "./store";
 import {
     FontAwesomeIcon
 } from "./plugins/font-awesome";
+import VeeValidate from 'vee-validate';
 
 library.add(fas);
 
@@ -19,5 +20,6 @@ setupInterceptors(store);
 createApp(App)
     .use(router)
     .use(store)
+    .use(VeeValidate)
     .component("font-awesome-icon", FontAwesomeIcon)
     .mount('#app')

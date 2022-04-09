@@ -1,18 +1,15 @@
 <template>
-
   <div class="submit-form" >
     <h3 class="text-center">Add New Trainer</h3>
     <br>
-    <div v-if="!submitted">
+    <form @submit.prevent="saveTrainer()">
       <div class="form-group">
         <label class="required" for="TrainerFirstName"><b>Trainer First Name</b></label>
-        <input type="text" class="form-control" id="TrainerFirstName" v-model="trainer.TrainerFirstName"
-          name="TrainerFirstName" required>
+        <input type="text" class="form-control" id="TrainerFirstName" v-model="trainer.TrainerFirstName" name="TrainerFirstName">
       </div>
       <div class="form-group">
         <label class="required" for="TrainerLastName"><b>Trainer Last Name</b></label>
-        <input type="text" class="form-control" id="TrainerLastName" v-model="trainer.TrainerLastName"
-          name="TrainerLastName" required>
+        <input type="text" class="form-control" id="TrainerLastName" v-model="trainer.TrainerLastName" name="TrainerLastName" required>
       </div>
       <div class="form-group">
         <label class="required" for="TrainerPhone"><b>Trainer Phone</b></label>
@@ -24,7 +21,7 @@
       </div>
       <div class="form-group">
         <label class="required" for="TrainerEmail"><b>Trainer Email</b></label>
-        <input class="form-control" id="TrainerEmail" type="email" required v-model="trainer.TrainerEmail" name="TrainerEmail" />
+        <input class="form-control" id="TrainerEmail" type="email" v-model="trainer.TrainerEmail" name="TrainerEmail" required>
       </div>
       <div class="form-group">
         <label class="required" for="TrainerAddress"><b>Trainer Address</b></label>
@@ -60,14 +57,9 @@
               <li class="required" v-for="error in errors" :key="error">{{ error }} </li>
           </ul>
       </p>
-      <button @click="saveTrainer" class="btn btn-success">Submit</button>
-    </div>
-    <div v-else>
-      <h4>You have added a trainer successfully!</h4>
-      <button class="btn btn-success" @click="newTrainer">Go Back</button>
-      &nbsp;
-      <button class="btn btn-success" @click="trainers">Trainers</button>
-    </div>
+      <button class="btn btn-success">Submit</button>
+    </form>
+    
     <br>
   </div>
   
@@ -84,7 +76,7 @@
           TrainerFirstName: null,
           TrainerLastName: null,
           TrainerPhone: null,
-          TrainerEmail: '',
+          TrainerEmail: "",
           TrainerAddress: "",
           EmergencyContactFirstName: "",
           EmergencyContactLastName: "",
@@ -98,15 +90,9 @@
       
       saveTrainer() {
         this.errors = [];
-        if (!this.TrainerPhone) {
-          this.errors.push("Phone number required");
-        }
-        if (!this.TrainerFirstName) {
-          this.errors.push('First name is required.');
-        }
-        if (!this.TrainerLastName) {
-          this.errors.push('Last name is required.');
-        }
+        if (!this.trainer.TrainerPhone) {
+                    this.errors.push("Phone number required.");
+                }
         var data = {
           
           TrainerFirstName: this.trainer.TrainerFirstName,
@@ -120,6 +106,7 @@
         };
         TrainerDataService.create(data)
           .then(response => {
+            this.$router.push('/trainers')
             this.trainer.id = response.data.id;
             console.log(response.data);
             this.submitted = true;
@@ -132,7 +119,20 @@
       newTrainer() {
         this.submitted = false;
         this.trainer = {};
+      },
+      checkForm: function (e) {
+      if (this.TrainerPhone) {
+        return true;
       }
+
+      this.errors = [];
+
+      if (!this.name) {
+        this.errors.push('Phone Number required!');
+      }
+
+      e.preventDefault();
+    }
     }
   };
 </script>
