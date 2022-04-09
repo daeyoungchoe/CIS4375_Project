@@ -92,6 +92,12 @@ const routes = [
     name: "feedback-details",
     component: () => import("./components/Feedback"),
   },
+  {
+    path: "/appointments",
+    alias: "/appointments",
+    name: "appointments",
+    component: () => import("./components/TrainerPerformance"),
+  },
   //Test User authenticate
   {
     path: "/home",
