@@ -1,57 +1,53 @@
 <template>
   <div class="submit-form">
+    <h3 class="text-center">Client Sign Up</h3>
+    <br>
     <div v-if="!submitted">
       <div class="form-group">
-        <label for="ClientFirstName">Client First Name</label>
+        <label class="required" for="ClientFirstName"><b>Client First Name</b></label>
         <input type="text" class="form-control" id="ClientFirstName" required v-model="client.ClientFirstName"
           name="ClientFirstName" />
       </div>
       <div class="form-group">
-        <label for="ClientLastName">Client Last Name</label>
+        <label class="required" for="ClientLastName"><b>Client Last Name</b></label>
         <input class="form-control" id="ClientLastName" required v-model="client.ClientLastName"
           name="ClientLastName" />
       </div>
       <div class="form-group">
-        <label for="ClientrPhone">Client Phone</label>
+        <label class="required" for="ClientrPhone"><b>Client Phone</b></label>
         <input class="form-control" id="ClientPhone" required v-model="client.ClientPhone" name="ClientPhone" />
       </div>
       <div class="form-group">
-        <label for="ClientEmail">Client Email</label>
+        <label class="required" for="ClientEmail"><b>Client Email</b></label>
         <input class="form-control" id="ClientEmail" required v-model="client.ClientEmail" name="ClientEmail" />
       </div>
       <div class="form-group">
-        <label for="ClientAddress">Client Address</label>
+        <label class="required" for="ClientAddress"><b>Client Address</b></label>
         <input class="form-control" id="ClientAddress" required v-model="client.ClientAddress" name="ClientAddress" />
       </div>
       <div class="form-group">
-        <label for="Height">Zip Code</label>
+        <label class="required" for="Height"><b>Zip Code</b></label>
         <input class="form-control" id="ClientZip" required v-model="client.ClientZip" name="Height" />
       </div>
       <div class="form-group">
-        <label for="EmergencyContactFirstName">Emergency Contact First Name</label>
+        <label class="required" for="EmergencyContactFirstName"><b>Emergency Contact First Name</b></label>
         <input class="form-control" id="EmergencyContactFirstName" required v-model="client.EmergencyContactFirstName"
           name="EmergencyContactFirstName" />
       </div>
       <div class="form-group">
-        <label for="EmergencyContactLastName">Emergency Contact Last Name</label>
+        <label class="required" for="EmergencyContactLastName"><b>Emergency Contact Last Name</b></label>
         <input class="form-control" id="EmergencyContactLastName" required v-model="client.EmergencyContactLastName"
           name="EmergencyContactLastName" />
       </div>
       <div class="form-group">
-        <label for="EmergencyContactPhone">Emergency Contact Phone</label>
+        <label class="required" for="EmergencyContactPhone"><b>Emergency Contact Phone</b></label>
         <input class="form-control" id="EmergencyContactPhone" required v-model="client.EmergencyContactPhone"
           name="EmergencyContactPhone" />
       </div>
-      <div class="form-group">
-        <label for="Weight">Weight</label>
-        <input class="form-control" id="Weight" required v-model="client.Weight" name="Weight" />
-      </div>
-      <div class="form-group">
-        <label for="Height">Height</label>
-        <input class="form-control" id="Height" required v-model="client.Height" name="Height" />
-      </div>
 
       <button @click="saveClient" class="btn btn-success">Submit</button>
+      <br>
+      <br>
     </div>
     <div v-else>
       <h4>You submitted successfully!</h4>
@@ -120,5 +116,9 @@
   .submit-form {
     max-width: 300px;
     margin: auto;
+  }
+  .required:after {
+    content:" *";
+    color: red;
   }
 </style>
