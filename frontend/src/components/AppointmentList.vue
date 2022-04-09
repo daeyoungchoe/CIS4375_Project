@@ -29,7 +29,8 @@
           :key="index"
           @click="setActiveAppointment(appointment, index)"
         >
-          {{ appointment.TrainerFirstName }}
+          {{ appointment.ClientFirstName }}  {{ appointment.ClientLastName }}
+
         </li>
       </ul>
       <button class="m-3 btn btn-sm btn-danger" @click="removeAllAppointments">
