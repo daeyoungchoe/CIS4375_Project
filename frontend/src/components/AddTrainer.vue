@@ -43,8 +43,12 @@
       </div>
       <div class="form-group">
         <label class="required" for="EmergencyContactPhone"><b>Emergency Contact Phone</b></label>
-        <input class="form-control" id="EmergencyContactPhone" required v-model="trainer.EmergencyContactPhone"
-          name="EmergencyContactPhone" />
+        
+        <input type="tel" class="form-control" pattern="^\d{3}-\d{3}-\d{4}$" placeholder="XXX-XXX-XXXX" id="EmergencyContactPhone" aria-describedby="emergencyphoneHelpBlock" v-model="trainer.EmergencyContactPhone" name="EmergencyContactPhone" required>
+        <!-- Help text-->
+        <small id="emergencyphoneHelpBlock" class="form-text text-muted">
+          10 digit phone number should be entered with dashes
+        </small>
       </div>
       <br>
       <!-- Error validation-->
@@ -53,7 +57,7 @@
           <b>Please correct the following error(s):</b>
           <ul>
               <!-- For error listed-->
-              <li v-for="error in errors" :key="error">{{ error }} </li>
+              <li class="required" v-for="error in errors" :key="error">{{ error }} </li>
           </ul>
       </p>
       <button @click="saveTrainer" class="btn btn-success">Submit</button>
@@ -95,8 +99,14 @@
       saveTrainer() {
         this.errors = [];
         if (!this.TrainerPhone) {
-                    this.errors.push("Phone number required");
-                }
+          this.errors.push("Phone number required");
+        }
+        if (!this.TrainerFirstName) {
+          this.errors.push('First name is required.');
+        }
+        if (!this.TrainerLastName) {
+          this.errors.push('Last name is required.');
+        }
         var data = {
           
           TrainerFirstName: this.trainer.TrainerFirstName,
