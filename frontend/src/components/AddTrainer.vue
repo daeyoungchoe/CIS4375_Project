@@ -5,7 +5,7 @@
     <form @submit.prevent="saveTrainer()">
       <div class="form-group">
         <label class="required" for="TrainerFirstName"><b>Trainer First Name</b></label>
-        <input type="text" class="form-control" id="TrainerFirstName" v-model="trainer.TrainerFirstName" name="TrainerFirstName">
+        <input type="text" class="form-control" id="TrainerFirstName" v-model="trainer.TrainerFirstName" name="TrainerFirstName" required>
       </div>
       <div class="form-group">
         <label class="required" for="TrainerLastName"><b>Trainer Last Name</b></label>
@@ -87,12 +87,8 @@
       };
     },
     methods: {
-      
       saveTrainer() {
         this.errors = [];
-        if (!this.trainer.TrainerPhone) {
-                    this.errors.push("Phone number required.");
-                }
         var data = {
           
           TrainerFirstName: this.trainer.TrainerFirstName,

@@ -2,7 +2,7 @@
   <div class="submit-form">
     <h3 class="text-center">Client Sign Up</h3>
     <br>
-    <div v-if="!submitted">
+    <form @submit.prevent="saveClient()">
       <div class="form-group">
         <label class="required" for="ClientFirstName"><b>Client First Name</b></label>
         <input type="text" class="form-control" id="ClientFirstName" required v-model="client.ClientFirstName"
@@ -15,7 +15,10 @@
       </div>
       <div class="form-group">
         <label class="required" for="ClientrPhone"><b>Client Phone</b></label>
-        <input class="form-control" id="ClientPhone" required v-model="client.ClientPhone" name="ClientPhone" />
+        <input  type="tel" pattern="^\d{3}-\d{3}-\d{4}$" placeholder="XXX-XXX-XXXX" class="form-control" aria-describedby="phoneHelpBlock" id="ClientPhone" required v-model="client.ClientPhone" name="ClientPhone" />
+        <small id="phoneHelpBlock" class="form-text text-muted">
+          10 digit phone number should be entered with dashes
+        </small>
       </div>
       <div class="form-group">
         <label class="required" for="ClientEmail"><b>Client Email</b></label>
@@ -41,18 +44,18 @@
       </div>
       <div class="form-group">
         <label class="required" for="EmergencyContactPhone"><b>Emergency Contact Phone</b></label>
-        <input class="form-control" id="EmergencyContactPhone" required v-model="client.EmergencyContactPhone"
-          name="EmergencyContactPhone" />
+        <input type="tel" class="form-control" pattern="^\d{3}-\d{3}-\d{4}$" placeholder="XXX-XXX-XXXX" aria-describedby="ephoneHelpBlock" id="EmergencyContactPhone" required v-model="client.EmergencyContactPhone" name="EmergencyContactPhone" />
+        <small id="ephoneHelpBlock" class="form-text text-muted">
+          10 digit phone number should be entered with dashes
+        </small>
       </div>
 
-      <button @click="saveClient" class="btn btn-success">Submit</button>
+
+      <button class="btn btn-success">Submit</button>
       <br>
       <br>
-    </div>
-    <div v-else>
-      <h4>You submitted successfully!</h4>
-      <button class="btn btn-success" @click="newClient">Add</button>
-    </div>
+    </form>
+    
   </div>
 </template>
 <script>
@@ -96,6 +99,7 @@
         };
         ClientDataService.create(data)
           .then(response => {
+            this.$router.push('/clients')
             this.client.id = response.data.id;
             console.log(response.data);
             this.submitted = true;
