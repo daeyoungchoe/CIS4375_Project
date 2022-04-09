@@ -22,7 +22,7 @@
       </div>
       <div class="form-group">
         <label class="required" for="ClientEmail"><b>Client Email</b></label>
-        <input class="form-control" id="ClientEmail" required v-model="client.ClientEmail" name="ClientEmail" />
+        <input class="form-control" type="email" id="ClientEmail" required v-model="client.ClientEmail" name="ClientEmail" />
       </div>
       <div class="form-group">
         <label class="required" for="ClientAddress"><b>Client Address</b></label>
