@@ -48,7 +48,7 @@
           <router-link to="/feedbacks" class="nav-link">Client Satisfaction Report</router-link>
         </li>
          <li class="nav-item">
-          <router-link to="/appointments" class="nav-link">Trainer Performance</router-link>
+          <router-link to="/trainerPerformance" class="nav-link">Trainer Performance</router-link>
         </li>
         <!--User authentication -->
         <li v-if="showAdminBoard" class="nav-item">
