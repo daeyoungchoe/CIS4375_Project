@@ -29,7 +29,7 @@
             </div>
             <div class="form-group">
                 <label for="ClientZip">Zip Code</label>
-                <input class="form-control" id="ClientZip" required v-model="currentClient.ClientZip" name="Height" />
+                <input class="form-control" id="ClientZip" required v-model="currentClient.ClientZip" name="ClientZip" />
             </div>
             <div class="form-group">
                 <label for="EmergencyContactFirstName">Emergency Contact First Name</label>
@@ -45,14 +45,6 @@
                 <label for="EmergencyContactPhone">Emergency Contact Phone</label>
                 <input class="form-control" id="EmergencyContactPhone" required
                     v-model="currentClient.EmergencyContactPhone" name="EmergencyContactPhone" />
-            </div>
-            <div class="form-group">
-                <label for="Weight">Weight</label>
-                <input class="form-control" id="Weight" required v-model="currentClient.Weight" name="Weight" />
-            </div>
-            <div class="form-group">
-                <label for="Height">Height</label>
-                <input class="form-control" id="Height" required v-model="currentClient.Height" name="Height" />
             </div>
 
             <div class="form-group">
@@ -124,8 +116,6 @@
                     EmergencyContactFirstName: this.currentClient.EmergencyContactFirstName,
                     EmergencyContactLastName: this.currentClient.EmergencyContactLastName,
                     EmergencyContactPhone: this.currentClient.EmergencyContactPhone,
-                    Weight: this.currentClient.Weight,
-                    Height: this.currentClient.Height,
                     active: status
                 };
                 ClientDataService.update(this.currentClient.id, data)

@@ -1,60 +1,39 @@
 <template>
   <div class="submit-form">
     <div v-if="!submitted">
-            <div class="form-group">
-        <label for="TrainerFirstName">Trainer First Name</label>
+      <div class="form-group">
+        <label for="TrainerID">Trainer ID</label>
         <input
-          type="text"
+          type = "text"
           class="form-control"
-          id="TrainerFirstName"
+          id="TrainerID"
           required
-          v-model="appointment.TrainerFirstName"
-          name="TrainerFirstName"
+          v-model="appointment.TrainerID"
+          name="TrainerID"
         />
       </div>
-            <div class="form-group">
-        <label for="AppointmentDate">Trainer Last Name</label>
+      <div class="form-group">
+        <label for="ClientID">Client ID</label>
         <input
-          type="text"
-          class="form-control"
-          id="TrainerLastName"
-          required
-          v-model="appointment.TrainerLastName"
-          name="TrainerLastName"
-        />
-      </div>
-            <div class="form-group">
-        <label for="ClientFirstName">Client First Name</label>
-        <input
-          type="text"
-          class="form-control"
-          id="ClientFirstName"
-          required
-          v-model="appointment.ClientFirstName"
-          name="ClientFirstName"
-        />
-      </div>
-            <div class="form-group">
-        <label for="ClientLastName">Client Last Name</label>
-        <input
-          type="text"
-          class="form-control"
-          id="ClientLastName"
-          required
-          v-model="appointment.ClientLastName"
-          name="ClientLastName"
-        />
-      </div>
+        type = "text"
 
-            <div class="form-group">
-        <label for="TrainingType">Training Type</label>
-        <input
-          type="text"
           class="form-control"
-          id="TrainingType"
+          id="ClientID"
           required
-          v-model="appointment.TrainingType"
-          name="TrainingType"
+          v-model="appointment.ClientID"
+          name="ClientID"
+        />
+      </div>
+            <div class="form-group">
+        <label for="TrainingDetailsID">Training Detail ID</label>
+        <input
+        type = "text"
+
+          class="form-control"
+          id="TrainingDetailsID"
+          required
+          v-model="appointment.TrainingDetailsID"
+          name="TrainingDetailsID"
         />
       </div>
 
@@ -83,7 +62,8 @@
             <div class="form-group">
         <label for="AppointmentLocation">Appointment Location</label>
         <input
-        type="text"
+        type = "text"
+
           class="form-control"
           id="AppointmentLocation"
           required
@@ -94,7 +74,7 @@
             <div class="form-group">
         <label for="Notes">Notes</label>
         <input
-        type="text"
+        type = "text"
           class="form-control"
           id="Notes"
           required
@@ -120,12 +100,10 @@ export default {
   data() {
     return {
       appointment: {
-        id: null,
-        TrainerFirstName: "",
-        TrainerLastName: "",
-        ClientFirstName: "",
-        ClientLastName: "",
-        TrainingType: "",
+        AppointmentID: null,
+        ClientID: "",
+        TrainerID: "",
+        TrainingDetailsID: "",
         AppointmentDate: "",
         AppointmentDuration: "",
         AppointmentLocation: "",
@@ -137,11 +115,9 @@ export default {
   methods: {
     saveAppointment() {
       var data = {
-        TrainerFirstName: this.appointment.TrainerFirstName,
-        TrainerLastName: this.appointment.TrainerLastName,
-        ClientFirstName: this.appointment.ClientFirstName,
-        ClientLastName: this.appointment.ClientLastName,
-        TrainingType: this.appointment.TrainingType,
+        ClientID: this.appointment.ClientID,
+        TrainerID: this.appointment.TrainerID,
+        TrainingDetailsID: this.appointment.TrainingDetailsID,
         AppointmentDate: this.appointment.AppointmentDate,
         AppointmentDuration: this.appointment.AppointmentDuration,
         AppointmentLocation: this.appointment.AppointmentLocation,
@@ -149,7 +125,7 @@ export default {
       };
       AppointmentDataService.create(data)
         .then(response => {
-          this.appointment.AppointmentID = response.data.AppointmentID;
+          this.appointment.id = response.data.id;
           console.log(response.data);
           this.submitted = true;
         })

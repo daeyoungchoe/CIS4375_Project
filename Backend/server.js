@@ -21,7 +21,7 @@ db.sequelize.sync();
 // simple route
 app.get("/", (req, res) => {
   res.json({
-    message: "Welcome to bezkoder application."
+    message: "Welcome to Phyzeke."
   });
 });
 //routes
@@ -33,7 +33,7 @@ require("./app/routes/feedback.routes")(app);
 require("./app/routes/auth.routes")(app);
 require("./app/routes/user.routes")(app);
 
-require("./app/routes/turorial.routes")(app);
+
 
 // set port, listen for requests
 const PORT = process.env.PORT || 3000;

@@ -1,12 +1,11 @@
 module.exports = (sequelize, Sequelize) => {
   const Feedback = sequelize.define("feedback", {
-    ClientName: {
-      type: Sequelize.STRING,
-      //allowNull: true
-    },
-    TrainerName: {
-      type: Sequelize.STRING,
-      //allowNull: true
+    
+    FeedbackID: {
+      type: Sequelize.INTEGER,
+      //allowNull: false,
+      primaryKey: true,
+      autoIncrement: true
     },
     Date: {
       type: Sequelize.DATEONLY,

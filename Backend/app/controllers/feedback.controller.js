@@ -5,7 +5,7 @@ const Op = db.Sequelize.Op;
 // Create and Save a new Feedback
 exports.create = (req, res) => {
   // Validate request
-  if (!req.body.TrainerName) {
+  if (!req.body.TrainerID) {
     res.status(400).send({
       message: "Content can not be empty!",
     });
@@ -13,8 +13,9 @@ exports.create = (req, res) => {
   }
   // Create a feedbacks
   const feedback = {
-    ClientName: req.body.ClientName,
-    TrainerName: req.body.TrainerName,
+    FeedbackID: req.body.FeedbackID,
+    TrainerID: req.body.TrainerID,
+    ClientID: req.body.ClientID,
     Date: req.body.Date,
     RateSession: req.body.RateSession,
     RateTrainer: req.body.RateTrainer,
@@ -36,9 +37,9 @@ exports.create = (req, res) => {
 
 // Retrieve all feedbacks from the database.
 exports.findAll = (req, res) => {
-  const TrainerName = req.query.TrainerName;
-  var condition = TrainerName
-    ? { TrainerName: { [Op.like]: `%${TrainerName}%` } }
+  const TrainerID = req.query.TrainerID;
+  var condition = TrainerID
+    ? { TrainerID: { [Op.like]: `%${TrainerID}%` } }
     : null;
   Feedback.findAll({ where: condition })
     .then((data) => {
@@ -71,7 +72,7 @@ exports.findAllDate = (req, res) => {
 exports.findAllClient = (req, res) => {
   const Date = req.query.Date;
   var condition = Date
-    ? { Date: { [Op.like]: `%${ClientName}%` } }
+    ? { Date: { [Op.like]: `%${ClientID}%` } }
     : null;
   Feedback.findAll({ where: condition })
     .then((data) => {

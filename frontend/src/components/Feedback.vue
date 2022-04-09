@@ -3,14 +3,14 @@
         <h4>Edit Feedback</h4>
         <form>
             <div class="form-group">
-                <label for="ClientName">Client Name</label>
-                <input type="text" class="form-control" id="ClientName" required
-                    v-model="currentFeedback.ClientName" name="ClientName" />
+                <label for="ClientID">Client ID</label>
+                <input type="text" class="form-control" id="ClientID" required
+                    v-model="currentFeedback.ClientID" name="ClientID" />
             </div>
             <div class="form-group">
-                <label for="TrainerName">Trainer Name</label>
-                <input class="form-control" id="TrainerName" required v-model="currentFeedback.TrainerName"
-                    name="TrainerName" />
+                <label for="TrainerID">Trainer ID</label>
+                <input class="form-control" id="TrainerID" required v-model="currentFeedback.TrainerID"
+                    name="TrainerID" />
             </div>
             <div class="form-group">
                 <label for="Date"> Date</label>

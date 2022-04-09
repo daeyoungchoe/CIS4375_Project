@@ -5,14 +5,14 @@
         <input
           type="text"
           class="form-control"
-          placeholder="Search by Trainer First Name"
-          v-model="TrainerFirstName"
+          placeholder="Search by Trainer ID"
+          v-model="TrainerID"
         />
         <div class="input-group-append">
           <button
             class="btn btn-outline-secondary"
             type="button"
-            @click="searchTrainerFirstName"
+            @click="searchTrainerID"
           >
             Search
           </button>
@@ -41,24 +41,16 @@
       <div v-if="currentAppointment">
         <h4>Appointments</h4>
         <div>
-          <label><strong>Trainer First Name:</strong></label>
-          {{ currentAppointment.TrainerFirstName }}
+          <label><strong>Trainer ID:</strong></label> 
+          {{ currentAppointment.TrainerID }}
         </div>
         <div>
-          <label><strong>Trainer Last Name:</strong></label>
-          {{ currentAppointment.TrainerLastName }}
+          <label><strong>Client ID:</strong></label> 
+          {{ currentAppointment.ClientID }}
         </div>
         <div>
-          <label><strong>Client First Name:</strong></label>
-          {{ currentAppointment.ClientFirstName }}
-        </div>
-        <div>
-          <label><strong>Client Last Name:</strong></label>
-          {{ currentAppointment.ClientLastName }}
-        </div>
-        <div>
-          <label><strong>Training Type:</strong></label>
-          {{ currentAppointment.TrainingType }}
+          <label><strong>Training Detail ID:</strong></label> 
+          {{ currentAppointment.TrainingDetailsID }}
         </div>
         <div>
           <label><strong>Appointment Date: </strong></label>
@@ -97,7 +89,7 @@ export default {
       appointments: [],
       currentAppointment: null,
       currentIndex: -1,
-      TrainerFirstName: "",
+      TrainerID: "",
     };
   },
   methods: {
@@ -130,8 +122,8 @@ export default {
           console.log(e);
         });
     },
-    searchTrainerFirstName() {
-      AppointmentDataService.findByTrainerFirstName(this.TrainerFirstName)
+    searchTrainerID() {
+      AppointmentDataService.findByTrainerID(this.TrainerID)
         .then((response) => {
           this.trainers = response.data;
           this.setActiveAppointment(null);

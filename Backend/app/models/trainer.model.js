@@ -1,5 +1,12 @@
 module.exports = (sequelize, Sequelize) => {
   const Trainer = sequelize.define("trainer", {
+    TrainerID: {
+      type: Sequelize.INTEGER,
+      //allowNull: false,
+      primaryKey: true,
+      autoIncrement: true
+    }, 
+
     TrainerFirstName: {
       type: Sequelize.STRING(30),
       //allowNull: true,

@@ -2,25 +2,18 @@
   <div v-if="currentAppointment" class="edit-form">
     <h4>Appointment List</h4>
     <form>
+
       <div class="form-group">
-        <label for="TrainerFirstName">Trainer First Name</label>
-        <input type="text" class="form-control" id="TrainerFirstName" v-model="currentAppointment.TrainerFirstName" />
+        <label for="TrainerID">Trainer ID</label>
+        <input type="text" class="form-control" id="TrainerID" v-model="currentAppointment.TrainerID" />
       </div>
       <div class="form-group">
-        <label for="TrainerLastName">Trainer Last Name</label>
-        <input type="text" class="form-control" id="TrainerLastName" v-model="currentAppointment.TrainerLastName" />
+        <label for="ClientID">Client ID</label>
+        <input type="text" class="form-control" id="ClientID" v-model="currentAppointment.ClientID" />
       </div>
       <div class="form-group">
-        <label for="ClientFirstName">Client First Name</label>
-        <input type="text" class="form-control" id="ClientFirstName" v-model="currentAppointment.ClientFirstName" />
-      </div>
-      <div class="form-group">
-        <label for="ClientLastName">Client Last Name</label>
-        <input type="text" class="form-control" id="ClientLastName" v-model="currentAppointment.ClientLastName" />
-      </div>
-      <div class="form-group">
-        <label for="TrainingType">Training Type</label>
-        <input type="text" class="form-control" id="TrainingType" v-model="currentAppointment.TrainingType" />
+        <label for="TrainingDetailsID">Training Detail ID</label>
+        <input type="text" class="form-control" id="TrainingDetailsID" v-model="currentAppointment.TrainingDetailsID" />
       </div>
       <div class="form-group">
         <label for="AppointmentDate">Appointment Date</label>

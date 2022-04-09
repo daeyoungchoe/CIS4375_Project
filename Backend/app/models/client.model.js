@@ -1,5 +1,11 @@
 module.exports = (sequelize, Sequelize) => {
   const Client = sequelize.define("client", {
+    ClientID: {
+      type: Sequelize.INTEGER,
+      //allowNull: false,
+      primaryKey: true,
+      autoIncrement: true
+    },
     ClientFirstName: {
       type: Sequelize.STRING(30),
       //allowNull: true,
@@ -37,14 +43,6 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.STRING(15),
       //allowNull: true,
       //defaultValue: "xxx-xxx-xxxx",
-    },
-    Weight: {
-      type: Sequelize.INTEGER(45),
-      //allowNull: true,
-    },
-    Height: {
-      type: Sequelize.STRING(45),
-      //allowNull: true,
     },
     active: {
       type: Sequelize.BOOLEAN,

@@ -19,14 +19,14 @@
             <h3>Your opinion matters</h3>
             <div v-if="!submitted">
               <div class="mb-3">
-                <h6 for="ClientName" class="form-label">Your Name</h6>
-                <input type="text" class="form-control" id="ClientName" placeholder="Type your name "
-                  v-model="feedback.ClientName" required>
+                <h6 for="ClientID" class="form-label">Client ID</h6>
+                <input type="text" class="form-control" id="ClientID" placeholder="Type your Client ID "
+                  v-model="feedback.ClientID" required>
               </div>
               <div class="mb-3">
-                <h6 for="TrainerName" class="form-label">Trainer name</h6>
-                <input type="text" class="form-control" id="TrainerName" placeholder="Type your trainer name"
-                  v-model="feedback.TrainerName" required>
+                <h6 for="TrainerID" class="form-label">Trainer ID</h6>
+                <input type="text" class="form-control" id="TrainerName" placeholder="Type your Trainer ID"
+                  v-model="feedback.TrainerID" required>
               </div>
               <div class="mb-3">
                 <h6 for="Date" class="form-label">Date</h6>
@@ -85,8 +85,8 @@
       return {
         feedback: {
           id: null,
-          ClientName: "",
-          TrainerName: "",
+          ClientID: "",
+          TrainerID: "",
           Date: "",
           RateSession: "",
           RateTrainer: "",
@@ -99,8 +99,8 @@
     methods: {
       saveFeedback() {
         var data = {
-          ClientName: this.feedback.ClientName,
-          TrainerName: this.feedback.TrainerName,
+          ClientID: this.feedback.ClientID,
+          TrainerID: this.feedback.TrainerID,
           Date: this.feedback.Date,
           RateSession: this.feedback.RateSession,
           RateTrainer: this.feedback.RateTrainer,

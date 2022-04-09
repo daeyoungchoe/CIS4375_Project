@@ -5,6 +5,11 @@
     <br>
     <div v-if="!submitted">
       <div class="form-group">
+        <label for="id">User ID</label>
+        <input type="number" class="form-control" id="id" required v-model="trainer.id"
+          name="id" />
+      </div>
+      <div class="form-group">
         <label class="required" for="TrainerFirstName"><b>Trainer First Name</b></label>
         <input type="text" class="form-control" id="TrainerFirstName" v-model="trainer.TrainerFirstName"
           name="TrainerFirstName" required>
@@ -76,7 +81,8 @@
       return {
         errors: [],
         trainer: {
-          id: null,
+          TrainerID: null,
+          id:"",
           TrainerFirstName: null,
           TrainerLastName: null,
           TrainerPhone: null,
@@ -98,7 +104,7 @@
                     this.errors.push("Phone number required");
                 }
         var data = {
-          
+          id: this.trainer.id,
           TrainerFirstName: this.trainer.TrainerFirstName,
           TrainerLastName: this.trainer.TrainerLastName,
           TrainerPhone: this.trainer.TrainerPhone,

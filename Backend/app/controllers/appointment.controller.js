@@ -4,7 +4,7 @@ const Op = db.Sequelize.Op;
 // Create and Save a new Appointment
 exports.create = (req, res) => {
   // validate request
-  if (!req.body.TrainerFirstName) {
+  if (!req.body.AppointmentID) {
     res.status(400).send({
       message: "Content can not be empty!",
     });
@@ -12,11 +12,10 @@ exports.create = (req, res) => {
   }
   // Create a Appointment
   const appointment = {
-    TrainerFirstName:req.body.TrainerFirstName,
-    TrainerLastName:req.body.TrainerLastName,
-    ClientFirstName:req.body.ClientFirstName,
-    ClientLastName:req.body.ClientLastName,
-    TrainingType:req.body.TrainingType,
+    AppointmentID: req.body.AppointmentID,
+    TrainerID: req.body.TrainerID,
+    ClientID: req.body.ClientID,
+    TrainingDetailsID: req.body.TrainingDetailsID,
     AppointmentDate: req.body.AppointmentDate,
     AppointmentDuration: req.body.AppointmentDuration,
     AppointmentLocation: req.body.AppointmentLocation,

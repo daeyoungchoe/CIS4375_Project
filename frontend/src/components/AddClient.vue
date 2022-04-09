@@ -4,6 +4,11 @@
     <br>
     <div v-if="!submitted">
       <div class="form-group">
+        <label for="id">User ID</label>
+        <input type="number" class="form-control" id="id" required v-model="client.id"
+          name="id" />
+      </div>
+      <div class="form-group">
         <label for="ClientFirstName"><b>Client First Name</b></label>
         <input type="text" class="form-control" id="ClientFirstName" required v-model="client.ClientFirstName"
           name="ClientFirstName" />
@@ -25,9 +30,9 @@
         <label for="ClientAddress"><b>Client Address</b></label>
         <input class="form-control" id="ClientAddress" required v-model="client.ClientAddress" name="ClientAddress" />
       </div>
-      <div class="form-group">
-        <label for="Height"><b>Zip Code</b></label>
-        <input class="form-control" id="ClientZip" required v-model="client.ClientZip" name="Height" />
+            <div class="form-group">
+        <label for="ClientZip"><b>Client ZIP Code</b></label>
+        <input class="form-control" id="ClientZip" required v-model="client.ClientZip" name="ClientZip" />
       </div>
       <div class="form-group">
         <label for="EmergencyContactFirstName"><b>Emergency Contact First Name</b></label>
@@ -60,7 +65,8 @@
     data() {
       return {
         client: {
-          id: null,
+          ClientID: null,
+          id: "",
           ClientFirstName: "",
           ClientLastName: "",
           ClientPhone: "",
@@ -70,8 +76,6 @@
           EmergencyContactFirstName: "",
           EmergencyContactLastName: "",
           EmergencyContactPhone: "",
-          Weight: "",
-          Height: "",
           active: false
         },
         submitted: false
@@ -80,6 +84,7 @@
     methods: {
       saveClient() {
         var data = {
+          id: this.client.id,
           ClientFirstName: this.client.ClientFirstName,
           ClientLastName: this.client.ClientLastName,
           ClientPhone: this.client.ClientPhone,
@@ -88,9 +93,7 @@
           ClientZip: this.client.ClientZip,
           EmergencyContactFirstName: this.client.EmergencyContactFirstName,
           EmergencyContactLastName: this.client.EmergencyContactLastName,
-          EmergencyContactPhone: this.client.EmergencyContactPhone,
-          Weight: this.client.Weight,
-          Height: this.client.Height
+          EmergencyContactPhone: this.client.EmergencyContactPhone
         };
         ClientDataService.create(data)
           .then(response => {

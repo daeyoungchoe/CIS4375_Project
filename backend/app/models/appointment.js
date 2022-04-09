@@ -1,26 +1,13 @@
 
 module.exports = function(sequelize,  Sequelize) {
   const Appointment = sequelize.define('appointment', {
-    TrainerFirstName: {
-      type: Sequelize.TEXT,
-      //allowNull: true
+   AppointmentID: {
+      type: Sequelize.INTEGER,
+      //allowNull: false,
+      primaryKey: true,
+      autoIncrement: true
     },
-    TrainerLastName: {
-      type: Sequelize.TEXT,
-      //allowNull: true
-    },
-    ClientFirstName: {
-      type: Sequelize.TEXT,
-      //allowNull: true
-    },
-    ClientLastName: {
-      type: Sequelize.TEXT,
-      //allowNull: true
-    },
-    TrainingType: {
-      type: Sequelize.TEXT
-      //allowNull: true
-    },
+
     AppointmentDate: {
       type: Sequelize.DATEONLY,
       //allowNull: true
@@ -34,9 +21,10 @@ module.exports = function(sequelize,  Sequelize) {
       //allowNull: true
     },
     Notes: {
-      type: Sequelize.TEXT,
+      type: Sequelize.STRING(45),
       //allowNull: true
-    }
+    },
+    
   });
   return Appointment;
 };

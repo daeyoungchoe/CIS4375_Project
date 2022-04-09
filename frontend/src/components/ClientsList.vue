@@ -89,13 +89,6 @@
                     <label><strong>Emergency Contact Phone:</strong></label> {{ currentClient.EmergencyContactPhone }}
                 </div>
                 <div>
-                    <label><strong>Weight:</strong></label> {{ currentClient.Weight }}
-                </div>
-                <div>
-                    <label><strong>Height:</strong></label> {{ currentClient.Height }}
-                </div>
-
-                <div>
                     <label><strong>Status:</strong></label> {{ currentClient.active ? "Active" : "Inactive" }}
                 </div>
                 <router-link :to="'/clients/' + currentClient.id" class="badge badge-warning">Edit</router-link>

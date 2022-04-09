@@ -13,6 +13,8 @@ exports.create = (req, res) => {
   }
   // Create a Client
   const client = {
+    ClientID: req.body.ClientID,
+    id: req.body.id,
     ClientFirstName: req.body.ClientFirstName,
     ClientLastName: req.body.ClientLastName,
     ClientPhone: req.body.ClientPhone,
@@ -22,8 +24,6 @@ exports.create = (req, res) => {
     EmergencyContactFirstName: req.body.EmergencyContactFirstName,
     EmergencyContactLastName: req.body.EmergencyContactLastName,
     EmergencyContactPhone: req.body.EmergencyContactPhone,
-    Weight: req.body.Weight,
-    Height: req.body.Height,
     active: req.body.active ? req.body.active : false,
   };
 

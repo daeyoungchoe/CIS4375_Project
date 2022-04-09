@@ -3,10 +3,10 @@
          <!-- Search feedbacks By First Name -->
         <div class="col-md-8">
             <div class="input-group mb-3">               
-                <input type="text" class="form-control" placeholder="Search by Trainer Name"
-                    v-model="TrainerName" />
+                <input type="text" class="form-control" placeholder="Search by Trainer ID"
+                    v-model="TrainerID" />
                 <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="button" @click="searchTrainerName">
+                    <button class="btn btn-outline-secondary" type="button" @click="searchTrainerID">
                         Search
                     </button>
                 </div>
@@ -26,9 +26,9 @@
         <div class="col-md-8">
             <div class="input-group mb-3">
                 <!-- Search feedbacks By ZipCode  -->
-                <input type="text" class="form-control" placeholder="Search by ClientName" v-model="ClientName" />
+                <input type="text" class="form-control" placeholder="Search by Client ID" v-model="ClientID" />
                 <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="button" @click="searchClientName">
+                    <button class="btn btn-outline-secondary" type="button" @click="searchClientID">
                         Search
                     </button>
                 </div>
@@ -39,7 +39,7 @@
             <ul class="list-group">
                 <li class="list-group-item"
                     v-for="(feedback, index) in feedbacks" :key="index">
-                    {{ feedback.ClientName }}
+                    {{ feedback.ClientID }}
                 </li>
             </ul>
             <button class="m-3 btn btn-sm btn-danger" @click="removeAllFeedbacks">
@@ -50,10 +50,10 @@
             <div v-if="currentFeedback">
                 <h4>Feedback</h4>
                 <div>
-                    <label><strong>ClientName:</strong></label> {{ currentFeedback.ClientName }}
+                    <label><strong>ClientID:</strong></label> {{ currentFeedback.ClientID }}
                 </div>
                 <div>
-                    <label><strong>TrainerName:</strong></label> {{ currentFeedback.TrainerName }}
+                    <label><strong>TrainerID:</strong></label> {{ currentFeedback.TrainerID }}
                 </div>
                 <div>
                     <label><strong>Date:</strong></label> {{ currentFeedback.Date }}
@@ -67,7 +67,7 @@
                 <div>
                     <label><strong>Comment:</strong></label> {{ currentFeedback.Comment }}
                 </div>
-                <router-link :to="'/feedbacks/' + currentFeedback.id" class="badge badge-warning">Edit</router-link>
+                <router-link :to="'/feedbacks/' + currentFeedback.FeedbackID" class="badge badge-warning">Edit</router-link>
             </div>
             <div v-else>
                 <br />
@@ -85,8 +85,8 @@
                 feedbacks: [],
                 currentFeedback: null,
                 currentIndex: -1,
-                TrainerName: "",
-                ClientName: "",
+                TrainerID: "",
+                ClientID: "",
                 Date: ""
             };
         },
@@ -116,8 +116,8 @@
                         console.log(e);
                     });
             },
-            searchTrainerName() {
-                FeedbackDataService.findByTrainerName(this.TrainerName)
+            searchTrainerID() {
+                FeedbackDataService.findByTrainerID(this.TrainerID)
                     .then(response => {
                         this.feedbacks = response.data;
                         console.log(response.data);
@@ -136,8 +136,8 @@
                         console.log(e);
                     });
             },
-            searchClientName() {
-                FeedbackDataService.findByClientName(this.ClientName)
+            searchClientID() {
+                FeedbackDataService.findByClientID(this.ClientID)
                     .then(response => {
                         this.feedbacks = response.data;
                         console.log(response.data);
