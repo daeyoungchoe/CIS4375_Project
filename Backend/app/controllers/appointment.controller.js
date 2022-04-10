@@ -1,6 +1,8 @@
 const db = require("../models");
 const Appointment = db.appointment;
 const Trainer = db.trainers;
+const Client = db.clients;
+const TrainingDetail = db.trainingdetail;
 const Op = db.Sequelize.Op;
 // Create and Save a new Appointment
 exports.create = (req, res) => {
@@ -38,14 +40,20 @@ exports.create = (req, res) => {
 
 // Retrieve all Appointment from the database.
 exports.findAll = (req, res) => {
-  Appointment.findAll(
-    {
+  Appointment.findAll({
     include:[{
       model:Trainer,
       as: 'trainers'
+    },
+    {
+      model:Client,
+      as: 'clients'
+    },
+    {
+      model:TrainingDetail,
+      as: 'trainingdetail'
     }]
-  }
-  )
+  })
     .then((data) => {
       res.send(data);
     })

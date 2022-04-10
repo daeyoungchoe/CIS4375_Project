@@ -4,16 +4,16 @@
     <form>
 
       <div class="form-group">
-        <label for="TrainerID">Trainer ID</label>
-        <input type="text" class="form-control" id="TrainerID" v-model="currentAppointment.TrainerID" />
+        <label for="TrainerFirstName">Trainer ID</label>
+        <input type="text" class="form-control" id="TrainerFirstName" v-model="currentAppointment.TrainerFirstName" />
       </div>
       <div class="form-group">
-        <label for="ClientID">Client ID</label>
-        <input type="text" class="form-control" id="ClientID" v-model="currentAppointment.ClientID" />
+        <label for="ClientFirstName">Client ID</label>
+        <input type="text" class="form-control" id="ClientFirstName" v-model="currentAppointment.ClientFirstName" />
       </div>
       <div class="form-group">
-        <label for="TrainingDetailsID">Training Detail ID</label>
-        <input type="text" class="form-control" id="TrainingDetailsID" v-model="currentAppointment.TrainingDetailsID" />
+        <label for="TrainingDescription">Training Detail ID</label>
+        <input type="text" class="form-control" id="TrainingDescription" v-model="currentAppointment.TrainingDescription" />
       </div>
       <div class="form-group">
         <label for="AppointmentDate">Appointment Date</label>

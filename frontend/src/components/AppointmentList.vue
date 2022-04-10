@@ -27,9 +27,8 @@
           :class="{ active: index == currentIndex }"
           v-for="(appointment, index) in appointments"
           :key="index"
-          @click="setActiveAppointment(appointment, index)"
-        >
-          {{ appointment.ClientFirstName }}  {{ appointment.ClientLastName }}
+          @click="setActiveAppointment(appointment, index)">
+          {{ appointment.trainers.TrainerFirstName }}   {{ appointment.AppointmentDate }} 
 
         </li>
       </ul>
@@ -45,12 +44,12 @@
           {{ currentAppointment.trainers.TrainerFirstName }}
         </div>
         <div>
-          <label><strong>Client ID:</strong></label> 
-          {{ currentAppointment.ClientID }}
+          <label><strong>Client First Name:</strong></label> 
+          {{ currentAppointment.clients.ClientFirstName }}
         </div>
         <div>
-          <label><strong>Training Detail ID:</strong></label> 
-          {{ currentAppointment.TrainingDetailsID }}
+          <label><strong>Training Detail:</strong></label> 
+          {{ currentAppointment.trainingdetail.TrainingDescription }}
         </div>
         <div>
           <label><strong>Appointment Date: </strong></label>
