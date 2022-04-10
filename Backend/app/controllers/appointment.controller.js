@@ -1,5 +1,6 @@
 const db = require("../models");
 const Appointment = db.appointment;
+const Trainer = db.trainers;
 const Op = db.Sequelize.Op;
 // Create and Save a new Appointment
 exports.create = (req, res) => {
@@ -37,7 +38,14 @@ exports.create = (req, res) => {
 
 // Retrieve all Appointment from the database.
 exports.findAll = (req, res) => {
-  Appointment.findAll()
+  Appointment.findAll(
+    {
+    include:[{
+      model:Trainer,
+      as: 'Trainers'
+    }]
+  }
+  )
     .then((data) => {
       res.send(data);
     })
@@ -48,6 +56,25 @@ exports.findAll = (req, res) => {
       });
     });
 };
+//Finds the trainer
+//exports.findTrainer = (req, res) => {
+//  Appointment.findAll({
+//    include:[{
+//      model: Trainer
+//    }]
+//  })
+//    .then((data) => {
+//      res.send(data);
+//    })
+//    .catch((err) => {
+//      res.status(500).send({
+//        message:
+//          err.message || "Some error occurred while retrieving Appointment.",
+//      });
+//    });
+//};
+
+
 // Find a single Appointment with an AppointmentID
 exports.findOne = (req, res) => {
         const AppointmentID = req.params.AppointmentID;

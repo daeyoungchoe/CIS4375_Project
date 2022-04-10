@@ -5,14 +5,14 @@
         <input
           type="text"
           class="form-control"
-          placeholder="Search by Trainer ID"
-          v-model="TrainerID"
+          placeholder="Search by Trainer First name"
+          v-model="TrainerFirstName"
         />
         <div class="input-group-append">
           <button
             class="btn btn-outline-secondary"
             type="button"
-            @click="searchTrainerID"
+            @click="searchTrainerFirstName"
           >
             Search
           </button>
@@ -122,8 +122,8 @@ export default {
           console.log(e);
         });
     },
-    searchTrainerID() {
-      AppointmentDataService.findByTrainerID(this.TrainerID)
+    searchTrainerFirstName() {
+      AppointmentDataService.findByTrainerFirstName(this.TrainerFirstName)
         .then((response) => {
           this.trainers = response.data;
           this.setActiveAppointment(null);

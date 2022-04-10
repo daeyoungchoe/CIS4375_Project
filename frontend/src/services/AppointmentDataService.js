@@ -18,8 +18,8 @@ class AppointmentDataService {
   deleteAll() {
     return http.delete(`/appointments`);
   }
-  findByTrainerID(TrainerID) {
-    return http.get(`/appointments?TrainerID=${TrainerID}`);
+  findByTrainerFirstName(TrainerFirstName) {
+    return http.get(`/appointments?TrainerFirstName=${TrainerFirstName}`);
   }
 }
 export default new AppointmentDataService();
