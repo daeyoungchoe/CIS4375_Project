@@ -5,7 +5,7 @@
         <input
           type="text"
           class="form-control"
-          placeholder="Search by Trainer First name"
+          placeholder="Search by Trainer First Name"
           v-model="TrainerFirstName"
         />
         <div class="input-group-append">
@@ -41,8 +41,8 @@
       <div v-if="currentAppointment">
         <h4>Appointments</h4>
         <div>
-          <label><strong>Trainer ID:</strong></label> 
-          {{ currentAppointment.TrainerID }}
+          <label><strong>Trainer First Name:</strong></label> 
+          {{ currentAppointment.trainers.TrainerFirstName }}
         </div>
         <div>
           <label><strong>Client ID:</strong></label> 
@@ -122,8 +122,8 @@ export default {
           console.log(e);
         });
     },
-    searchTrainerFirstName() {
-      AppointmentDataService.findByTrainerFirstName(this.TrainerFirstName)
+    searchTrainerID() {
+      AppointmentDataService.findByTrainerID(this.TrainerID)
         .then((response) => {
           this.trainers = response.data;
           this.setActiveAppointment(null);

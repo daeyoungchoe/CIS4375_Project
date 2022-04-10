@@ -42,7 +42,7 @@ exports.findAll = (req, res) => {
     {
     include:[{
       model:Trainer,
-      as: 'Trainers'
+      as: 'trainers'
     }]
   }
   )
