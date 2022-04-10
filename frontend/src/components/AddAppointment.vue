@@ -30,8 +30,7 @@
 
       <div class="form-group">
         <label for="AppointmentDate">Appointment Date (YYYY-MM-DD)</label>
-        <input type="date" class="form-control" id="AppointmentDate" required v-model="appointment.AppointmentDate"
-          name="AppointmentDate" />
+        <input type="date" class="form-control" id="AppointmentDate" required v-model="appointment.AppointmentDate"  name="AppointmentDate" />
       </div>
       <div class="form-group">
         <label for="AppointmentDuration">Appointment Time (1 Hour)</label>
