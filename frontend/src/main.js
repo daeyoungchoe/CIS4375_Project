@@ -15,6 +15,8 @@ library.add(fas);
 
 /* eslint-disable no-new */
 import setupInterceptors from "./services/setupInterceptors";
+
+//CSS Global
 import "./assets/css/style.css";
 
 

@@ -69,7 +69,7 @@ exports.findAllDate = (req, res) => {
       });
     });
 };
-// Retrieve all feedbacks from the database by Client  Name.
+// Retrieve all feedbacks from the database by trainer Name.
 exports.findAllTrainer = (req, res) => {
   const TrainerFirstName = req.query.TrainerFirstName;
   var condition = TrainerFirstName

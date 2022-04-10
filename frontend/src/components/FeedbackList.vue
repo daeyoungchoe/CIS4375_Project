@@ -1,6 +1,6 @@
 <template>
     <div class="list row">
-        <!-- Search feedbacks By First Name -->
+        <!-- Search feedbacks By Trainer First Name -->
         <div class="col-md-8">
             <div class="input-group mb-3">
                 <input type="text" class="form-control" placeholder="Search by Trainer First Name" v-model="TrainerFirstName" />
@@ -13,7 +13,7 @@
         </div>
         <div class="col-md-8">
             <div class="input-group mb-3">
-                <!-- Search feedbacks By ZipCode  -->
+                <!-- Search feedbacks By Date  -->
                 <input type="date" class="form-control" placeholder="Search by Date" v-model="Date" />
                 <div class="input-group-append">
                     <button class="btn btn-outline-secondary" type="button" @click="searchDate">
@@ -24,7 +24,7 @@
         </div>
         <div class="col-md-8">
             <div class="input-group mb-3">
-                <!-- Search feedbacks By ZipCode  -->
+                <!-- Search feedbacks By Trainer Last Name  -->
                 <input type="text" class="form-control" placeholder="Search by Client First Name" v-model="ClientFirstName" />
                 <div class="input-group-append">
                     <button class="btn btn-outline-secondary" type="button" @click="searchClientFirstName">
@@ -129,7 +129,7 @@
                     });
             },
             searchTrainerFirstName() {
-                FeedbackDataService.findByTrainerName(this.TrainerFirstName)
+                FeedbackDataService.findByTrainerFirstName(this.TrainerFirstName)
                     .then(response => {
                         this.feedbacks = response.data;
                         this.setActiveFeedbacks(null);
