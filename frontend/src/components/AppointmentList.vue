@@ -75,7 +75,7 @@
           <label><strong>Notes:</strong></label> {{ currentAppointment.Notes }}
         </div>
         <router-link
-          :to="'/appointments/' + currentAppointment.id"
+          :to="'/appointments/' + currentAppointment.AppointmentID"
           class="badge badge-warning"
           >Edit</router-link
         >
@@ -96,7 +96,7 @@ export default {
       appointments: [],
       currentAppointment: null,
       currentIndex: -1,
-      TrainerID: "",
+      TrainerFirstName: ""
     };
   },
   methods: {
@@ -129,8 +129,8 @@ export default {
           console.log(e);
         });
     },
-    searchTrainerID() {
-      AppointmentDataService.findByTrainerID(this.TrainerID)
+    searchTrainerFirstName() {
+      AppointmentDataService.findByTrainerFirstName(this.TrainerFirstName)
         .then((response) => {
           this.trainers = response.data;
           this.setActiveAppointment(null);
