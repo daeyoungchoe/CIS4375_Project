@@ -15,7 +15,7 @@
       <ul class="list-group">
         <li class="list-group-item" :class="{ active: index == currentIndex }"
           v-for="(appointment, index) in appointments" :key="index" @click="setActiveAppointment(appointment, index)">
-          {{ appointment.ClientFirstName }} {{ appointment.ClientLastName }}
+          {{ appointment.ClientFirstName }} {{ appointment.ClientLastName }} {{ appointment.AppointmentDate }}
 
         </li>
       </ul>

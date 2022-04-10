@@ -88,6 +88,17 @@ const routes = [
     component: () => import("./components/FeedbackList"),
   },
   {
+    path: "/trainerFB/:id",
+    name: "trainer-feedback-details",
+    component: () => import("./components/TrainerFB"),
+  },
+  {
+    path: "/trainerFBList",
+    alias: "/feedbacks",
+    name: "feedbacks",
+    component: () => import("./components/TrainerFBList"),
+  },
+  {
     path: "/feedbacks/:id",
     name: "feedback-details",
     component: () => import("./components/Feedback"),

@@ -5,10 +5,12 @@
         <strong>{{currentUser.username}}</strong> Profile
       </h3>
     </header>
-    <p>
-      <strong>Token:</strong>
-      {{currentUser.accessToken.substring(0, 20)}} ... {{currentUser.accessToken.substr(currentUser.accessToken.length - 20)}}
-    </p>
+    <h4> Hello {{currentUser.username}} </h4>
+    <br>
+    <h5> Create a profile then head over to our User Page </h5>
+    <br>
+    <a class="btn btn-light btn-xl" href="/AddClient">Create your profile</a>
+    <br> <br>  <br>
     <p>
       <strong>Id:</strong>
       {{currentUser.id}}

@@ -9,40 +9,49 @@
         </li>
 
         <!--Trainer Nav-->
-        <li class="nav-item">
-          <router-link v-if="showAdminBoard" to="/trainers" class="nav-link">List Trainers</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link v-if="showAdminBoard" to="/addTrainer" class="nav-link">Add Trainer</router-link>
-        </li>
+      <li class="nav-item dropdown">
+        <a v-if="showAdminBoard" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">        
+          <font-awesome-icon icon="clipboard-user" />
+        Trainer </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a v-if="showAdminBoard" class="dropdown-item" href="/trainers">Trainer Information</a>
+          <a v-if="showAdminBoard" class="dropdown-item" href="/addTrainer">Add Trainer</a>
+        </div>
+      </li>
         <!--Client Nav-->
-        <li class="nav-item">
-          <router-link v-if="showAdminBoard" to="/clients" class="nav-link">Client Reports</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link v-if="currentUser" to="/addClient" class="nav-link">Add Client</router-link>
-        </li>
+      <li class="nav-item dropdown">
+        <a v-if="showAdminBoard" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">        
+          <font-awesome-icon icon="user" />
+          Client </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a v-if="showAdminBoard" class="dropdown-item" href="/clients">Client Reports</a>
+          <a v-if="showAdminBoard" class="dropdown-item" href="/addClient">Add Client</a>
+
+        </div>
+      </li>
         <!--Appt Nav-->
-        <li class="nav-item">
-          <router-link v-if="showAdminBoard" to="/appointments" class="nav-link">View Appointments</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link v-if="currentUser" to="/addAppointment" class="nav-link">Book Appointment</router-link>
-        </li>
+        <li class="nav-item dropdown">
+        <a v-if="currentUser" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">        
+          <font-awesome-icon icon="calendar" />
+        Appointment </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a v-if="showAdminBoard" class="dropdown-item" href="/appointments">Training Schedule</a>
+          <a v-if="currentUser" class="dropdown-item" href="/addAppointment">Book Appointment</a>
+        </div>
+      </li>
         <!--Feedback Form-->
-        <li class="nav-item">
-          <router-link v-if="currentUser" to="/addFeedback" class="nav-link">Feedback</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link v-if="showAdminBoard + showModeratorBoard" to="/feedbacks" class="nav-link">Client Satisfaction Report</router-link>
-        </li>
-         <li class="nav-item">
-          <router-link to="/trainerPerformance" class="nav-link">Trainer Performance</router-link>
-        </li>
+        <li class="nav-item dropdown">
+        <a v-if="currentUser" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">        
+          <font-awesome-icon icon="comment-dots" />
+        Feedback </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a v-if="showAdminBoard" class="dropdown-item" href="/feedbacks">Client Feedback Reports</a>
+          <a v-if="showAdminBoard" class="dropdown-item" href="/trainerFBList">Trainer Feedback Reports</a>
+          <a v-if="currentUser" class="dropdown-item" href="/addFeedback">Create Feedback</a>
+        </div>
+      </li>
         <!--User authentication -->
-        <li v-if="showAdminBoard" class="nav-item">
-          <router-link to="/admin" class="nav-link">Admin Board</router-link>
-        </li>
+
         <li v-if="showModeratorBoard" class="nav-item">
           <router-link to="/mod" class="nav-link">Moderator Board</router-link>
         </li>
@@ -65,7 +74,7 @@
       <div v-if="currentUser" class="navbar-nav ml-auto">
         <li class="nav-item">
           <router-link to="/profile" class="nav-link">
-            <font-awesome-icon icon="user" />
+            <font-awesome-icon icon="circle-user" />
             {{ currentUser.username }}
           </router-link>
         </li>

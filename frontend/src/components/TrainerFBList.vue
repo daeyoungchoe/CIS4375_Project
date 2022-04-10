@@ -38,7 +38,7 @@
             <ul class="list-group">
                 <li class="list-group-item" :class="{ active: index == currentIndex }"
                     v-for="(feedback, index) in feedbacks" :key="index" @click="setActiveFeedback(feedback, index)">
-                    {{ feedback.ClientFirstName }} {{ feedback.ClientLastName }} 
+                    {{ feedback.TrainerFirstName }}       {{ feedback.TrainerLastName }}
                 </li>
             </ul>
             <button class="m-3 btn btn-sm btn-danger" @click="removeAllFeedbacks">
