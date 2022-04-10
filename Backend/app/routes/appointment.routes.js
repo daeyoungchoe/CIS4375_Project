@@ -5,6 +5,8 @@ module.exports = app => {
     router.post("/", appointments.create);
     // Retrieve all appointments
     router.get("/", appointments.findAll);
+      // Retrieve all appointments by trainer
+  router.get("/TrainerFirstName", appointments.findAllTrainerFirstName);
     // Retrieve a single Client with id
     router.get("/:AppointmentID", appointments.findOne);
     // Update a appointments with id

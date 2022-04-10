@@ -9,8 +9,10 @@ module.exports = app => {
   router.get("/active", clients.findAllActive);
   //Retrive all inactive Clients
   router.get("/inactive", clients.findAllInactive);
-  // Retrieve all Trainer by Zip code
+  // Retrieve all Client by Zip code
   router.get("/ClientZip", clients.findAllZipCode);
+    // Retrieve all Client by user
+    router.get("/ClientUser", clients.findAllUser);
   // Retrieve a single Client with id
   router.get("/:id", clients.findOne);
   // Update a Client with id

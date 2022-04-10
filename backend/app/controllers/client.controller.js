@@ -1,5 +1,6 @@
 const db = require("../models");
 const Client = db.clients;
+const User = db.user;
 const Op = db.Sequelize.Op;
 
 // Create and Save a new Client
@@ -54,6 +55,25 @@ exports.findAll = (req, res) => {
       res.status(500).send({
         message:
           err.message || "Some error occurred while retrieving Clients.",
+      });
+    });
+};
+
+// Retrieve all Clients from the database with user attached.
+exports.findAllUser = (req, res) => {
+  Client.findAll({
+    include:[{
+      model:User,
+      as: 'User'
+    }]
+  })
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving Client.",
       });
     });
 };

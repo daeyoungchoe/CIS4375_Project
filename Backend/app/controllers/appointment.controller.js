@@ -64,6 +64,29 @@ exports.findAll = (req, res) => {
       });
     });
 };
+
+// Retrieve all appointments from the database by Trainer First name.
+exports.findAllTrainerFirstName = (req, res) => {
+  const TrainerFirstName = req.query.TrainerFirstName;
+  var condition = TrainerFirstName
+    ? { TrainerFirstName: { [Op.like]: `%${TrainerFirstName}%` } }
+    : null;
+  Client.findAll({ 
+    include:[{
+      model:Trainer,
+      as: 'trainers',
+      where: condition
+    }]
+  })
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: err.message || "Some error occurred while retrieving Clients.",
+      });
+    });
+};
 //Finds the trainer
 //exports.findTrainer = (req, res) => {
 //  Appointment.findAll({

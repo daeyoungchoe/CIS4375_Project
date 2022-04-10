@@ -1,5 +1,7 @@
 const db = require("../models");
 const Trainer = db.trainers;
+const User = db.user;
+
 const Op = db.Sequelize.Op;
 
 // Create and Save a new Trainers
@@ -47,6 +49,26 @@ exports.findAll = (req, res) => {
     .catch((err) => {
       res.status(500).send({
         message: err.message || "Some error occurred while retrieving Trainers."
+      });
+    });
+};
+
+
+// Retrieve all Trainer from the database with user attached.
+exports.findAllUser = (req, res) => {
+  Trainer.findAll({
+    include:[{
+      model:User,
+      as: 'User'
+    }]
+  })
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving Trainer.",
       });
     });
 };

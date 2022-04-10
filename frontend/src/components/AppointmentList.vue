@@ -28,7 +28,7 @@
           v-for="(appointment, index) in appointments"
           :key="index"
           @click="setActiveAppointment(appointment, index)">
-          {{ appointment.trainers.TrainerFirstName }}   {{ appointment.AppointmentDate }} 
+          {{"Client: "}}{{ appointment.clients.ClientFirstName }}  {{ appointment.clients.ClientLastName }}<br> {{"Date: "}} {{ appointment.AppointmentDate }} 
 
         </li>
       </ul>
@@ -43,9 +43,17 @@
           <label><strong>Trainer First Name:</strong></label> 
           {{ currentAppointment.trainers.TrainerFirstName }}
         </div>
+                <div>
+          <label><strong>Trainer Last Name:</strong></label> 
+          {{ currentAppointment.trainers.TrainerLastName }}
+        </div>
         <div>
           <label><strong>Client First Name:</strong></label> 
           {{ currentAppointment.clients.ClientFirstName }}
+        </div>
+          <div>
+          <label><strong>Client Last Name:</strong></label> 
+          {{ currentAppointment.clients.ClientLastName }}
         </div>
         <div>
           <label><strong>Training Detail:</strong></label> 
