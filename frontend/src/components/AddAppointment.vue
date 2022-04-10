@@ -27,10 +27,9 @@
         <input type="text" class="form-control" id="TrainingType" required v-model="appointment.TrainingType"
           name="TrainingType" />
       </div>
-
       <div class="form-group">
-        <label for="AppointmentDate">Appointment Date (YYYY-MM-DD)</label>
-        <input type="date" class="form-control" id="AppointmentDate" required v-model="appointment.AppointmentDate"
+        <label for="AppointmentDate">Appointment Date {{currentDateTime()}}  </label>
+        <input type="date" :min="currentDateTime()" class="form-control" id="AppointmentDate" required v-model="appointment.AppointmentDate"
           name="AppointmentDate" />
       </div>
       <div class="form-group">
@@ -48,14 +47,13 @@
         <input type="text" class="form-control" id="Notes" required v-model="appointment.Notes" name="Notes" />
       </div>
 
-
-
       <button @click="saveAppointment" class="btn btn-success">Submit</button>
     </div>
     <div v-else>
       <h4>You submitted successfully!</h4>
       <button class="btn btn-success" @click="newAppointment">Add</button>
     </div>
+    <br>
   </div>
 </template>
 <script>
@@ -64,6 +62,7 @@
     name: "add-appointment",
     data() {
       return {
+        date1: new Date().toISOString().substr(0, 10) ,
         appointment: {
           id: null,
           TrainerFirstName: "",
@@ -80,6 +79,11 @@
       };
     },
     methods: {
+    currentDateTime() {
+      const current = new Date();
+      const dateTime = current.getFullYear()+'-'+('0' + (current.getMonth()+1)).slice(-2)+'-'+('0' + (current.getDate()+1)).slice(-2);
+      return dateTime;
+    },
       saveAppointment() {
         var data = {
           TrainerFirstName: this.appointment.TrainerFirstName,
