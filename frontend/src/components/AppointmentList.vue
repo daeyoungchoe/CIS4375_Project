@@ -95,8 +95,7 @@ export default {
     return {
       appointments: [],
       currentAppointment: null,
-      currentIndex: -1,
-      TrainerFirstName: ""
+      currentIndex: -1
     };
   },
   methods: {

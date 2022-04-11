@@ -25,6 +25,9 @@
     <div class="col-md-6">
       <div v-if="currentTrainer">
         <h4>Trainer</h4>
+                <div>
+          <label><strong>Trainer ID:</strong></label> {{ currentTrainer.TrainerID }}
+        </div>
         <div>
           <label><strong>Trainer First Name:</strong></label> {{ currentTrainer.TrainerFirstName }}
         </div>
@@ -107,7 +110,7 @@
       searchTrainerFirstName() {
         TrainerDataService.findByTrainerFirstName(this.TrainerFirstName)
           .then(response => {
-            this.trainers = response.data;
+            this.appointments = response.data;
             this.setActiveTrainer(null);
             console.log(response.data);
           })

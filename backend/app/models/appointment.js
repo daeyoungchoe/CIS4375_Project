@@ -1,5 +1,5 @@
 
-module.exports = function(sequelize,  Sequelize) {
+module.exports = (sequelize,  Sequelize) =>{
   const Appointment = sequelize.define('appointment', {
    AppointmentID: {
       type: Sequelize.INTEGER,

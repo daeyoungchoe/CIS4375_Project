@@ -7,7 +7,7 @@ const Op = db.Sequelize.Op;
 // Create and Save a new Appointment
 exports.create = (req, res) => {
   // validate request
-  if (!req.body.AppointmentID) {
+  if (!req.body.TrainerID) {
     res.status(400).send({
       message: "Content can not be empty!",
     });
@@ -71,7 +71,7 @@ exports.findAllTrainerFirstName = (req, res) => {
   var condition = TrainerFirstName
     ? { TrainerFirstName: { [Op.like]: `%${TrainerFirstName}%` } }
     : null;
-  Client.findAll({ 
+  Appointment.findAll({ 
     include:[{
       model:Trainer,
       as: 'trainers',
