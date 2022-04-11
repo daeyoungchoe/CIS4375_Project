@@ -18,6 +18,25 @@
         </div>
       </div>
     </div>
+    <div class="col-md-8">
+        <label>Appointments in the last: </label>
+    </div>
+    <div class="col-md-8">
+            <div class="input-group mb-3">
+                <!-- Search Clients by status -->
+                <select v-model="history">
+                    <option disabled value="">Please select one</option>
+                    <option>Week</option>
+                    <option>Month</option>
+                    <option>Year</option>
+                </select>
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" @click="searchAppointmentHistory">
+                        Search
+                    </button>
+                </div>
+            </div>
+        </div>
     <div class="col-md-6">
       <h4>Appointment List</h4>
       <ul class="list-group">
@@ -97,7 +116,8 @@ export default {
       appointments: [],
       currentAppointment: null,
       currentIndex: -1,
-      TrainerFirstName: ""
+      TrainerFirstName: "",
+      history: ""
     };
   },
   methods: {
@@ -142,6 +162,41 @@ export default {
         .catch((e) => {
           console.log(e);
         });
+    },
+    searchAppointmentHistory() {
+      if (this.history == "Week"){
+        AppointmentDataService.findByLastWeek()
+          .then((response) => {
+            this.appointments = response.data;
+            this.setActiveAppointment(null);
+            console.log(response.data);
+          })
+          .catch((e) => {
+            console.log(e);
+          });
+      } 
+      else if (this.history == "Month"){
+        AppointmentDataService.findByLastMonth()
+          .then((response) => {
+            this.appointments = response.data;
+            this.setActiveAppointment(null);
+            console.log(response.data);
+          })
+          .catch((e) => {
+            console.log(e);
+          });
+      } 
+      else if (this.history == "Year"){
+        AppointmentDataService.findByLastYear()
+          .then((response) => {
+            this.appointments = response.data;
+            this.setActiveAppointment(null);
+            console.log(response.data);
+          })
+          .catch((e) => {
+            console.log(e);
+          });
+      } 
     },
   },
   mounted() {

@@ -187,3 +187,111 @@ exports.deleteAll = (req, res) => {
           });
         });
 };
+
+// Retrieve all Appointment in the last week from the database.
+exports.findAllLastWeek = (req, res) => {
+  const current = new Date();
+  const previous = new Date();
+  const dateTime = current.getFullYear()+'-'+('0' + (current.getMonth()+1)).slice(-2)+'-'+('0' + (current.getDate())).slice(-2);
+  const lastWeek = previous.getFullYear()+'-'+('0' + (previous.getMonth()+1)).slice(-2)+'-'+('0' + (previous.getDate()-7)).slice(-2);
+  Appointment.findAll({
+    include:[{
+      model:Trainer,
+      as: 'trainers'
+    },
+    {
+      model:Client,
+      as: 'clients'
+    },
+    {
+      model:TrainingDetail,
+      as: 'trainingdetail'
+    }],
+    where: {
+      AppointmentDate: {
+          [Op.between]: [lastWeek, dateTime]
+
+      } 
+    }
+  })
+  .then((data) => {
+    res.send(data);
+  })
+  .catch((err) => {
+    res.status(500).send({
+      message: err.message || "Some error occurred while retrieving Trainers.",
+    });
+  });
+};
+
+// Retrieve all Appointment in the last Year from the database.
+exports.findAllLastMonth = (req, res) => {
+  const current = new Date();
+  const previous = new Date();
+  const dateTime = current.getFullYear()+'-'+('0' + (current.getMonth()+1)).slice(-2)+'-'+('0' + (current.getDate())).slice(-2);
+  const lastMonth = previous.getFullYear()+'-'+('0' + (previous.getMonth())).slice(-2)+'-'+('0' + (previous.getDate())).slice(-2);
+  Appointment.findAll({
+    include:[{
+      model:Trainer,
+      as: 'trainers'
+    },
+    {
+      model:Client,
+      as: 'clients'
+    },
+    {
+      model:TrainingDetail,
+      as: 'trainingdetail'
+    }],
+    where: {
+      AppointmentDate: {
+          [Op.between]: [lastMonth, dateTime]
+
+      } 
+    }
+  })
+  .then((data) => {
+    res.send(data);
+  })
+  .catch((err) => {
+    res.status(500).send({
+      message: err.message || "Some error occurred while retrieving Trainers.",
+    });
+  });
+};
+
+// Retrieve all Appointment in the last year from the database.
+exports.findAllLastYear = (req, res) => {
+  const current = new Date();
+  const previous = new Date();
+  const dateTime = current.getFullYear()+'-'+('0' + (current.getMonth()+1)).slice(-2)+'-'+('0' + (current.getDate())).slice(-2);
+  const lastYear = (previous.getFullYear()-1)+'-'+('0' + (previous.getMonth())).slice(-2)+'-'+('0' + (previous.getDate())).slice(-2);
+  Appointment.findAll({
+    include:[{
+      model:Trainer,
+      as: 'trainers'
+    },
+    {
+      model:Client,
+      as: 'clients'
+    },
+    {
+      model:TrainingDetail,
+      as: 'trainingdetail'
+    }],
+    where: {
+      AppointmentDate: {
+          [Op.between]: [lastYear, dateTime]
+
+      } 
+    }
+  })
+  .then((data) => {
+    res.send(data);
+  })
+  .catch((err) => {
+    res.status(500).send({
+      message: err.message || "Some error occurred while retrieving Trainers.",
+    });
+  });
+};
