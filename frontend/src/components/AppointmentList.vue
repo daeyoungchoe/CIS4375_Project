@@ -62,7 +62,7 @@
           {{ currentAppointment.AppointmentLocation }}
         </div>
         <div>
-          <label><strong>Notes:</strong></label> {{ currentAppointment.Notes }}
+          <label><strong>Logs:</strong></label> {{ currentAppointment.Notes }}
         </div>
         <router-link :to="'/appointments/' + currentAppointment.id" class="badge badge-warning">Edit</router-link>
       </div>

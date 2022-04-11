@@ -7,6 +7,8 @@ module.exports = app => {
   router.get("/", trainers.findAll);
   // Retrieve all active Trainer
   router.get("/active", trainers.findAllActive);
+  //Retrive all inactive Trainers
+  router.get("/inactive", trainers.findAllInactive);
   // Retrieve a single Trainer with id
   router.get("/:id", trainers.findOne);
   // Update a Trainer with id
