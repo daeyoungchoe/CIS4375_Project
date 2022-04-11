@@ -1,5 +1,7 @@
 const db = require("../models");
 const Feedback = db.feedbacks;
+const Trainer = db.trainers;
+const Client = db.clients;
 const Op = db.Sequelize.Op;
 
 // Create and Save a new Feedback
@@ -34,14 +36,42 @@ exports.create = (req, res) => {
       });
     });
 };
-
-// Retrieve all feedbacks from the database.
+// Retrieve all feedbacks from the database
 exports.findAll = (req, res) => {
-  const TrainerID = req.query.TrainerID;
-  var condition = TrainerID
-    ? { TrainerID: { [Op.like]: `%${TrainerID}%` } }
+  Feedback.findAll({
+    include:[{
+      model:Trainer,
+      as: 'trainers'
+    },
+    {
+      model:Client,
+      as: 'clients'
+    }]
+  })
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving Feedbacks.",
+      });
+    });
+};
+
+// Retrieve all feedbacks from the database via trainer search.
+exports.findAllTrainer = (req, res) => {
+  const TrainerFirstName = req.query.TrainerFirstName;
+  var condition = TrainerFirstName
+    ? { TrainerFirstName: { [Op.like]: `%${TrainerFirstName}%` } }
     : null;
-  Feedback.findAll({ where: condition })
+  Feedback.findAll({ 
+    include:[{
+      model:Trainer,
+      as: 'trainers',
+      where: condition
+    }]
+  })
     .then((data) => {
       res.send(data);
     })
@@ -70,11 +100,17 @@ exports.findAllDate = (req, res) => {
 };
 // Retrieve all feedbacks from the database by Client  Name.
 exports.findAllClient = (req, res) => {
-  const Date = req.query.Date;
-  var condition = Date
-    ? { Date: { [Op.like]: `%${ClientID}%` } }
+  const ClientFirstName = req.query.ClientFirstName;
+  var condition = ClientFirstName
+    ? { ClientFirstName: { [Op.like]: `%${ClientFirstName}%` } }
     : null;
-  Feedback.findAll({ where: condition })
+  Feedback.findAll({
+    include:[{
+      model:Client,
+      as: 'clients',
+      where: condition
+    }]
+  })
     .then((data) => {
       res.send(data);
     })

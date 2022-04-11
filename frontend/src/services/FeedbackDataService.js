@@ -18,14 +18,14 @@ class FeedbackDataService {
   deleteAll() {
     return http.delete(`/feedbacks`);
   }
-  findByTrainerID(TrainerID) {
-    return http.get(`/feedbacks?TrainerID=${TrainerID}`);
+  findByTrainerFirstName(TrainerFirstName) {
+    return http.get(`/feedbacks/TrainerFirstName?TrainerFirstName=${TrainerFirstName}`);
   }
-  findByClientID(ClientID) {
-    return http.get(`/feedbacks?ClientID=${ClientID}`);
+  findByClientFirstName(ClientFirstName) {
+    return http.get(`/feedbacks/ClientFirstName?ClientFirstName=${ClientFirstName}`);
   }
   findByDate(Date) {
-    return http.get(`/feedbacks?Date=${Date}`);
+    return http.get(`/feedbacks/Date?Date=${Date}`);
   }
 }
 export default new FeedbackDataService();

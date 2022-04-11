@@ -3,13 +3,15 @@ module.exports = (app) => {
   var router = require("express").Router();
   // Create a new Feedback
   router.post("/", feedbacks.create);
-  // Retrieve all Feedback
-  router.get("/", feedbacks.findAll);
-  // Retrieve all active Feedback
+    // Retrieve all Feedback 
+    router.get("/", feedbacks.findAll);
+  // Retrieve all Feedback via trainer
+  router.get("/TrainerFirstName", feedbacks.findAllTrainer);
+  // Retrieve all feedback date 
   router.get("/Date", feedbacks.findAllDate);
-  //Retrive all inactive Feedback
-  router.get("/ClientName", feedbacks.findAllClient);
-  // Retrieve all Trainer by Zip code
+  //Retrive all feedback client
+  router.get("/ClientFirstName", feedbacks.findAllClient);
+
   // Retrieve a single Client with id
   router.get("/:id", feedbacks.findOne);
   // Update a Feedback with id
