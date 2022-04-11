@@ -46,7 +46,9 @@
           v-for="(appointment, index) in appointments"
           :key="index"
           @click="setActiveAppointment(appointment, index)">
-       {{appointment.trainers.TrainerFirstName}} {{appointment.trainers.TrainerLastName}} {{ appointment.AppointmentDate }} 
+       {{"Trainer: " +appointment.trainers.TrainerFirstName + " "+ appointment.trainers.TrainerLastName}}
+       <br>
+        {{ "Date: " + appointment.AppointmentDate }} 
 
         </li>
       </ul>
@@ -152,8 +154,10 @@ export default {
       AppointmentDataService.findByTrainerFirstName(this.TrainerFirstName)
         .then((response) => {
           this.appointments = response.data;
+          
           this.setActiveAppointment(null);
           console.log(response.data);
+          
         })
         .catch((e) => {
           console.log(e);
