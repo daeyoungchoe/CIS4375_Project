@@ -1,28 +1,23 @@
 # phyzeke
 
-This project was built with Turbo 360. To learn more, click here: https://www.turbo360.co
+This project was built with NodeJS, Express, VueJS, and MySQL.
 
 ## Instructions
-After cloning into repo, cd to project root directory and install dependencies:
+After cloning into repo, cd to project root directory of frontend and backend then install dependencies:
 
 ```
 $ npm install
 ```
 
-To run dev server, install Turbo CLI globally:
+To run node server on backend:
 
 ```
-$ sudo npm install turbo-cli -g
+$ node server.js
 ```
 
-Then run devserver from project root directory:
+Then run frontend server:
 
 ```
-$ turbo devserver
+$ npm run serve
 ```
 
-To build for production, run build:
-
-```
-$ npm run build
-```
