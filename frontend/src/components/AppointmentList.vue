@@ -48,9 +48,10 @@
           @click="setActiveAppointment(appointment, index)">
        {{"Trainer: " +appointment.trainers.TrainerFirstName + " "+ appointment.trainers.TrainerLastName}}
        <br>
-        {{ "Date: " + appointment.AppointmentDate }} 
+        {{ "Date: " + appointment.AppointmentDate }}
 
         </li>
+        {{"Total Appointments: " + appointments.length}}
       </ul>
       <button class="m-3 btn btn-sm btn-danger" @click="removeAllAppointments">
         Remove All
