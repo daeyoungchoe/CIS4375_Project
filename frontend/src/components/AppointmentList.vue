@@ -12,8 +12,7 @@
           <button
             class="btn btn-outline-secondary"
             type="button"
-            @click="searchTrainerFirstName"
-          >
+            @click="searchTrainerFirstName">
             Search
           </button>
         </div>
@@ -95,7 +94,8 @@ export default {
     return {
       appointments: [],
       currentAppointment: null,
-      currentIndex: -1
+      currentIndex: -1,
+      TrainerFirstName: ""
     };
   },
   methods: {
@@ -131,7 +131,7 @@ export default {
     searchTrainerFirstName() {
       AppointmentDataService.findByTrainerFirstName(this.TrainerFirstName)
         .then((response) => {
-          this.trainers = response.data;
+          this.appointments = response.data;
           this.setActiveAppointment(null);
           console.log(response.data);
         })

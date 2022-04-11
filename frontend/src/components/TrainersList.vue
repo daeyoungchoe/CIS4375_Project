@@ -110,7 +110,7 @@
       searchTrainerFirstName() {
         TrainerDataService.findByTrainerFirstName(this.TrainerFirstName)
           .then(response => {
-            this.appointments = response.data;
+            this.trainers = response.data;
             this.setActiveTrainer(null);
             console.log(response.data);
           })
