@@ -46,7 +46,6 @@
         Feedback </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a v-if="showAdminBoard" class="dropdown-item" href="/feedbacks">Client Feedback Reports</a>
-          <a v-if="showAdminBoard" class="dropdown-item" href="/trainerFBList">Trainer Feedback Reports</a>
           <a v-if="currentUser" class="dropdown-item" href="/addFeedback">Create Feedback</a>
         </div>
       </li>
