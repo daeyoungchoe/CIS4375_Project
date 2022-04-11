@@ -14,9 +14,9 @@
         </div> 
 
 
-        <div class="col-md-8">
+     <!--   <div class="col-md-8">
             <div class="input-group mb-3">
-                <!-- Search feedbacks By ZipCode  -->
+                
                 <input type="text" class="form-control" placeholder="Search by Client First Name" v-model="ClientFirstName" />
                 <div class="input-group-append">
                     <button class="btn btn-outline-secondary" type="button" @click="searchClientFirstName">
@@ -24,14 +24,18 @@
                     </button>
                 </div>
             </div>
-        </div>
+        </div> 
+    -->
+
         <div class="col-md-6">
             <h4>Feedbacks List</h4>
             <ul class="list-group">
                 <li class="list-group-item"
                     v-for="(feedback, index) in feedbacks" :key="index" @click="setActiveFeedback(feedback, index)">
-                     {{ "Trainer: " + feedback.trainers.TrainerFirstName + " " + feedback.trainers.TrainerLastName}}
+                     {{ "Trainer: "}} {{feedback.trainers.TrainerFirstName}} {{ feedback.trainers.TrainerLastName}}
                      
+                     
+
 
                 </li>
             </ul>
@@ -43,19 +47,19 @@
             <div v-if="currentFeedback">
                 <h4>Feedback</h4>
                 <div>
-                    <label><strong>Client First Name:</strong></label> {{ currentFeedback.clients.ClientFirstName }}
+                    <label><strong>Client Name:</strong></label> {{ currentFeedback.clients.ClientFirstName +" "+ currentFeedback.clients.ClientLastName  }}
                 </div>
                 <div>
-                    <label><strong>Trainer First Name:</strong></label> {{ currentFeedback.trainers.TrainerFirstName }}
+                    <label><strong>Trainer Name:</strong></label> {{ currentFeedback.trainers.TrainerFirstName +" "+ currentFeedback.trainers.TrainerLastName }}
                 </div>
                 <div>
                     <label><strong>Date:</strong></label> {{ currentFeedback.Date }}
                 </div>
                 <div>
-                    <label><strong>RateSession:</strong></label> {{ currentFeedback.RateSession }}
+                    <label><strong>Session Rating:</strong></label> {{ currentFeedback.RateSession+"/5" }}
                 </div>
                 <div>
-                    <label><strong>RateTrainer:</strong></label> {{ currentFeedback.RateTrainer }}
+                    <label><strong>Trainer Rating:</strong></label> {{ currentFeedback.RateTrainer+"/5" }}
                 </div>
                 <div>
                     <label><strong>Comment:</strong></label> {{ currentFeedback.Comment }}
