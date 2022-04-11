@@ -79,7 +79,6 @@
             </div>
             <div v-else>
               <h4>You submitted successfully!</h4>
-              <button class="btn btn-success" @click="newFeedback">Add</button>
             </div>
           </div>
         </div>
