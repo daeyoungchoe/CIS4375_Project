@@ -21,6 +21,7 @@
                     <div class="card h-100">
                         <div class="card-body">
                             <h2 class="card-title">Boxing</h2>
+                            
                             <p class="card-text">Step into the ring and test your boxing knowledge. Experience the fight with
                                     coach supervision. Don’t forget your mouthguard or headgear. Test your skills
                                     and experience the fight in a live sparring match. *Members ONLY. Must be USA
