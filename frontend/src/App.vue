@@ -24,7 +24,7 @@
           <font-awesome-icon icon="user" />
           Client </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a v-if="showAdminBoard" class="dropdown-item" href="/clients">Client Reports</a>
+          <a v-if="showAdminBoard+ showModeratorBoard" class="dropdown-item" href="/clients">Client Reports</a>
           <a v-if="showAdminBoard" class="dropdown-item" href="/addClient">Add Client</a>
 
         </div>
@@ -35,8 +35,8 @@
           <font-awesome-icon icon="calendar" />
         Appointment </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a v-if="showAdminBoard" class="dropdown-item" href="/appointments">Training Schedule</a>
-          <a v-if="currentUser" class="dropdown-item" href="/addAppointment">Book Appointment</a>
+          <a v-if="showAdminBoard + showModeratorBoard" class="dropdown-item" href="/appointments">Training Schedule</a>
+          <a v-if="currentUser + showModeratorBoard" class="dropdown-item" href="/addAppointment">Book Appointment</a>
         </div>
       </li>
         <!--Feedback Form-->
@@ -45,7 +45,7 @@
           <font-awesome-icon icon="comment-dots" />
         Feedback </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a v-if="showAdminBoard" class="dropdown-item" href="/feedbacks">Client Feedback Reports</a>
+          <a v-if="showAdminBoard+ showModeratorBoard" class="dropdown-item" href="/feedbacks">Client Feedback Reports</a>
           <a v-if="currentUser" class="dropdown-item" href="/addFeedback">Create Feedback</a>
         </div>
       </li>
