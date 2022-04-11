@@ -17,7 +17,5 @@
                                 tracking, book sessions, or contact your trainer with any questions.</p></div>
             </div>
             
-            
-            
         </div>
 </template>
