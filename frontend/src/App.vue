@@ -50,13 +50,6 @@
         </div>
       </li>
         <!--User authentication -->
-
-        <li v-if="showModeratorBoard" class="nav-item">
-          <router-link to="/mod" class="nav-link">Moderator Board</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link v-if="currentUser" to="/user" class="nav-link">User</router-link>
-        </li>
       </div>
       <div v-if="!currentUser" class="navbar-nav ml-auto">
         <li class="nav-item">
