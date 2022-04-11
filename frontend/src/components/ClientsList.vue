@@ -81,7 +81,7 @@
                     <label><strong>Zip Code:</strong></label> {{ currentClient.ClientZip }}
                 </div>
                 <div>
-                    <label><strong>Emergenc Contact First Name:</strong></label>
+                    <label><strong>Emergency Contact First Name:</strong></label>
                     {{ currentClient.EmergencyContactFirstName }}
                 </div>
                 <div>
@@ -91,12 +91,7 @@
                 <div>
                     <label><strong>Emergency Contact Phone:</strong></label> {{ currentClient.EmergencyContactPhone }}
                 </div>
-                <div>
-                    <label><strong>Weight:</strong></label> {{ currentClient.Weight }}
-                </div>
-                <div>
-                    <label><strong>Height:</strong></label> {{ currentClient.Height }}
-                </div>
+                
 
                 <div>
                     <label><strong>Status:</strong></label> {{ currentClient.active ? "Active" : "Inactive" }}
