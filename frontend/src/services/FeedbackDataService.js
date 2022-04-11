@@ -24,8 +24,5 @@ class FeedbackDataService {
   findByClientFirstName(ClientFirstName) {
     return http.get(`/feedbacks/ClientFirstName?ClientFirstName=${ClientFirstName}`);
   }
-  findByDate(Date) {
-    return http.get(`/feedbacks/Date?Date=${Date}`);
-  }
 }
 export default new FeedbackDataService();

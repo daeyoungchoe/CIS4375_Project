@@ -13,18 +13,7 @@
             </div>
         </div> 
 
-        <div class="col-md-8">
-            <div class="input-group mb-3">
-                <!-- Search feedbacks By ZipCode  -->
-                <input type="date" class="form-control" placeholder="Search by Date" v-model="Date" />
-                <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="button" @click="searchDate">
-                        Search
-                    </button>
-                </div>
-            </div>
-        </div>
-    
+
         <div class="col-md-8">
             <div class="input-group mb-3">
                 <!-- Search feedbacks By ZipCode  -->
@@ -41,9 +30,9 @@
             <ul class="list-group">
                 <li class="list-group-item"
                     v-for="(feedback, index) in feedbacks" :key="index" @click="setActiveFeedback(feedback, index)">
-                     {{ "Trainer: " + feedback.trainers.TrainerFirstName }}
+                     {{ "Trainer: " + feedback.trainers.TrainerFirstName + " " + feedback.trainers.TrainerLastName }}
                      <br>
-                     {{"Client: " + feedback.clients.ClientFirstName}}
+                     {{"Client: " + feedback.clients.ClientFirstName + " " + feedback.clients.ClientLastName}}
 
                 </li>
             </ul>
@@ -91,8 +80,7 @@
                 currentFeedback: null,
                 currentIndex: -1,
                 TrainerFirstName: "",
-                ClientFirstName: "",
-                Date: ""
+                ClientFirstName: ""
             };
         },
         methods: {
@@ -136,17 +124,7 @@
                         console.log(e);
                     });
             },
-            searchDate() {
-                FeedbackDataService.findByDate(this.Date)
-                    .then(response => {
-                        this.feedbacks = response.data;
-                        this.setActiveFeedbacks(null);
-                        console.log(response.data);
-                    })
-                    .catch(e => {
-                        console.log(e);
-                    });
-            },
+
             searchClientFirstName() {
                 FeedbackDataService.findByClientFirstName(this.ClientFirstName)
                     .then(response => {
