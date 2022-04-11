@@ -21,5 +21,11 @@ class TrainerDataService {
   findByTrainerFirstName(TrainerFirstName) {
     return http.get(`/trainers?TrainerFirstName=${TrainerFirstName}`);
   }
+  findByTrainerActive(){
+    return http.get(`/trainers/active`);
+  }
+  findByTrainerInactive(){
+    return http.get('/trainers/inactive')
+  }
 }
 export default new TrainerDataService();

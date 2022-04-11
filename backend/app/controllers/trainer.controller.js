@@ -140,17 +140,25 @@ exports.deleteAll = (req, res) => {
 };
 // Find all active Trainer
 exports.findAllActive = (req, res) => {
-  Trainer.findAll({
-      where: {
-        active: true
-      }
-    })
+  Trainer.findAll({ where: {active: true}})
     .then((data) => {
       res.send(data);
     })
     .catch((err) => {
       res.status(500).send({
-        message: err.message || "Some error occurred while retrieving trainer.",
+        message: err.message || "Some error occurred while retrieving client.",
+      });
+    });
+};
+// Find all inactive Trainer
+exports.findAllInactive = (req, res) => {
+  Trainer.findAll({ where: {active: false}})
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: err.message || "Some error occurred while retrieving client.",
       });
     });
 };

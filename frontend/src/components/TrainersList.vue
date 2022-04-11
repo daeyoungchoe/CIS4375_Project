@@ -10,6 +10,24 @@
         </div>
       </div>
     </div>
+    <div class="col-md-8">
+            <label>Trainer Status:</label>
+        </div>
+        <div class="col-md-8">
+            <div class="input-group mb-3">
+                <!-- Search Trainer by status -->
+                <select v-model="active">
+                    <option disabled value="">Please select one</option>
+                    <option>Active</option>
+                    <option>Inactive</option>
+                </select>
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" @click="searchTrainerStatus">
+                        Search
+                    </button>
+                </div>
+            </div>
+        </div>
     <div class="col-md-6">
       <h4>Trainers List</h4>
       <ul class="list-group">
@@ -73,7 +91,8 @@
         trainers: [],
         currentTrainer: null,
         currentIndex: -1,
-        TrainerFirstName: ""
+        TrainerFirstName: "",
+        active: ""
       };
     },
     methods: {
@@ -106,7 +125,6 @@
             console.log(e);
           });
       },
-
       searchTrainerFirstName() {
         TrainerDataService.findByTrainerFirstName(this.TrainerFirstName)
           .then(response => {
@@ -117,7 +135,31 @@
           .catch(e => {
             console.log(e);
           });
-      }
+      },
+      searchTrainerStatus() {
+                if (this.active == "Active") {
+                    TrainerDataService.findByTrainerActive()
+                        .then(response => {
+                            this.trainers = response.data;
+                            this.setActiveTrainer(null);
+                            console.log(response.data);
+                        })
+                        .catch(e => {
+                            console.log(e);
+                        });
+                    }
+                else {
+                    TrainerDataService.findByTrainerInactive()
+                        .then(response => {
+                            this.trainers = response.data;
+                            this.setActiveTrainer(null);
+                            console.log(response.data);
+                        })
+                        .catch(e => {
+                            console.log(e);
+                        });
+                }    
+            }
     },
     mounted() {
       this.retrieveTrainers();
