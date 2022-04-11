@@ -3,6 +3,8 @@
     <h3 class="text-center">Book Your Session!</h3>
     <br>
     <form @submit.prevent="saveAppointment()">
+
+
       <div class="form-group">
         <label class="required" for="TrainerID"><b>Trainer ID</b></label>
         <input
