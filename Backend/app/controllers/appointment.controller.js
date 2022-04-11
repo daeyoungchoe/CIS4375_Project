@@ -56,6 +56,28 @@ exports.findAll = (req, res) => {
       });
     });
 };
+
+// Retrieve all Appointment from the database.
+exports.findAllLocation = (req, res) => {
+  const AppointmentLocation = req.query.AppointmentLocation;
+  var condition = AppointmentLocation ? {
+      AppointmentLocation: {
+        [Op.like]: `%${AppointmentLocation}%`
+      }
+    } :
+    null;
+  Appointment.findAll({
+      where: condition
+    })
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: err.message || "Some error occurred while retrieving Trainers.",
+      });
+    });
+};
 // Find a single Appointment with an AppointmentID
 exports.findOne = (req, res) => {
   const id = req.params.id;

@@ -5,6 +5,8 @@ module.exports = app => {
     router.post("/", appointments.create);
     // Retrieve all appointments
     router.get("/", appointments.findAll);
+
+    router.get("/AppointmentLocation", appointments.findAllLocation);
     // Retrieve a single Client with id
     router.get("/:id", appointments.findOne);
     // Update a appointments with id

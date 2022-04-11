@@ -18,8 +18,10 @@ class AppointmentDataService {
   deleteAll() {
     return http.delete(`/appointments`);
   }
-  findByTrainerFirstName(TrainerFirstName) {
+  /*findByTrainerFirstName(TrainerFirstName) {
     return http.get(`/appointments?TrainerFirstName=${TrainerFirstName}`);
-  }
-}
+  }*/
+  findByAppointmentLocation(AppointmentLocation) {
+    return http.get(`/appointments/AppointmentLocation?AppointmentLocation=${AppointmentLocation}`);
+}}
 export default new AppointmentDataService();

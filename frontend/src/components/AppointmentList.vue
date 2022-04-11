@@ -2,9 +2,9 @@
   <div class="list row">
     <div class="col-md-8">
       <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Search by Trainer First Name" v-model="TrainerFirstName" />
+        <input type="text" class="form-control" placeholder="Search by Location" v-model="AppointmentLocation" />
         <div class="input-group-append">
-          <button class="btn btn-outline-secondary" type="button" @click="searchTrainerFirstName">
+          <button class="btn btn-outline-secondary" type="button" @click="searchAppointmentLocation">
             Search
           </button>
         </div>
@@ -83,6 +83,7 @@
         currentAppointment: null,
         currentIndex: -1,
         TrainerFirstName: "",
+        AppointmentLocation:"",
       };
     },
     methods: {
@@ -115,8 +116,20 @@
             console.log(e);
           });
       },
-      searchTrainerFirstName() {
+    /*  searchTrainerFirstName() {
         AppointmentDataService.findByTrainerFirstName(this.TrainerFirstName)
+          .then((response) => {
+            this.appointments = response.data;
+            this.setActiveAppointment(null);
+            console.log(response.data);
+          })
+          .catch((e) => {
+            console.log(e);
+          });
+      },
+    },      */
+    searchAppointmentLocation() {
+        AppointmentDataService.findByAppointmentLocation(this.AppointmentLocation)
           .then((response) => {
             this.appointments = response.data;
             this.setActiveAppointment(null);
