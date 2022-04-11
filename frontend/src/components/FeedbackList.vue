@@ -105,6 +105,10 @@
                 this.retrieveFeedbacks();
                 this.currentFeedback = null;
                 this.currentIndex = -1;
+            },  
+            setActiveFeedback(feedback, index) {
+                this.currentFeedback = feedback;
+                this.currentIndex = feedback ? index : -1;
             },
             removeAllFeedbacks() {
                 FeedbackDataService.deleteAll()

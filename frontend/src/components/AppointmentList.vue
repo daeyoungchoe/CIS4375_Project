@@ -132,8 +132,10 @@ export default {
       AppointmentDataService.findByTrainerFirstName(this.TrainerFirstName)
         .then((response) => {
           this.appointments = response.data;
+          
           this.setActiveAppointment(null);
           console.log(response.data);
+          
         })
         .catch((e) => {
           console.log(e);
