@@ -117,7 +117,7 @@ export default {
       currentAppointment: null,
       currentIndex: -1,
       TrainerFirstName: "",
-      active: ""
+      history: ""
     };
   },
   methods: {
