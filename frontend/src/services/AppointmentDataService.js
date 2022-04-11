@@ -21,5 +21,14 @@ class AppointmentDataService {
   findByTrainerFirstName(TrainerFirstName) {
     return http.get(`/appointments/TrainerFirstName?TrainerFirstName=${TrainerFirstName}`);
   }
+  findByLastWeek(){
+    return http.get('/appointments/LastWeek');
+  }
+  findByLastMonth(){
+    return http.get('/appointments/LastMonth');
+  }
+  findByLastYear(){
+    return http.get('/appointments/LastYear');
+  }
 }
 export default new AppointmentDataService();
