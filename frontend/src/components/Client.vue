@@ -83,8 +83,8 @@
             };
         },
         methods: {
-            getClient(id) {
-                ClientDataService.get(id)
+            getClient(ClientID) {
+                ClientDataService.get(ClientID)
                     .then(response => {
                         this.currentClient = response.data;
                         console.log(response.data);
@@ -106,7 +106,7 @@
             //Update Client status
             updateActive(status) {
                 var data = {
-                    id: this.currentClient.id,
+                    
                     ClientFirstName: this.currentClient.ClientFirstName,
                     ClientLastName: this.currentClient.ClientLastName,
                     ClientPhone: this.currentClient.ClientPhone,

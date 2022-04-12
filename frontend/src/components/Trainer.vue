@@ -96,7 +96,6 @@
       //Update Trainer status
       updateActive(status) {
         var data = {
-          id: this.currentTrainer.id,
           TrainerFirstName: this.currentTrainer.TrainerFirstName,
           TrainerLastName: this.currentTrainer.TrainerLastName,
           TrainerPhone: this.currentTrainer.TrainerPhone,
