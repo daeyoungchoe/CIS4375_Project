@@ -145,6 +145,7 @@
         };
         FeedbackDataService.create(data)
           .then(response => {
+            this.$router.push('/home')
             this.feedback.id = response.data.id;
             console.log(response.data);
             this.submitted = true;

@@ -5,32 +5,32 @@
 
 
       <div class="form-group">
-        <label for="TrainerID">Trainer ID</label>
+        <label for="TrainerID"><b>Trainer ID</b></label>
         <input type="text" class="form-control" id="TrainerID" v-model="currentAppointment.TrainerID" />
       </div>
       <div class="form-group">
-        <label for="ClientID">Client ID</label>
+        <label for="ClientID"><b>Client ID</b></label>
         <input type="text" class="form-control" id="ClientID" v-model="currentAppointment.ClientID" />
       </div>
       <div class="form-group">
-        <label for="TrainingDetailsID">Training Detail ID</label>
+        <label for="TrainingDetailsID"><b>Training Detail ID</b></label>
         <input type="text" class="form-control" id="TrainingDetailsID" v-model="currentAppointment.TrainingDetailsID" />
       </div>
       <div class="form-group">
-        <label for="AppointmentDate">Appointment Date</label>
+        <label for="AppointmentDate"><b>Appointment Date</b></label>
         <input type="date" class="form-control" id="AppointmentDate" v-model="currentAppointment.AppointmentDate" />
       </div>
       <div class="form-group">
-        <label for="AppointmentDuration">Appointment Time</label>
+        <label for="AppointmentDuration"><b>Appointment Time</b></label>
         <input type="time" class="form-control" id="AppointmentDuration" v-model="currentAppointment.AppointmentDuration" />
       </div>
       <div class="form-group">
-        <label for="AppointmentLocation">Appointment Location</label>
+        <label for="AppointmentLocation"><b>Appointment Location</b></label>
         <input type="text" class="form-control" id="AppointmentLocation"
           v-model="currentAppointment.AppointmentLocation" />
       </div>
       <div class="form-group">
-        <label for="Notes">Log</label>
+        <label for="Notes"><b>Log</b></label>
         <input type="text" class="form-control" id="Notes" v-model="currentAppointment.Notes" />
       </div>
 
