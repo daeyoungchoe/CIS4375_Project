@@ -50,32 +50,48 @@
           name="ClientID"
         />
       </div>
-      <table class="table table-striped table-light table-bordered table-hover" >
+<table class="table table-striped table-light table-bordered table-hover" >
                   <thead class="thead-dark">
                     <tr>
                       <th scope="col"><b>Training Detail ID</b></th>
                       <th scope="col"><b>Training Detail Description</b></th>
-
-
                     </tr>
                   </thead>
 
                   <tbody>
-                    <!-- Iterates through trainers table and gets respective values from these keys-->
+  
                    <tr>
                         <td scope="row">1</td>
                         <td scope="row">Fitness</td>
-                   </tr>
+                    </tr>
                     <tr>
                         <td scope="row">2</td>
                         <td scope="row">Boxing</td>
-                   </tr>
-                   <tr>
+                    </tr>
+                    <tr>
                         <td scope="row">3</td>
                         <td scope="row">Cardio</td>
-                   </tr>
+                    </tr>
                   </tbody>
-</table>
+      </table>
+
+
+      <!--<table class="table table-striped table-light table-bordered table-hover" >
+                  <thead class="thead-dark">
+                    <tr>
+                      <th scope="col"><b>Training Detail ID</b></th>
+                      <th scope="col"><b>Training Detail Description</b></th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+  
+                   <tr v-for="(trainingdetail, index) in trainingdetails"  :key="index">
+                        <td scope="row">{{trainingdetail.TrainingDetailsID}}</td>
+                        <td scope="row">{{trainingdetail.TrainingDescription}}</td>
+                        </tr>
+                  </tbody>
+      </table>-->
             <div class="form-group">
         <label class="required" for="TrainingDetailsID"><b>Training Detail ID</b></label>
         <input
@@ -137,6 +153,7 @@
 
 import AppointmentDataService from "../services/AppointmentDataService";
 import TrainerDataService from "../services/TrainerDataService";
+import TrainingDetailDataService from "../services/TrainingDetailDataService";
 export default {
   name: "add-appointment",
   data() {
@@ -144,6 +161,7 @@ export default {
        date1: new Date().toISOString().substr(0, 10) ,
 
         trainers: [],
+       trainingdetails:[],
         currentTrainer: null,
         active: "",
         index: -1,
@@ -177,6 +195,16 @@ export default {
             console.log(e);
           });
       },
+          retrieveTrainingDetails() {
+        TrainingDetailDataService.findAll()
+          .then(response => {
+            this.trainingdetails = response.data;
+            console.log(response.data);
+          })
+          .catch(e => {
+            console.log(e);
+          });
+      },
     saveAppointment() {
       var data = {
         ClientID: this.appointment.ClientID,
@@ -197,10 +225,6 @@ export default {
           console.log(e);
         });
     },
-          setActiveTrainer(trainer, index) {
-        this.currentTrainer = trainer;
-        this.currentIndex = trainer ? index : -1;
-      },
     
     newAppointment() {
       this.submitted = false;
