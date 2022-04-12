@@ -52,9 +52,9 @@
 
                 </li>
             </ul>
-            <button class="m-3 btn btn-sm btn-danger" @click="removeAllClients">
-                Remove All
-            </button>
+      <button class="m-3 btn btn-sm btn-info" @click="refreshList">
+        Refresh List
+      </button>
         </div>
         <div class="col-md-6">
             <div v-if="currentClient">

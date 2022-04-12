@@ -53,8 +53,8 @@
         </li>
         {{"Total Appointments: " + appointments.length}}
       </ul>
-      <button class="m-3 btn btn-sm btn-danger" @click="removeAllAppointments">
-        Remove All
+      <button class="m-3 btn btn-sm btn-info" @click="refreshList">
+        Refresh List
       </button>
     </div>
     <div class="col-md-6">
