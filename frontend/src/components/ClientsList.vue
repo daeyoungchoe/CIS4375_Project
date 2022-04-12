@@ -59,6 +59,9 @@
         <div class="col-md-6">
             <div v-if="currentClient">
                 <h4>Client</h4>
+                                <div>
+                    <label><strong>Client ID:</strong></label> {{ currentClient.ClientID }}
+                </div>
                 <div>
                     <label><strong>Client First Name:</strong></label> {{ currentClient.ClientFirstName }}
                 </div>

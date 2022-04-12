@@ -4,12 +4,11 @@
     <br>
     <form @submit.prevent="saveClient()">
       
-     <!-- <div class="form-group">
+      <div class="form-group">
         <label for="id"><b>User ID</b></label>
         <input type="number" class="form-control" id="id" required v-model="client.id"
           name="id" />
       </div>
--->
       <div class="form-group">
         <label class="reqiured"  for="ClientFirstName"><b>Client First Name</b></label>
         <input type="text" class="form-control" id="ClientFirstName" required v-model="client.ClientFirstName"
@@ -66,7 +65,7 @@
       return {
         client: {
           ClientID: null,
-          id: null,
+          id: "",
           ClientFirstName: "",
           ClientLastName: "",
           ClientPhone: "",
