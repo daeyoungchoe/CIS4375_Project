@@ -93,7 +93,7 @@
           {{ currentAppointment.AppointmentLocation }}
         </div>
         <div>
-          <label><strong>Notes:</strong></label> {{ currentAppointment.Notes }}
+          <label><strong>Log:</strong></label> {{ currentAppointment.Notes }}
         </div>
         <router-link
           :to="'/appointments/' + currentAppointment.AppointmentID"

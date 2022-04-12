@@ -30,7 +30,7 @@
           v-model="currentAppointment.AppointmentLocation" />
       </div>
       <div class="form-group">
-        <label for="Notes">Notes</label>
+        <label for="Notes">Log</label>
         <input type="text" class="form-control" id="Notes" v-model="currentAppointment.Notes" />
       </div>
 
