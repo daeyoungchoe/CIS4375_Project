@@ -3,11 +3,12 @@
   <div class="submit-form" >
     <h3 class="text-center">Add New Trainer</h3>
     <form @submit.prevent="saveTrainer()">
-      <div class="form-group">
+      <!--<div class="form-group">
         <label class="required" for="id"><b>User ID</b></label>
         <input type="number" class="form-control" id="id" required v-model="trainer.id"
           name="id" />
       </div>
+      -->
       <div class="form-group">
         <label class="required" for="TrainerFirstName"><b>Trainer First Name</b></label>
         <input type="text" class="form-control" id="TrainerFirstName" v-model="trainer.TrainerFirstName"
@@ -76,7 +77,7 @@
         errors: [],
         trainer: {
           TrainerID: null,
-          id:"",
+          id:null,
           TrainerFirstName: null,
           TrainerLastName: null,
           TrainerPhone: null,
