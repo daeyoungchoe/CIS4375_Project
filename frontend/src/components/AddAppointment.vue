@@ -5,6 +5,28 @@
     <form @submit.prevent="saveAppointment()">
 
 
+
+        <table class="table table-striped table-light table-bordered table-hover" >
+                  <thead class="thead-dark">
+                    <tr>
+                      <th scope="col">Trainer ID</th>
+                      <th scope="col">Trainer First Name</th>
+                      <th scope="col">Trainer Last Name</th>
+
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    <!-- Iterates through trainers table and gets respective values from these keys-->
+                   <tr v-for="(trainer, index) in trainers"  :key="index">
+                        <td scope="row">{{ trainer.TrainerID}}</td>
+                        <td scope="row">{{ trainer.TrainerFirstName}}</td>
+                        <td scope="row">{{ trainer.TrainerLastName}}</td>
+
+                   </tr>
+                  </tbody>
+      </table>
+
       <div class="form-group">
         <label class="required" for="TrainerID"><b>Trainer ID</b></label>
         <input
@@ -49,8 +71,8 @@
                         <td scope="row">Boxing</td>
                    </tr>
                    <tr>
-                        <td scope="row">1</td>
-                        <td scope="row">Football</td>
+                        <td scope="row">3</td>
+                        <td scope="row">Cardio</td>
                    </tr>
                   </tbody>
 </table>
@@ -110,12 +132,22 @@
   </div>
 </template>
 <script>
+
+
+
 import AppointmentDataService from "../services/AppointmentDataService";
+import TrainerDataService from "../services/TrainerDataService";
 export default {
   name: "add-appointment",
   data() {
     return {
        date1: new Date().toISOString().substr(0, 10) ,
+
+        trainers: [],
+        currentTrainer: null,
+        active: "",
+        index: -1,
+
       appointment: {
         AppointmentID: null,
         ClientID: "",
@@ -135,6 +167,16 @@ export default {
       const dateTime = current.getFullYear()+'-'+('0' + (current.getMonth()+1)).slice(-2)+'-'+('0' + (current.getDate()+1)).slice(-2);
       return dateTime;
     },
+        retrieveTrainers() {
+        TrainerDataService.getAll()
+          .then(response => {
+            this.trainers = response.data;
+            console.log(response.data);
+          })
+          .catch(e => {
+            console.log(e);
+          });
+      },
     saveAppointment() {
       var data = {
         ClientID: this.appointment.ClientID,
@@ -155,12 +197,20 @@ export default {
           console.log(e);
         });
     },
+          setActiveTrainer(trainer, index) {
+        this.currentTrainer = trainer;
+        this.currentIndex = trainer ? index : -1;
+      },
     
     newAppointment() {
       this.submitted = false;
       this.appointment = {};
-    }
-  }
+    },
+
+  },
+          mounted() {
+      this.retrieveTrainers();
+      }
 };
 </script>
 <style>

@@ -23,6 +23,27 @@
                 <input type="text" class="form-control" id="ClientID" placeholder="Type your Client ID "
                   v-model="feedback.ClientID" required>
               </div>
+              
+        <table class="table table-striped table-light table-bordered table-hover" >
+                  <thead class="thead-dark">
+                    <tr>
+                      <th scope="col">Trainer ID</th>
+                      <th scope="col">Trainer First Name</th>
+                      <th scope="col">Trainer Last Name</th>
+
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    <!-- Iterates through trainers table and gets respective values from these keys-->
+                   <tr v-for="(trainer, index) in trainers"  :key="index">
+                        <td scope="row">{{ trainer.TrainerID}}</td>
+                        <td scope="row">{{ trainer.TrainerFirstName}}</td>
+                        <td scope="row">{{ trainer.TrainerLastName}}</td>
+
+                   </tr>
+                  </tbody>
+      </table>
               <div class="mb-3">
                 <h6 for="TrainerID" class="form-label">Trainer ID</h6>
                 <input type="text" class="form-control" id="TrainerName" placeholder="Type your Trainer ID"
@@ -79,10 +100,15 @@
 </template>
 <script>
   import FeedbackDataService from '../services/FeedbackDataService';
+  import TrainerDataService from "../services/TrainerDataService";
   export default {
     name: "add-feedback",
     data() {
       return {
+        trainers: [],
+        currentTrainer: null,
+        active: "",
+        index: -1,
         feedback: {
           id: null,
           ClientID: "",
@@ -97,6 +123,16 @@
       };
     },
     methods: {
+              retrieveTrainers() {
+        TrainerDataService.getAll()
+          .then(response => {
+            this.trainers = response.data;
+            console.log(response.data);
+          })
+          .catch(e => {
+            console.log(e);
+          });
+      },
       saveFeedback() {
         var data = {
           ClientID: this.feedback.ClientID,
@@ -123,6 +159,9 @@
         this.feedback = {};
       }
     },
+          mounted() {
+      this.retrieveTrainers();
+      }
 
   };
 </script>

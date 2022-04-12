@@ -5,7 +5,7 @@
     <form @submit.prevent="saveClient()">
       
       <div class="form-group">
-        <label for="id"><b>User ID</b></label>
+        <label for="id"><b>User ID (Displayed Top Right)</b></label>
         <input type="number" class="form-control" id="id" required v-model="client.id"
           name="id" />
       </div>
