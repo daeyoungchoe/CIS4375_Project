@@ -64,7 +64,6 @@
                 <div>
                     <label><strong>Comment:</strong></label> {{ currentFeedback.Comment }}
                 </div>
-                <router-link :to="'/feedbacks/' + currentFeedback.FeedbackID" class="badge badge-warning">Edit</router-link>
             </div>
             <div v-else>
                 <br />
