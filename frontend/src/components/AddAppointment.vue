@@ -168,7 +168,7 @@ export default {
       return dateTime;
     },
         retrieveTrainers() {
-        TrainerDataService.getAll()
+        TrainerDataService.findByTrainerActive()
           .then(response => {
             this.trainers = response.data;
             console.log(response.data);
