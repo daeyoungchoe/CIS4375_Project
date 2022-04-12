@@ -69,7 +69,7 @@
         <li class="nav-item">
           <router-link to="/profile" class="nav-link">
             <font-awesome-icon icon="circle-user" />
-            {{ currentUser.username + " | "+ "User ID: " + currentUser.id}}
+            {{ currentUser.username + " | "+ "User ID: " + currentUser.id }}
           </router-link>
         </li>
         <li class="nav-item">

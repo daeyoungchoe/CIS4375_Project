@@ -32,7 +32,9 @@
             <ul class="list-group">
                 <li class="list-group-item"
                     v-for="(feedback, index) in feedbacks" :key="index" @click="setActiveFeedback(feedback, index)">
-                     {{ "Trainer: "}} {{feedback.trainers.TrainerFirstName}} {{ feedback.trainers.TrainerLastName}}
+                     {{ "Trainer: " + feedback.trainers.TrainerFirstName + " " + feedback.trainers.TrainerLastName}}
+                     <br>
+                     {{"Date: " + feedback.Date}}
                      
                      
 

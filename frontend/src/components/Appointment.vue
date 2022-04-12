@@ -72,7 +72,7 @@
           });
       },
       updateAppointment() {
-        AppointmentDataService.update(this.currentAppointment.id, this.currentAppointment)
+        AppointmentDataService.update(this.currentAppointment.AppointmentID, this.currentAppointment)
           .then(response => {
             console.log(response.data);
             this.message = 'The appointment was updated successfully!';
