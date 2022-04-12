@@ -97,6 +97,7 @@
         };
         ClientDataService.create(data)
           .then(response => {
+            this.$router.push('/home')
             this.client.id = response.data.id;
             console.log(response.data);
             this.submitted = true;
