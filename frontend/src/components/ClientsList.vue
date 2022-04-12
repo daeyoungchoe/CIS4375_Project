@@ -91,7 +91,7 @@
                 <div>
                     <label><strong>Status:</strong></label> {{ currentClient.active ? "Active" : "Inactive" }}
                 </div>
-                <router-link :to="'/clients/' + currentClient.id" class="badge badge-warning">Edit</router-link>
+                <router-link :to="'/clients/' + currentClient.ClientID" class="badge badge-warning">Edit</router-link>
             </div>
             <div v-else>
                 <br />

@@ -73,7 +73,7 @@
         <div>
           <label><strong>Status:</strong></label> {{ currentTrainer.active ? "Active" : "Inactive" }}
         </div>
-        <router-link :to="'/trainers/' + currentTrainer.id" class="badge badge-warning">Edit</router-link>
+        <router-link :to="'/trainers/' + currentTrainer.TrainerID" class="badge badge-warning">Edit</router-link>
       </div>
       <div v-else>
         <br />
