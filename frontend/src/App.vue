@@ -9,54 +9,49 @@
         </li>
 
         <!--Trainer Nav-->
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">Trainers
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="/trainers">List Trainers</a>
-            <a class="dropdown-item" href="/addTrainer">Add Trainer</a>
-          </div>
+      <li class="nav-item dropdown">
+        <a v-if="showAdminBoard" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">        
+          <font-awesome-icon icon="clipboard-user" />
+        Trainer </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a v-if="showAdminBoard" class="dropdown-item" href="/trainers">Trainer Information</a>
+          <a v-if="showAdminBoard" class="dropdown-item" href="/addTrainer">Add Trainer</a>
         </div>
-        &nbsp;
+      </li>
         <!--Client Nav-->
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">Clients
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="/clients">Client Reports</a>
-            <a class="dropdown-item" href="/addClient">Add Client</a>
-          </div>
+      <li class="nav-item dropdown">
+        <a v-if="showAdminBoard" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">        
+          <font-awesome-icon icon="user" />
+          Client </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a v-if="showAdminBoard+ showModeratorBoard" class="dropdown-item" href="/clients">Client Reports</a>
+          <a v-if="showAdminBoard" class="dropdown-item" href="/addClient">Add Client</a>
+
         </div>
-        &nbsp;
+      </li>
         <!--Appt Nav-->
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">Appointments
-          </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="/appointments">View Appointments</a>
-          <a class="dropdown-item" href="/addAppointment">Book Appointment</a>
+        <li class="nav-item dropdown">
+        <a v-if="currentUser" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">        
+          <font-awesome-icon icon="calendar" />
+        Appointment </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a v-if="showAdminBoard + showModeratorBoard" class="dropdown-item" href="/appointments">Training Schedule</a>
+          <a v-if="currentUser + showModeratorBoard" class="dropdown-item" href="/addAppointment">Book Appointment</a>
         </div>
-        </div>
+      </li>
         <!--Feedback Form-->
-        <li class="nav-item">
-          <router-link to="/addFeedback" class="nav-link">Feedback</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link to="/feedbacks" class="nav-link">Client Satisfaction Report</router-link>
-        </li>
+        <li class="nav-item dropdown">
+        <a v-if="currentUser" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">        
+          <font-awesome-icon icon="comment-dots" />
+        Feedback </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a v-if="showAdminBoard+ showModeratorBoard" class="dropdown-item" href="/feedbacks">Client Feedback Reports</a>
+          <a v-if="currentUser" class="dropdown-item" href="/addFeedback">Create Feedback</a>
+        </div>
+      </li>
         <!--User authentication -->
-        <li v-if="showAdminBoard" class="nav-item">
-          <router-link to="/admin" class="nav-link">Admin Board</router-link>
-        </li>
-        <li v-if="showModeratorBoard" class="nav-item">
-          <router-link to="/mod" class="nav-link">Moderator Board</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link v-if="currentUser" to="/user" class="nav-link">User</router-link>
-        </li>
+
+        
       </div>
       <div v-if="!currentUser" class="navbar-nav ml-auto">
         <li class="nav-item">
@@ -73,7 +68,7 @@
       <div v-if="currentUser" class="navbar-nav ml-auto">
         <li class="nav-item">
           <router-link to="/profile" class="nav-link">
-            <font-awesome-icon icon="user" />
+            <font-awesome-icon icon="circle-user" />
             {{ currentUser.username }}
           </router-link>
         </li>

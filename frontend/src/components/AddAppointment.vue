@@ -28,6 +28,32 @@
           name="ClientID"
         />
       </div>
+      <table class="table table-striped table-light table-bordered table-hover" >
+                  <thead class="thead-dark">
+                    <tr>
+                      <th scope="col"><b>Training Detail ID</b></th>
+                      <th scope="col"><b>Training Detail Description</b></th>
+
+
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    <!-- Iterates through trainers table and gets respective values from these keys-->
+                   <tr>
+                        <td scope="row">1</td>
+                        <td scope="row">Fitness</td>
+                   </tr>
+                    <tr>
+                        <td scope="row">2</td>
+                        <td scope="row">Boxing</td>
+                   </tr>
+                   <tr>
+                        <td scope="row">1</td>
+                        <td scope="row">Football</td>
+                   </tr>
+                  </tbody>
+</table>
             <div class="form-group">
         <label class="required" for="TrainingDetailsID"><b>Training Detail ID</b></label>
         <input
@@ -120,7 +146,7 @@ export default {
       };
       AppointmentDataService.create(data)
         .then(response => {
-          this.$router.push('/appointments')
+          this.$router.push('/home')
           this.appointment.id = response.data.id;
           console.log(response.data);
           this.submitted = true;

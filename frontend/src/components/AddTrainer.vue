@@ -2,10 +2,9 @@
 
   <div class="submit-form" >
     <h3 class="text-center">Add New Trainer</h3>
-    <br>
-    <div v-if="!submitted">
+    <form @submit.prevent="saveTrainer()">
       <div class="form-group">
-        <label for="id">User ID</label>
+        <label class="required" for="id"><b>User ID</b></label>
         <input type="number" class="form-control" id="id" required v-model="trainer.id"
           name="id" />
       </div>
@@ -48,7 +47,7 @@
       </div>
       <div class="form-group">
         <label class="required" for="EmergencyContactPhone"><b>Emergency Contact Phone</b></label>
-        <input class="form-control" id="EmergencyContactPhone" required v-model="trainer.EmergencyContactPhone"
+        <input type="tel"  class="form-control" attern="^\d{3}-\d{3}-\d{4}$" placeholder="XXX-XXX-XXXX" id="EmergencyContactPhone" aria-describedby="emergencyphoneHelpBlock" required v-model="trainer.EmergencyContactPhone"
           name="EmergencyContactPhone" />
       </div>
       <br>
@@ -58,17 +57,12 @@
           <b>Please correct the following error(s):</b>
           <ul>
               <!-- For error listed-->
-              <li v-for="error in errors" :key="error">{{ error }} </li>
+              <li class="required" v-for="error in errors" :key="error">{{ error }} </li>
           </ul>
       </p>
-      <button @click="saveTrainer" class="btn btn-success">Submit</button>
-    </div>
-    <div v-else>
-      <h4>You have added a trainer successfully!</h4>
-      <button class="btn btn-success" @click="newTrainer">Go Back</button>
-      &nbsp;
-      <button class="btn btn-success" @click="trainers">Trainers</button>
-    </div>
+      <button class="btn btn-success">Submit</button>
+    </form>
+    
     <br>
   </div>
   
@@ -100,9 +94,6 @@
       
       saveTrainer() {
         this.errors = [];
-        if (!this.TrainerPhone) {
-                    this.errors.push("Phone number required");
-                }
         var data = {
           id: this.trainer.id,
           TrainerFirstName: this.trainer.TrainerFirstName,
@@ -116,6 +107,7 @@
         };
         TrainerDataService.create(data)
           .then(response => {
+            this.$router.push('/home')
             this.trainer.id = response.data.id;
             console.log(response.data);
             this.submitted = true;

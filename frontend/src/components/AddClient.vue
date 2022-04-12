@@ -2,61 +2,59 @@
   <div class="submit-form">
     <h3 class="text-center">Client Sign Up</h3>
     <br>
-    <div v-if="!submitted">
+    <form @submit.prevent="saveClient()">
       <div class="form-group">
-        <label for="id">User ID</label>
+        <label for="id"><b>User ID</b></label>
         <input type="number" class="form-control" id="id" required v-model="client.id"
           name="id" />
       </div>
       <div class="form-group">
-        <label for="ClientFirstName"><b>Client First Name</b></label>
+        <label class="reqiured"  for="ClientFirstName"><b>Client First Name</b></label>
         <input type="text" class="form-control" id="ClientFirstName" required v-model="client.ClientFirstName"
           name="ClientFirstName" />
       </div>
       <div class="form-group">
-        <label for="ClientLastName"><b>Client Last Name</b></label>
+        <label class="reqiured" for="ClientLastName"><b>Client Last Name</b></label>
         <input class="form-control" id="ClientLastName" required v-model="client.ClientLastName"
           name="ClientLastName" />
       </div>
       <div class="form-group">
-        <label for="ClientrPhone"><b>Client Phone</b></label>
-        <input class="form-control" id="ClientPhone" required v-model="client.ClientPhone" name="ClientPhone" />
+        <label class="reqiured" for="ClientPhone"><b>Client Phone</b></label>
+        <input type="tel" pattern="^\d{3}-\d{3}-\d{4}$" placeholder="XXX-XXX-XXXX" class="form-control" aria-describedby="phoneHelpBlock" id="ClientPhone" required v-model="client.ClientPhone" name="ClientPhone" />
       </div>
       <div class="form-group">
-        <label for="ClientEmail"><b>Client Email</b></label>
+        <label class="reqiured" for="ClientEmail"><b>Client Email</b></label>
         <input class="form-control" id="ClientEmail" required v-model="client.ClientEmail" name="ClientEmail" />
       </div>
       <div class="form-group">
-        <label for="ClientAddress"><b>Client Address</b></label>
+        <label class="reqiured" for="ClientAddress"><b>Client Address</b></label>
         <input class="form-control" id="ClientAddress" required v-model="client.ClientAddress" name="ClientAddress" />
       </div>
             <div class="form-group">
-        <label for="ClientZip"><b>Client ZIP Code</b></label>
+        <label class="reqiured" for="ClientZip"><b>Client ZIP Code</b></label>
         <input class="form-control" id="ClientZip" required v-model="client.ClientZip" name="ClientZip" />
       </div>
       <div class="form-group">
-        <label for="EmergencyContactFirstName"><b>Emergency Contact First Name</b></label>
+        <label class="reqiured" for="EmergencyContactFirstName"><b>Emergency Contact First Name</b></label>
         <input class="form-control" id="EmergencyContactFirstName" required v-model="client.EmergencyContactFirstName"
           name="EmergencyContactFirstName" />
       </div>
       <div class="form-group">
-        <label for="EmergencyContactLastName"><b>Emergency Contact Last Name</b></label>
+        <label class="reqiured" for="EmergencyContactLastName"><b>Emergency Contact Last Name</b></label>
         <input class="form-control" id="EmergencyContactLastName" required v-model="client.EmergencyContactLastName"
           name="EmergencyContactLastName" />
       </div>
       <div class="form-group">
-        <label for="EmergencyContactPhone"><b>Emergency Contact Phone</b></label>
-        <input class="form-control" id="EmergencyContactPhone" required v-model="client.EmergencyContactPhone"
+        <label class="reqiured" for="EmergencyContactPhone"><b>Emergency Contact Phone</b></label>
+        <input type="tel" class="form-control" pattern="^\d{3}-\d{3}-\d{4}$" placeholder="XXX-XXX-XXXX" aria-describedby="ephoneHelpBlock" id="EmergencyContactPhone" required v-model="client.EmergencyContactPhone"
           name="EmergencyContactPhone" />
       </div>
 
-      <button @click="saveClient" class="btn btn-success">Submit</button>
+      <button class="btn btn-success">Submit</button>
+      <br>
+      <br>
+    </form>
     </div>
-    <div v-else>
-      <h4>You submitted successfully!</h4>
-      <button class="btn btn-success" @click="newClient">Add</button>
-    </div>
-  </div>
 </template>
 <script>
   import ClientDataService from "../services/ClientDataService";
@@ -117,5 +115,9 @@
   .submit-form {
     max-width: 300px;
     margin: auto;
+  }
+    .required:after {
+    content:" *";
+    color: red;
   }
 </style>

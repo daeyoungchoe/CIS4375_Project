@@ -87,11 +87,8 @@ const routes = [
     name: "feedbacks",
     component: () => import("./components/FeedbackList"),
   },
-  {
-    path: "/feedbacks/:id",
-    name: "feedback-details",
-    component: () => import("./components/Feedback"),
-  },
+
+
   //Test User authenticate
   {
     path: "/home",
